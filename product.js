@@ -66,7 +66,7 @@ function renderProduct() {
 
   $('#thumbs').innerHTML = images.map((src, i) =>
     '<button class="thumb ' + (i === current ? 'active' : '') + '" data-index="' + i + '" aria-label="Bild ' + (i + 1) + '">' +
-    '<img src="' + esc(src) + '" alt="" loading="lazy">' +
+    '<img src="' + esc(src) + '" alt="" loading="lazy" referrerpolicy="no-referrer">' +
     '</button>'
   ).join('');
 
