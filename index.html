@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Awin Deals</title>
+  <meta name="description" content="Provisorische Sammlung interessanter Produkte und Affiliate-Links.">
+  <style>
+    body{font-family:system-ui,sans-serif;max-width:1000px;margin:40px auto;padding:0 20px;line-height:1.5}
+    h1{margin-bottom:4px}.muted{color:#666}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
+    .card{border:1px solid #ddd;border-radius:12px;padding:16px}.card h2{font-size:1.1rem;margin-top:0}
+    .btn{display:inline-block;padding:9px 12px;border-radius:8px;background:#111;color:#fff;text-decoration:none}
+  </style>
+</head>
+<body>
+  <h1>Awin Deals</h1>
+  <p class="muted">Provisorische Produktsammlung</p>
+  <div id="products" class="grid"></div>
+  <script>
+    fetch('./products.json')
+      .then(r => r.json())
+      .then(({products}) => {
+        const root = document.getElementById('products');
+        root.innerHTML = products.length
+          ? products.map(p => `
+              <article class="card">
+                <h2>${escapeHtml(p.name)}</h2>
+                <p>${escapeHtml(p.merchant || '')}</p>
+                <a class="btn" href="${encodeURI(p.url)}" target="_blank" rel="nofollow sponsored noopener">Zum Produkt</a>
+              </article>`).join('')
+          : '<p>Noch keine Produkte eingetragen.</p>';
+      })
+      .catch(() => {
+        document.getElementById('products').textContent = 'Produkte konnten nicht geladen werden.';
+      });
+
+    function escapeHtml(value){
+      return String(value).replace(/[&<>"']/g, c => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+      }[c]));
+    }
+  </script>
+</body>
+</html>
