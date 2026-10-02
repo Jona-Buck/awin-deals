@@ -1,4 +1,4 @@
-let P=[],S=JSON.parse(localStorage.getItem('awinSaved')||'[]'),C='Alle',Q='';
+let P=[],S=(()=>{try{return JSON.parse(localStorage.getItem('awinSaved')||'[]').map(String)}catch{return []}})(),C='Alle',Q='';
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const eur=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(n||0);
@@ -34,6 +34,7 @@ function render(){
   $('#products').innerHTML=l.map(p=>{
     const images=Array.isArray(p.images)&&p.images.length?p.images:(p.image?[p.image]:[]);
     const first=images[0]||'';
+    const id=String(p.id);
     return '<article class="product">'+
       '<a class="product-main" href="'+productHref(p)+'">'+
         '<div class="pic">'+(first?'<img src="'+esc(first)+'" alt="'+esc(p.name)+'" loading="lazy" referrerpolicy="no-referrer">':'<span class="placeholder">◇</span>')+
@@ -48,14 +49,22 @@ function render(){
       '</a>'+
       '<div class="row">'+
         '<a class="deal" href="'+productHref(p)+'">Produkt ansehen →</a>'+
-        '<button class="save '+(S.includes(p.id)?'saved':'')+'" onclick="toggle('+JSON.stringify(p.id)+')">♡</button>'+
+        '<button type="button" class="save '+(S.includes(id)?'saved':'')+'" data-save-id="'+esc(id)+'" aria-label="'+(S.includes(id)?'Von Merkliste entfernen':'Zur Merkliste hinzufügen')+'">'+(S.includes(id)?'♥':'♡')+'</button>'+
       '</div>'+
     '</article>';
   }).join('');
+  document.querySelectorAll('[data-save-id]').forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      toggle(btn.dataset.saveId);
+    });
+  });
   $('#empty').hidden=!!l.length;
 }
 
 function toggle(id){
+  id=String(id);
   let i=S.indexOf(id);
   i<0?S.push(id):S.splice(i,1);
   localStorage.setItem('awinSaved',JSON.stringify(S));
