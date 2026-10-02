@@ -1,1 +1,16 @@
-{"products":[]}
+{
+  "products": [
+    {
+      "id": "navee-gt3",
+      "name": "NAVEE GT3",
+      "description": "Elektrischer Scooter von NAVEE für den deutschen Markt.",
+      "price": 331.55,
+      "currency": "EUR",
+      "category": "E-Scooter",
+      "merchant": "NAVEE Germany",
+      "image": "",
+      "productUrl": "https://naveetech.de/products/navee-gt3-e-scooter",
+      "affiliateUrl": ""
+    }
+  ]
+}
