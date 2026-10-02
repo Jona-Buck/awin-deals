@@ -7,6 +7,7 @@
 .detail-wrap{width:min(1240px,calc(100% - 40px));margin:0 auto;padding:54px 0 90px}
 .detail-loading{padding:90px 0;text-align:center;color:#777}
 .product-detail{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:start}
+.product-detail[hidden],.not-found[hidden],.detail-loading[hidden]{display:none!important}
 .gallery{display:grid;grid-template-columns:88px 1fr;gap:14px;position:sticky;top:96px}
 .thumbs{display:flex;flex-direction:column;gap:10px}
 .thumb{width:88px;height:88px;padding:0;border:2px solid transparent;background:#fff;border-radius:14px;overflow:hidden;cursor:pointer}
