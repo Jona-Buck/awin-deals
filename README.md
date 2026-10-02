@@ -1,12 +1,18 @@
 # Awin Deals
 
-Provisorische Sammlung von Produkten und Affiliate-Links aus Awin.
+Moderne öffentliche Produkt- und Affiliate-Deal-Seite für GitHub Pages.
 
-## Aufbau
+## Features
+- responsives Shop-Design
+- Suche und Kategorien
+- Sortierung
+- Produktkarten mit Bild, Preis, Händler und Awin-Link
+- Merkliste mit localStorage
+- zentrale Produktverwaltung über `products.json`
 
-- `products.json` – zentrale Produktliste
-- `index.html` – einfache öffentliche Produktübersicht
+## Produkt hinzufügen
+```json
+{"id":"produkt-001","name":"Produktname","merchant":"Shopname","category":"Technik","price":99.99,"oldPrice":129.99,"badge":"-23%","image":"https://example.com/bild.jpg","description":"Kurze Beschreibung.","url":"DEIN-AWIN-AFFILIATE-LINK"}
+```
 
-## Hinweis
-
-Die hier verwendeten Links können Affiliate-Links sein. Bei einem Kauf kann dadurch eine Provision entstehen, ohne dass sich der Preis für den Käufer ändern muss.
+Affiliate-Links können Provisionen erzeugen. Preise und Verfügbarkeit bestimmt der jeweilige Händler.
