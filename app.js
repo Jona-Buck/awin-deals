@@ -36,7 +36,7 @@ function render(){
     const first=images[0]||'';
     return '<article class="product">'+
       '<a class="product-main" href="'+productHref(p)+'">'+
-        '<div class="pic">'+(first?'<img src="'+esc(first)+'" alt="'+esc(p.name)+'">':'<span class="placeholder">◇</span>')+
+        '<div class="pic">'+(first?'<img src="'+esc(first)+'" alt="'+esc(p.name)+'" loading="lazy" referrerpolicy="no-referrer">':'<span class="placeholder">◇</span>')+
           (p.badge?'<span class="badge">'+esc(p.badge)+'</span>':'')+
         '</div>'+
         '<div class="info">'+
@@ -69,7 +69,7 @@ function saved(){
     const first=(Array.isArray(p.images)&&p.images[0])||p.image||'';
     return '<div class="saved-item">'+
       '<a href="'+productHref(p)+'" class="saved-link">'+
-        (first?'<img src="'+esc(first)+'" alt="">':'<div class="saved-placeholder"></div>')+
+        (first?'<img src="'+esc(first)+'" alt="" loading="lazy" referrerpolicy="no-referrer">':'<div class="saved-placeholder"></div>')+
         '<div><b>'+esc(p.name)+'</b><div>'+eur(p.price)+'</div></div>'+
       '</a>'+
       '<button onclick="toggle('+JSON.stringify(p.id)+')">×</button>'+
