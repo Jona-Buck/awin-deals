@@ -8,16 +8,13 @@
       "currency": "EUR",
       "category": "E-Scooter",
       "merchant": "NAVEE Germany",
-      "image": "https://naveetech.de/cdn/shop/files/13_2.webp?v=1774956079&width=2160",
+      "image": "./assets/navee-gt3-1.webp",
       "productUrl": "https://naveetech.de/products/navee-gt3-e-scooter",
       "affiliateUrl": "https://tidd.ly/3U4kJrx",
       "oldPrice": 589,
       "badge": "Bestseller",
       "images": [
-        "https://naveetech.de/cdn/shop/files/13_2.webp?v=1774956079&width=2160",
-        "https://naveetech.de/cdn/shop/files/GT3_6a757461-93a1-4e4f-99ee-e4f34e444045.png?v=1788509466&width=800",
-        "https://naveetech.de/cdn/shop/files/jimeng-2026-04-18-8382_1.webp?v=1776483351&width=2048",
-        "https://naveetech.de/cdn/shop/files/21_3.webp?v=1776483351&width=2160"
+        "./assets/navee-gt3-1.webp"
       ],
       "highlights": [
         "Max. Leistung 700 W",
