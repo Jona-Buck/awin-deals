@@ -3,7 +3,7 @@ const productId = params.get('id');
 let products = [];
 let product = null;
 let current = 0;
-let savedIds = JSON.parse(localStorage.getItem('awinSaved') || '[]');
+let savedIds = (() => { try { return JSON.parse(localStorage.getItem('awinSaved') || '[]').map(String); } catch { return []; } })();
 let dragStartX = null;
 
 const $ = (s) => document.querySelector(s);
@@ -62,7 +62,6 @@ function renderProduct() {
   $('#highlights').innerHTML = highlights.map(h => '<div class="highlight">' + esc(h) + '</div>').join('');
 
   $('#affiliate').href = product.affiliateUrl || product.productUrl || '#';
-  $('#merchantDirect').href = product.productUrl || product.affiliateUrl || '#';
 
   $('#thumbs').innerHTML = images.map((src, i) =>
     '<button class="thumb ' + (i === current ? 'active' : '') + '" data-index="' + i + '" aria-label="Bild ' + (i + 1) + '">' +
