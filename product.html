@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Produktdetails bei Awin Deals">
+  <title>Produkt – Awin Deals</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="index.html"><b>A</b><span>Awin<span>Deals</span></span></a>
+      <nav><a href="index.html#shop">Deals</a><a href="index.html#categories">Kategorien</a><a href="index.html#about">Über uns</a></nav>
+      <div class="actions">
+        <a class="head-back" href="index.html#shop">← Shop</a>
+        <button id="savedBtn">♡ <i id="count">0</i></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="detail-wrap">
+    <div id="loading" class="detail-loading">Produkt wird geladen …</div>
+
+    <section id="detail" class="product-detail" hidden>
+      <div class="gallery">
+        <div id="thumbs" class="thumbs" aria-label="Produktbilder"></div>
+        <div class="gallery-main">
+          <button id="prev" class="gallery-arrow left" aria-label="Vorheriges Bild">‹</button>
+          <div id="stage" class="gallery-stage">
+            <img id="mainImage" alt="">
+          </div>
+          <button id="next" class="gallery-arrow right" aria-label="Nächstes Bild">›</button>
+          <div id="dots" class="gallery-dots"></div>
+        </div>
+      </div>
+
+      <div class="product-detail-info">
+        <a id="merchant" class="detail-merchant" href="#" target="_blank" rel="noopener noreferrer"></a>
+        <div id="badge" class="detail-badge" hidden></div>
+        <h1 id="name"></h1>
+        <p id="description" class="detail-description"></p>
+
+        <div class="detail-price-line">
+          <strong id="price"></strong>
+          <span id="oldPrice" class="detail-old" hidden></span>
+        </div>
+
+        <div id="highlights" class="highlights"></div>
+
+        <div class="detail-actions">
+          <a id="affiliate" class="deal detail-deal" href="#" target="_blank" rel="sponsored noopener noreferrer">
+            Zum Händler →
+          </a>
+          <button id="saveProduct" class="save-large">♡ <span>Merkliste</span></button>
+        </div>
+
+        <div class="affiliate-note">
+          Affiliate-Link: Beim Kauf über diesen Link kann Awin Deals eine Provision erhalten. Für den Kunden entsteht dadurch kein Aufpreis.
+        </div>
+
+        <a id="merchantDirect" class="direct-link" href="#" target="_blank" rel="noopener noreferrer">
+          Produktseite beim Händler öffnen ↗
+        </a>
+      </div>
+    </section>
+
+    <section id="notFound" class="not-found" hidden>
+      <div>404</div>
+      <h1>Produkt nicht gefunden</h1>
+      <p>Dieses Produkt existiert nicht oder wurde entfernt.</p>
+      <a class="cta" href="index.html#shop">Zurück zum Shop →</a>
+    </section>
+  </main>
+
+  <aside id="drawer">
+    <div class="drawer-head"><h2>Merkliste</h2><button id="close">×</button></div>
+    <div id="saved"></div>
+  </aside>
+  <div id="overlay"></div>
+
+  <script src="product.js"></script>
+</body>
+</html>
