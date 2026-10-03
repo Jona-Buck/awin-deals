@@ -26,7 +26,13 @@ async function init(){
     products=(await response.json()).products||[];
     $("#year").textContent=new Date().getFullYear();
     $("#heroProducts").innerHTML=products.slice(0,4).map((p,i)=>heroCard(p,i)).join("");
-    $("#heroProductCount").textContent=String(products.length).padStart(2,"0"); $("#heroLiveCount").textContent=String(products.length).padStart(2,"0");
+    $("#heroProductCount").textContent=String(products.length).padStart(2,"0");
+    $("#heroLiveCount").textContent=String(products.length).padStart(2,"0");
+    const catCount=new Set(products.map(p=>p.category).filter(Boolean)).size;
+    const merchantCount=new Set(products.map(p=>p.merchant).filter(Boolean)).size;
+    $("#heroStatsProducts").textContent=String(products.length).padStart(2,"0");
+    $("#heroStatsCategories").textContent=String(catCount).padStart(2,"0");
+    $("#heroStatsMerchants").textContent=String(merchantCount).padStart(2,"0");
     renderFocus();
     renderCategories();
     renderProducts();
@@ -34,6 +40,7 @@ async function init(){
     bindEvents();
     setupOrbit();
     setupScrollSpy();
+    setupReveal();
   }catch{
     $("#productGrid").innerHTML='<div class="empty-state"><div class="empty-glyph">!</div><h3>Katalog konnte nicht geladen werden.</h3><p>Bitte später erneut versuchen.</p></div>';
   }
@@ -285,6 +292,13 @@ function setupProductTilt(){
     card.addEventListener("pointerleave",()=>{card.style.transform="";card.classList.remove("is-tilting")});
   });
 }
+function setupReveal(){
+  const targets=[...document.querySelectorAll(".section,.about-section,.focus-card,.category-tile")];
+  targets.forEach((el,i)=>{if(!el.classList.contains("reveal")){el.classList.add("reveal");el.style.transitionDelay=Math.min(i*35,240)+"ms";}});
+  if(!("IntersectionObserver" in window)){targets.forEach(el=>el.classList.add("revealed"));return;}
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("revealed");observer.unobserve(entry.target);}}),{threshold:.08,rootMargin:"0px 0px -8% 0px"});
+  targets.forEach(el=>observer.observe(el));
+}
 function setupScrollSpy(){
   if(!("IntersectionObserver" in window))return;
   const links=[...document.querySelectorAll(".main-nav .nav-item")];
@@ -303,6 +317,8 @@ function setupOrbit(){
   const cards=[...orbit.querySelectorAll("[data-hero-card]")];
   let raf=0,px=0,py=0;
   orbit.addEventListener("pointermove",e=>{
+    orbit.style.setProperty("--orbit-x",String((e.clientX-orbit.getBoundingClientRect().left)/orbit.getBoundingClientRect().width-.5));
+    orbit.style.setProperty("--orbit-y",String((e.clientY-orbit.getBoundingClientRect().top)/orbit.getBoundingClientRect().height-.5));
     const r=orbit.getBoundingClientRect();
     px=(e.clientX-r.left)/r.width-.5;py=(e.clientY-r.top)/r.height-.5;
     if(!raf)raf=requestAnimationFrame(()=>{
