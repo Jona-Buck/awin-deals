@@ -47,8 +47,6 @@ function setupGallery(){
   $("#next").addEventListener("click",()=>showImage(current+1));
   showImage(0);
   setupGalleryDepth();
-  const first=imagesOf(product)[0];
-  if(first) $("#mainImage").fetchPriority="high";
   const stage=$("#stage");let startX=null;
   stage.addEventListener("pointerdown",e=>{startX=e.clientX;stage.setPointerCapture?.(e.pointerId)});
   stage.addEventListener("pointerup",e=>{if(startX===null)return;const dx=e.clientX-startX;startX=null;if(Math.abs(dx)>45)showImage(current+(dx<0?1:-1))});
@@ -58,8 +56,10 @@ function showImage(i){
   const list=imagesOf(product);
   if(!list.length){$("#mainImage").removeAttribute("src");return;}
   current=(i+list.length)%list.length;
-  $("#mainImage").src=list[current];
-  $("#mainImage").alt=product.name+" – Bild "+(current+1);
+  const mainImage=$("#mainImage");
+  mainImage.fetchPriority=current===0?"high":"auto";
+  mainImage.src=list[current];
+  mainImage.alt=product.name+" – Bild "+(current+1);
   if($("#galleryCount"))$("#galleryCount").textContent=(current+1)+" / "+list.length;
   $("#thumbs").querySelectorAll(".thumb").forEach((x,j)=>x.classList.toggle("active",j===current));
   $("#dots").innerHTML=list.length>1?list.map((_,j)=>'<button type="button" class="dot '+(j===current?"active":"")+'" data-index="'+j+'" aria-label="Bild '+(j+1)+'"></button>').join(""):"";
