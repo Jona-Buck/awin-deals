@@ -265,15 +265,18 @@ function toggleSearch(force){
   $("#searchBtn").setAttribute("aria-expanded",String(open));
   if(open)setTimeout(()=>$("#searchInput").focus(),0);
 }
+function applyThemeMeta(){const meta=$("#themeColor");if(meta)meta.content=document.documentElement.dataset.theme==="light"?"#f4f4f1":"#080808"}
 function toggleTheme(){
   const html=document.documentElement;
   const next=html.dataset.theme==="dark"?"light":"dark";
   html.dataset.theme=next;
   localStorage.setItem("awinTheme",next);
+  applyThemeMeta();
 }
 function restoreTheme(){
   const v=localStorage.getItem("awinTheme");
   if(v==="light"||v==="dark")document.documentElement.dataset.theme=v;
+  applyThemeMeta();
 }
 
 function setupProductTilt(){
