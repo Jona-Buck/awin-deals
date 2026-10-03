@@ -110,6 +110,7 @@ function bindEvents(){
   document.addEventListener("keydown",e=>{if(e.key==="Escape")setDrawer(false)});
 }
 function setDrawer(open){$("#savedDrawer").classList.toggle("open",open);$("#savedDrawer").setAttribute("aria-hidden",String(!open));$("#savedBtn").setAttribute("aria-expanded",String(open));document.body.classList.toggle("drawer-open",open)}
-function restoreTheme(){const v=localStorage.getItem("awinTheme");if(v==="light"||v==="dark")document.documentElement.dataset.theme=v}
-function toggleTheme(){const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("awinTheme",next)}
+function applyThemeMeta(){const meta=$("#themeColor");if(meta)meta.content=document.documentElement.dataset.theme==="light"?"#f4f4f1":"#080808"}
+function restoreTheme(){const v=localStorage.getItem("awinTheme");if(v==="light"||v==="dark")document.documentElement.dataset.theme=v;applyThemeMeta()}
+function toggleTheme(){const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("awinTheme",next);applyThemeMeta()}
 init();
