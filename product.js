@@ -46,6 +46,8 @@ function setupGallery(){
   $("#prev").addEventListener("click",()=>showImage(current-1));
   $("#next").addEventListener("click",()=>showImage(current+1));
   showImage(0);
+  const first=imagesOf(product)[0];
+  if(first) $("#mainImage").fetchPriority="high";
   const stage=$("#stage");let startX=null;
   stage.addEventListener("pointerdown",e=>{startX=e.clientX;stage.setPointerCapture?.(e.pointerId)});
   stage.addEventListener("pointerup",e=>{if(startX===null)return;const dx=e.clientX-startX;startX=null;if(Math.abs(dx)>45)showImage(current+(dx<0?1:-1))});
