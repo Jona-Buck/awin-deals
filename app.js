@@ -26,7 +26,7 @@ async function init(){
     products=(await response.json()).products||[];
     $("#year").textContent=new Date().getFullYear();
     $("#heroProducts").innerHTML=products.slice(0,4).map((p,i)=>heroCard(p,i)).join("");
-    $("#heroProductCount").textContent=String(products.length).padStart(2,"0");
+    $("#heroProductCount").textContent=String(products.length).padStart(2,"0"); $("#heroLiveCount").textContent=String(products.length).padStart(2,"0");
     renderFocus();
     renderCategories();
     renderProducts();
@@ -217,7 +217,7 @@ function syncFilterChips(){
   });
 }
 function resetAll(){
-  state={query:"",category:"Alle",merchant:"Alle",price:"Alle",discount:"Alle",sort:$("#sort").value};
+  state={query:"",category:"Alle",merchant:"Alle",price:"Alle",discount:"Alle",sort:"featured"}; $("#sort").value="featured";
   $("#searchInput").value="";
   closeFilterMenu();renderCategories();renderProducts();
 }
