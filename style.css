@@ -236,3 +236,11 @@ html[data-theme="light"] .grain{opacity:.018}
 .reveal.revealed{opacity:1;transform:none}
 @media(max-width:760px){.hero-kicker{max-width:none}.hero-stats{gap:18px;margin-top:24px}.hero-stats b{font-size:20px}.hero-stats small{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.live-chip i{animation:none}.reveal{opacity:1;transform:none!important}}
+
+/* Micro feedback + safe-area polish */
+.card-save{position:relative;overflow:hidden}
+.card-save::after{content:"";position:absolute;inset:50%;width:0;height:0;border-radius:50%;background:var(--accent-soft);transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease)}
+.card-save.saved::after{width:170%;height:170%}
+.card-save svg,.card-save{isolation:isolate}
+.mobile-nav{padding-bottom:max(7px,calc(7px + env(safe-area-inset-bottom)))}
+@media(max-width:760px){.mobile-nav{bottom:max(8px,env(safe-area-inset-bottom))}}
