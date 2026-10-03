@@ -46,6 +46,7 @@ function setupGallery(){
   $("#prev").addEventListener("click",()=>showImage(current-1));
   $("#next").addEventListener("click",()=>showImage(current+1));
   showImage(0);
+  setupGalleryDepth();
   const first=imagesOf(product)[0];
   if(first) $("#mainImage").fetchPriority="high";
   const stage=$("#stage");let startX=null;
@@ -59,10 +60,22 @@ function showImage(i){
   current=(i+list.length)%list.length;
   $("#mainImage").src=list[current];
   $("#mainImage").alt=product.name+" – Bild "+(current+1);
+  if($("#galleryCount"))$("#galleryCount").textContent=(current+1)+" / "+list.length;
   $("#thumbs").querySelectorAll(".thumb").forEach((x,j)=>x.classList.toggle("active",j===current));
   $("#dots").innerHTML=list.length>1?list.map((_,j)=>'<button type="button" class="dot '+(j===current?"active":"")+'" data-index="'+j+'" aria-label="Bild '+(j+1)+'"></button>').join(""):"";
   $("#dots").querySelectorAll("[data-index]").forEach(x=>x.addEventListener("click",()=>showImage(Number(x.dataset.index))));
   $("#prev").style.display=list.length>1?"grid":"none";$("#next").style.display=list.length>1?"grid":"none";
+}
+function setupGalleryDepth(){
+  const main=$(".gallery-main"),stage=$("#stage");
+  if(!main||!stage||window.matchMedia("(prefers-reduced-motion: reduce)").matches||!window.matchMedia("(hover: hover)").matches)return;
+  main.addEventListener("pointermove",e=>{
+    const r=main.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    stage.style.transform="perspective(1000px) rotateX("+(-y*1.8)+"deg) rotateY("+(x*2.2)+"deg)";
+  });
+  main.addEventListener("pointerleave",()=>{stage.style.transform=""});
+  stage.addEventListener("dblclick",()=>main.classList.toggle("is-zoomed"));
 }
 function renderRelated(){
   const related=products.filter(p=>p.id!==product.id&&p.category===product.category);
