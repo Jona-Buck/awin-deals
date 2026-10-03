@@ -27,6 +27,33 @@
         "Apple Find My integriert",
         "NAVEE Smart App"
       ]
+    },
+    {
+      "id": "puma-teamgoal-55l",
+      "name": "Puma teamGOAL Unisex Sporttasche 55 L 090233-01",
+      "description": "Robuste PUMA Sporttasche mit 55 Litern Volumen, großem Hauptfach, Schuhfach, Netzfach und verstellbarem Schultergurt.",
+      "price": 19.99,
+      "currency": "EUR",
+      "category": "Sporttaschen",
+      "merchant": "SportSpar",
+      "image": "https://www.sportspar.de/media/image/09/ed/df/090233-01-1_600x600.jpg",
+      "productUrl": "https://www.sportspar.de/puma-teamgoal-unisex-sporttasche-55-l-090233-01",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14366&awinaffid=3104608&clickref=awin-deals-puma-teamgoal&ued=https%3A%2F%2Fwww.sportspar.de%2Fpuma-teamgoal-unisex-sporttasche-55-l-090233-01",
+      "oldPrice": 45,
+      "badge": "-56%",
+      "images": [
+        "https://www.sportspar.de/media/image/09/ed/df/090233-01-1_600x600.jpg"
+      ],
+      "highlights": [
+        "55 Liter Fassungsvermögen",
+        "Großes Hauptfach mit Doppelreißverschluss",
+        "Seitenfach mit integriertem Schuhfach",
+        "Seitliches Netzfach",
+        "Zwei feste Tragegriffe",
+        "Verstellbarer Schultergurt",
+        "100 % Polyester",
+        "Neu & OVP"
+      ]
     }
   ]
 }
