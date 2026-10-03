@@ -1,82 +1,77 @@
 <!doctype html>
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Produktdetails bei Awin Deals">
-  <title>Produkt – Awin Deals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Produktdetails bei Awin Deals.">
+  <meta name="theme-color" content="#090909">
+  <title>Produkt — Awin Deals</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <a class="logo" href="index.html"><b>A</b><span>Awin<span>Deals</span></span></a>
-      <nav><a href="index.html#shop">Deals</a><a href="index.html#categories">Kategorien</a><a href="index.html#about">Über uns</a></nav>
-      <div class="actions">
-        <a class="head-back" href="index.html#shop">← Shop</a>
-        <button id="savedBtn">♡ <i id="count">0</i></button>
+  <header class="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="index.html" aria-label="Awin Deals Startseite"><span class="brand-mark">A</span><span class="brand-name">Awin<span>Deals</span></span></a>
+      <nav class="main-nav" aria-label="Hauptnavigation"><a href="index.html#discover" class="nav-item">Entdecken</a><a href="index.html#focus" class="nav-item">Im Fokus</a><a href="index.html#categories" class="nav-item">Kategorien</a></nav>
+      <div class="nav-tools">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Darstellung wechseln"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.7 8.7 0 0 1 8.8 3.8a8.7 8.7 0 1 0 11.4 11.4Z"/></svg></button>
+        <button class="saved-btn" id="savedBtn" type="button" aria-label="Merkliste öffnen" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75A1.75 1.75 0 0 1 8.25 3h7.5a1.75 1.75 0 0 1 1.75 1.75V21l-5.5-3.25L6.5 21V4.75Z"/></svg><span id="savedCount">0</span></button>
       </div>
     </div>
   </header>
 
-  <main class="detail-wrap">
+  <main class="detail-shell">
+    <a class="back-link" href="index.html#discover">← Zurück zum Entdecken</a>
     <div id="loading" class="detail-loading">Produkt wird geladen …</div>
 
-    <section id="detail" class="product-detail" hidden>
-      <div class="gallery">
-        <div id="thumbs" class="thumbs" aria-label="Produktbilder"></div>
-        <div class="gallery-main">
-          <button id="prev" class="gallery-arrow left" aria-label="Vorheriges Bild">‹</button>
-          <div id="stage" class="gallery-stage">
-            <img id="mainImage" alt="">
+    <section id="productDetail" class="detail-grid" hidden>
+      <div>
+        <div class="gallery" id="gallery">
+          <div class="gallery-main">
+            <button class="gallery-arrow left" id="prev" type="button" aria-label="Vorheriges Bild">‹</button>
+            <div class="gallery-stage" id="stage"><img id="mainImage" alt=""></div>
+            <button class="gallery-arrow right" id="next" type="button" aria-label="Nächstes Bild">›</button>
           </div>
-          <button id="next" class="gallery-arrow right" aria-label="Nächstes Bild">›</button>
-          <div id="dots" class="gallery-dots"></div>
+          <div class="thumbs" id="thumbs"></div>
+          <div class="gallery-dots" id="dots"></div>
         </div>
       </div>
 
-      <div class="product-detail-info">
-        <a id="merchant" class="detail-merchant" href="#" target="_blank" rel="noopener noreferrer"></a>
-        <div id="badge" class="detail-badge" hidden></div>
+      <div class="detail-copy">
+        <div class="detail-meta"><a id="merchant" href="#" target="_blank" rel="noopener noreferrer"></a><span id="badge" hidden></span></div>
         <h1 id="name"></h1>
         <p id="description" class="detail-description"></p>
-
-        <div class="detail-price-line">
-          <strong id="price"></strong>
-          <span id="oldPrice" class="detail-old" hidden></span>
-        </div>
-
+        <div class="detail-price"><strong id="price"></strong><s id="oldPrice" hidden></s></div>
         <div id="highlights" class="highlights"></div>
 
         <div class="detail-actions">
-          <a id="affiliate" class="deal detail-deal" href="#" target="_blank" rel="sponsored noopener noreferrer">
-            Zum Händler →
-          </a>
-          <button id="saveProduct" class="save-large">♡ <span>Merkliste</span></button>
+          <a id="affiliate" class="primary-btn" href="#" target="_blank" rel="sponsored noopener noreferrer">Zum Händler <span>↗</span></a>
+          <button id="saveProduct" class="secondary-btn" type="button">♡ Merkliste</button>
         </div>
-
-        <div class="affiliate-note">
-          Affiliate-Link: Beim Kauf über diesen Link kann Awin Deals eine Provision erhalten. Für den Kunden entsteht dadurch kein Aufpreis.
-        </div>
-
-
+        <p class="affiliate-note">Affiliate-Link: Beim Kauf über diesen Link kann Awin Deals eine Provision erhalten. Für dich entsteht dadurch kein Aufpreis.</p>
       </div>
     </section>
 
-    <section id="notFound" class="not-found" hidden>
-      <div>404</div>
-      <h1>Produkt nicht gefunden</h1>
-      <p>Dieses Produkt existiert nicht oder wurde entfernt.</p>
-      <a class="cta" href="index.html#shop">Zurück zum Shop →</a>
+    <section id="relatedSection" class="related-section" hidden>
+      <div class="section-heading compact"><div><div class="eyebrow">WEITER ENTDECKEN</div><h2>Das könnte dich auch interessieren.</h2></div><a class="section-link" href="index.html#discover">Mehr Produkte <span>↗</span></a></div>
+      <div id="relatedGrid" class="product-grid"></div>
+    </section>
+
+    <section id="notFound" class="empty-state not-found" hidden>
+      <div class="empty-glyph">404</div><h3>Produkt nicht gefunden.</h3><p>Dieses Produkt existiert nicht oder wurde entfernt.</p><a class="primary-btn" href="index.html#discover">Zum Katalog <span>↗</span></a>
     </section>
   </main>
 
-  <aside id="drawer">
-    <div class="drawer-head"><h2>Merkliste</h2><button id="close">×</button></div>
-    <div id="saved"></div>
+  <aside class="drawer" id="savedDrawer" aria-hidden="true">
+    <div class="drawer-scrim" id="drawerScrim"></div>
+    <div class="drawer-panel"><div class="drawer-header"><div><div class="eyebrow">DEINE AUSWAHL</div><h2>Merkliste</h2></div><button class="drawer-close" id="drawerClose" type="button" aria-label="Merkliste schließen">×</button></div><div id="savedList" class="drawer-list"></div></div>
   </aside>
-  <div id="overlay"></div>
 
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="index.html#discover"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4v16"/></svg><span>Entdecken</span></a>
+    <a href="index.html#categories"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z"/></svg><span>Kategorien</span></a>
+    <button id="mobileSaved" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75A1.75 1.75 0 0 1 8.25 3h7.5a1.75 1.75 0 0 1 1.75 1.75V21l-5.5-3.25L6.5 21V4.75Z"/></svg><span>Gespeichert</span><b id="mobileSavedCount">0</b></button>
+  </nav>
   <script src="product.js"></script>
 </body>
 </html>

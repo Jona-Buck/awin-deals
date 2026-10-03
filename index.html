@@ -1,1 +1,183 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Awin Deals – ausgewählte Produkte und Angebote."><title>Awin Deals</title><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="logo" href="#"><b>A</b><span>Awin<span>Deals</span></span></a><nav><a href="#shop">Deals</a><a href="#categories">Kategorien</a><a href="#about">Über uns</a></nav><div class="actions"><button id="searchBtn">⌕</button><button id="savedBtn">♡ <i id="count">0</i></button></div></div><div id="searchbar"><div class="wrap"><input id="search" placeholder="Produkte, Marken oder Kategorien suchen …"></div></div></header><main><section class="hero"><div class="wrap hero-grid"><div><small>DEALS • PRODUKTE • ENTDECKUNGEN</small><h1>Gute Produkte.<br><em>Gute Deals.</em></h1><p>Entdecke interessante Produkte aus verschiedenen Shops – übersichtlich an einem Ort.</p><a class="cta" href="#shop">Deals entdecken →</a></div><div class="hero-art"><span>HEUTE ENTDECKT</span><strong>Neue Deals<br>jeden Tag</strong><hr><small>Von Technik bis Freizeit</small></div></div></section><section id="categories"><div class="wrap"><small>ENTDECKE</small><h2>Beliebte Kategorien</h2><div id="cats" class="cats"></div></div></section><section id="shop"><div class="wrap"><div class="head"><div><small>PRODUKTE</small><h2>Alle Deals</h2></div><select id="sort"><option value="featured">Empfohlen</option><option value="low">Preis aufsteigend</option><option value="high">Preis absteigend</option><option value="name">Name A–Z</option></select></div><div id="filter"></div><div id="products" class="products"></div><div id="empty" hidden class="empty">Keine passenden Produkte gefunden.</div></div></section><section id="about"><div class="wrap banner"><div><small>AUSGEWÄHLT</small><h2>Dein nächster Deal wartet.</h2><p>Neue Produkte und Affiliate-Links können jederzeit ergänzt werden.</p></div><a class="cta light" href="#shop">Zum Shop →</a></div></section></main><footer><div class="wrap footer"><div><a class="logo" href="#"><b>A</b><span>Awin<span>Deals</span></span></a><p>Eine unabhängige Sammlung interessanter Produkte und Angebote.</p></div><div><strong>Shop</strong><a href="#shop">Deals</a><a href="#categories">Kategorien</a></div><div><strong>Hinweis</strong><p>Affiliate-Links können Provisionen erzeugen. Preise und Verfügbarkeit bestimmt der jeweilige Händler.</p></div></div><div class="wrap bottom">© <span id="year"></span> Awin Deals</div></footer><aside id="drawer"><div class="drawer-head"><h2>Merkliste</h2><button id="close">×</button></div><div id="saved"></div></aside><div id="overlay"></div><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Awin Deals – ausgewählte Produkte, starke Preise und unabhängige Produktentdeckungen.">
+  <meta name="theme-color" content="#090909">
+  <title>Awin Deals — Find products worth buying.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="index.html" aria-label="Awin Deals Startseite">
+        <span class="brand-mark">A</span><span class="brand-name">Awin<span>Deals</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="#discover" class="nav-item active">Entdecken</a>
+        <a href="#focus" class="nav-item">Im Fokus</a>
+        <a href="#categories" class="nav-item">Kategorien</a>
+      </nav>
+
+      <div class="nav-tools">
+        <button class="icon-btn" id="searchBtn" type="button" aria-label="Suche öffnen" aria-expanded="false" aria-controls="searchPanel">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-3.8-3.8M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z"/></svg>
+        </button>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Darstellung wechseln">
+          <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.7 8.7 0 0 1 8.8 3.8a8.7 8.7 0 1 0 11.4 11.4Z"/></svg>
+        </button>
+        <button class="saved-btn" id="savedBtn" type="button" aria-label="Merkliste öffnen" aria-expanded="false" aria-controls="savedDrawer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75A1.75 1.75 0 0 1 8.25 3h7.5a1.75 1.75 0 0 1 1.75 1.75V21l-5.5-3.25L6.5 21V4.75Z"/></svg>
+          <span id="savedCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="search-panel" id="searchPanel" hidden>
+      <div class="shell">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-3.8-3.8M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z"/></svg>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Produkt, Marke oder Kategorie suchen …">
+          <button id="searchClear" type="button" aria-label="Suche leeren">Esc</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow">AWIN DEALS · PRODUCT DISCOVERY</div>
+        <h1 id="hero-title">FIND PRODUCTS<br><span>WORTH BUYING.</span></h1>
+        <p>Ausgewählte Produkte aus echten Shops. Klare Preise, starke Rabatte und weniger unnötiges Scrollen.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#discover">Produkte entdecken <span>↗</span></a>
+          <button class="quiet-btn" id="heroSaved" type="button">Merkliste <span>→</span></button>
+        </div>
+      </div>
+
+      <div class="orbit" id="heroOrbit" aria-label="Ausgewählte Produkte">
+        <div class="orbit-floor" aria-hidden="true"></div>
+        <div class="orbit-light light-left" aria-hidden="true"></div>
+        <div class="orbit-light light-right" aria-hidden="true"></div>
+        <div class="orbit-ring ring-one" aria-hidden="true"></div>
+        <div class="orbit-ring ring-two" aria-hidden="true"></div>
+        <div class="orbit-center">
+          <span>REAL PRODUCTS</span>
+          <strong>DISCOVER<br>WHAT'S NEXT</strong>
+          <small>05 live im Katalog</small>
+        </div>
+        <div id="heroProducts"></div>
+        <div class="orbit-axis" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="shell section" id="focus">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">IM FOKUS</div>
+          <h2>Ein Deal, der Raum bekommt.</h2>
+        </div>
+        <a class="section-link" href="#discover">Zum Katalog <span>↗</span></a>
+      </div>
+      <div class="focus-wrap" id="focusWrap"></div>
+    </section>
+
+    <section class="shell section categories" id="categories">
+      <div class="section-heading compact">
+        <div>
+          <div class="eyebrow">ENTDECKEN</div>
+          <h2>Stöbere nach Thema.</h2>
+        </div>
+      </div>
+      <div id="categoryRail" class="category-rail"></div>
+    </section>
+
+    <section class="shell section discover" id="discover">
+      <div class="section-heading discover-heading">
+        <div>
+          <div class="eyebrow">DISCOVERY</div>
+          <h2>Finde deinen nächsten Deal.</h2>
+          <p id="resultSummary">0 Produkte</p>
+        </div>
+        <div class="sorter">
+          <label for="sort">Sortieren</label>
+          <select id="sort">
+            <option value="featured">Empfohlen</option>
+            <option value="discount">Rabatt zuerst</option>
+            <option value="low">Preis aufsteigend</option>
+            <option value="high">Preis absteigend</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filterbar" id="filterbar">
+        <button class="filter-chip active" type="button" data-filter="category" data-value="Alle">Alle</button>
+        <button class="filter-chip" type="button" data-filter="merchant">Händler <span>⌄</span></button>
+        <button class="filter-chip" type="button" data-filter="price">Preis <span>⌄</span></button>
+        <button class="filter-chip" type="button" data-filter="discount">Rabatt <span>⌄</span></button>
+        <button class="filter-reset" id="resetFilters" type="button">Zurücksetzen</button>
+      </div>
+      <div class="filter-menu" id="filterMenu" hidden></div>
+
+      <div id="productGrid" class="product-grid"></div>
+
+      <div id="emptyState" class="empty-state" hidden>
+        <div class="empty-glyph">◇</div>
+        <h3>Nichts gefunden.</h3>
+        <p>Ändere deine Filter oder starte eine neue Suche.</p>
+        <button class="secondary-btn" id="emptyReset" type="button">Filter zurücksetzen</button>
+      </div>
+    </section>
+
+    <section class="shell section about-section">
+      <div class="about-card">
+        <div>
+          <div class="eyebrow">AWIN DEALS</div>
+          <h2>Weniger Lärm.<br>Mehr Entdecken.</h2>
+        </div>
+        <p>Eine unabhängige Sammlung interessanter Produkte. Affiliate-Links können Provisionen erzeugen; für dich entsteht dadurch kein Aufpreis.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-top">
+      <div>
+        <a class="brand" href="#top"><span class="brand-mark">A</span><span class="brand-name">Awin<span>Deals</span></span></a>
+        <p>Find products worth buying.</p>
+      </div>
+      <div class="footer-group"><strong>Shop</strong><a href="#discover">Entdecken</a><a href="#focus">Im Fokus</a><a href="#categories">Kategorien</a></div>
+      <div class="footer-group"><strong>Hinweis</strong><span>Preise und Verfügbarkeit bestimmt der jeweilige Händler.</span></div>
+    </div>
+    <div class="shell footer-bottom"><span>© <span id="year"></span> Awin Deals</span><a href="#top">Nach oben ↑</a></div>
+  </footer>
+
+  <aside class="drawer" id="savedDrawer" aria-hidden="true">
+    <div class="drawer-scrim" id="drawerScrim"></div>
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <div><div class="eyebrow">DEINE AUSWAHL</div><h2>Merkliste</h2></div>
+        <button class="drawer-close" id="drawerClose" type="button" aria-label="Merkliste schließen">×</button>
+      </div>
+      <div id="savedList" class="drawer-list"></div>
+    </div>
+  </aside>
+
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="#discover"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4v16"/></svg><span>Entdecken</span></a>
+    <button id="mobileSearch" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-3.8-3.8M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z"/></svg><span>Suche</span></button>
+    <button id="mobileSaved" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75A1.75 1.75 0 0 1 8.25 3h7.5a1.75 1.75 0 0 1 1.75 1.75V21l-5.5-3.25L6.5 21V4.75Z"/></svg><span>Gespeichert</span><b id="mobileSavedCount">0</b></button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
