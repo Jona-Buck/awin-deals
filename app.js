@@ -26,7 +26,6 @@ async function init(){
     products=(await response.json()).products||[];
     $("#year").textContent=new Date().getFullYear();
     $("#heroProducts").innerHTML=products.slice(0,4).map((p,i)=>heroCard(p,i)).join("");
-    $("#heroProductCount").textContent=String(products.length).padStart(2,"0");
     $("#heroLiveCount").textContent=String(products.length).padStart(2,"0");
     const catCount=new Set(products.map(p=>p.category).filter(Boolean)).size;
     const merchantCount=new Set(products.map(p=>p.merchant).filter(Boolean)).size;
