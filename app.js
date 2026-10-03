@@ -25,8 +25,6 @@ async function init(){
     if(!response.ok)throw new Error("products");
     products=(await response.json()).products||[];
     $("#year").textContent=new Date().getFullYear();
-    $("#heroProducts").innerHTML=products.slice(0,4).map((p,i)=>heroCard(p,i)).join("");
-    $("#heroLiveCount").textContent=String(products.length).padStart(2,"0");
     const catCount=new Set(products.map(p=>p.category).filter(Boolean)).size;
     const merchantCount=new Set(products.map(p=>p.merchant).filter(Boolean)).size;
     $("#heroStatsProducts").textContent=String(products.length).padStart(2,"0");
@@ -37,7 +35,6 @@ async function init(){
     renderProducts();
     renderSaved();
     bindEvents();
-    setupOrbit();
     setupScrollSpy();
     setupReveal();
   }catch{
@@ -45,16 +42,6 @@ async function init(){
   }
 }
 
-function heroCard(p,i){
-  const image=imagesOf(p)[0];
-  return '<a class="hero-product pos-'+String.fromCharCode(97+i)+'" href="'+href(p)+'" data-hero-card>'+
-    '<div class="hero-product-card">'+
-      (p.badge?'<span class="hero-badge">'+escapeHtml(p.badge)+'</span>':'')+
-      '<div class="hero-product-image">'+(image?'<img src="'+escapeHtml(image)+'" alt="'+escapeHtml(p.name)+'" loading="eager" referrerpolicy="no-referrer">':'')+'</div>'+
-      '<div class="hero-product-meta"><strong>'+escapeHtml(shortName(p.name))+'</strong><span class="hero-price">'+money(p.price)+'</span></div>'+
-    '</div>'+
-  '</a>';
-}
 function shortName(name){
   return String(name).replace(" adidas Originals"," adidas").replace(" Herren "," ").replace(" Unisex "," ").slice(0,34);
 }
@@ -312,30 +299,5 @@ function setupScrollSpy(){
   },{rootMargin:"-25% 0px -58% 0px",threshold:[0,.15,.35,.6]});
   sections.forEach(section=>observer.observe(section));
 }
-function setupOrbit(){
-  const orbit=$("#heroOrbit");
-  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
-  if(!window.matchMedia("(hover: hover)").matches)return;
-  const cards=[...orbit.querySelectorAll("[data-hero-card]")];
-  let raf=0,px=0,py=0;
-  orbit.addEventListener("pointermove",e=>{
-    orbit.style.setProperty("--orbit-x",String((e.clientX-orbit.getBoundingClientRect().left)/orbit.getBoundingClientRect().width-.5));
-    orbit.style.setProperty("--orbit-y",String((e.clientY-orbit.getBoundingClientRect().top)/orbit.getBoundingClientRect().height-.5));
-    const r=orbit.getBoundingClientRect();
-    px=(e.clientX-r.left)/r.width-.5;py=(e.clientY-r.top)/r.height-.5;
-    if(!raf)raf=requestAnimationFrame(()=>{
-      cards.forEach((card,i)=>{
-        const amount=(i%2?1:-1);
-        const x=px*18*amount,y=py*12*amount;
-        card.style.transform="translate3d("+x+"px,"+y+"px,0)";
-      });
-      raf=0;
-    });
-  });
-  orbit.addEventListener("pointerleave",()=>{
-    cards.forEach(card=>card.style.transform="translate3d(0,0,0)");
-  });
-}
-
 restoreTheme();
 init();
