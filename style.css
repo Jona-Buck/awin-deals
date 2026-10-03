@@ -208,3 +208,17 @@ html[data-theme="light"] .grain{opacity:.018}
 @media(max-width:900px){.detail-grid{grid-template-columns:1fr}.gallery{position:relative;top:auto}.detail-copy{padding-top:0}.gallery-arrow{display:grid}.related-section{padding-top:70px}}
 @media(max-width:760px){.detail-shell{width:min(100% - 28px,var(--max));padding-top:28px;padding-bottom:95px}.back-link{margin-bottom:18px}.gallery-main{border-radius:22px}.gallery-stage{aspect-ratio:1/1}.thumbs{display:none}.gallery-dots{display:flex}.detail-copy h1{font-size:46px}.detail-description{font-size:15px}.highlights{grid-template-columns:1fr 1fr}.detail-actions{flex-direction:column}.detail-actions .primary-btn,.detail-actions .secondary-btn{width:100%;justify-content:center}.related-section{padding-top:65px}}
 @media(max-width:420px){.highlights{grid-template-columns:1fr}.detail-copy h1{font-size:41px}}
+/* Premium interaction layer */
+.search-panel{animation:search-drop .32s var(--ease)}
+@keyframes search-drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.product-card{transform-style:preserve-3d;will-change:transform}
+.product-card::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;background:radial-gradient(circle at var(--mx,50%) var(--my,20%),rgba(255,255,255,.11),transparent 30%);transition:opacity .25s ease;mix-blend-mode:screen}
+.product-card.is-tilting::after{opacity:1}
+.focus-card{transform-style:preserve-3d;will-change:transform}
+.focus-visual img{transform-style:preserve-3d}
+.gallery-main{transform-style:preserve-3d}
+.gallery-stage img{transition:transform .55s var(--ease),filter .35s var(--ease)}
+.gallery-main.is-zoomed .gallery-stage img{transform:scale(1.045)}
+.gallery-count{position:absolute;right:16px;bottom:16px;z-index:4;padding:7px 9px;border:1px solid var(--line);border-radius:999px;background:var(--glass-strong);backdrop-filter:blur(16px);font-size:10px;color:var(--muted);letter-spacing:.08em}
+@media(max-width:760px){.gallery-count{right:12px;bottom:12px}.product-card::after{display:none}}
+@media(prefers-reduced-motion:reduce){.product-card,.focus-card{will-change:auto!important}.search-panel{animation:none!important}}
