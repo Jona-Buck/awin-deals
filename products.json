@@ -55,6 +55,87 @@
         "100 % Polyester",
         "Neu & OVP"
       ]
+    },
+    {
+      "id": "adidas-cutline-windbreaker-jz7616",
+      "name": "adidas Originals Cutline Windbreaker Herren Jacke JZ7616",
+      "description": "Leichter adidas Originals Windbreaker mit Slim Fit, durchgehendem Frontreißverschluss, gerippten Einsätzen und praktischen Taschen.",
+      "price": 39.99,
+      "currency": "EUR",
+      "category": "Jacken",
+      "merchant": "SportSpar",
+      "image": "https://www.sportspar.de/media/image/6a/00/19/JZ7616-1_600x600.jpg",
+      "productUrl": "https://www.sportspar.de/adidas-originals-cutline-windbreaker-herren-jacke-jz7616",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14366&awinaffid=3104608&clickref=awin-deals-adidas-cutline-windbreaker&ued=https%3A%2F%2Fwww.sportspar.de%2Fadidas-originals-cutline-windbreaker-herren-jacke-jz7616",
+      "oldPrice": 85,
+      "badge": "-53%",
+      "images": [
+        "https://www.sportspar.de/media/image/6a/00/19/JZ7616-1_600x600.jpg"
+      ],
+      "highlights": [
+        "100 % Polyester",
+        "Slim Fit",
+        "Leichtes Material",
+        "Durchgehender Frontreißverschluss mit Kinnschutz",
+        "Gerippte Einsätze am Rücken und unter den Armen",
+        "Praktische Taschen",
+        "Trefoil-Branding",
+        "NEU & OVP"
+      ]
+    },
+    {
+      "id": "adidas-firebird-hose-jy1339",
+      "name": "adidas Originals Firebird Herren Hose JY1339",
+      "description": "adidas Originals Firebird Herren Hose mit Regular Fit, elastischem Bund mit Kordelzug, seitlichen Taschen und den ikonischen 3-Streifen.",
+      "price": 32.99,
+      "currency": "EUR",
+      "category": "Hosen",
+      "merchant": "SportSpar",
+      "image": "https://www.sportspar.de/media/image/3d/ec/3d/JY1339-1_600x600.jpg",
+      "productUrl": "https://www.sportspar.de/adidas-originals-firebird-herren-hose-jy1339",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14366&awinaffid=3104608&clickref=awin-deals-adidas-firebird&ued=https%3A%2F%2Fwww.sportspar.de%2Fadidas-originals-firebird-herren-hose-jy1339",
+      "oldPrice": 70,
+      "badge": "-53%",
+      "images": [
+        "https://www.sportspar.de/media/image/3d/ec/3d/JY1339-1_600x600.jpg"
+      ],
+      "highlights": [
+        "100 % Polyamid",
+        "Futter aus 100 % Baumwolle",
+        "Regular Fit",
+        "Elastischer Bund mit Kordelzug",
+        "Seitliche Taschen",
+        "Ikonische adidas 3-Streifen",
+        "Trefoil Logo",
+        "Gerippte Beinabschlüsse",
+        "NEU & OVP"
+      ]
+    },
+    {
+      "id": "macron-italien-fip-jacke-40000494",
+      "name": "Italien FIP macron Basketball Herren Jacke 40000494",
+      "description": "macron Basketball Herren Jacke des italienischen FIP-Teams aus 100 % Polyester mit durchgehendem Reißverschluss und sportlichem Design.",
+      "price": 19.99,
+      "currency": "EUR",
+      "category": "Basketball",
+      "merchant": "SportSpar",
+      "image": "https://www.sportspar.de/media/image/9c/8d/7e/40000494-1_600x600.jpg",
+      "productUrl": "https://www.sportspar.de/italien-fip-macron-basketball-herren-jacke-40000494",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14366&awinaffid=3104608&clickref=awin-deals-macron-fip-jacke&ued=https%3A%2F%2Fwww.sportspar.de%2Fitalien-fip-macron-basketball-herren-jacke-40000494",
+      "oldPrice": 78.92,
+      "badge": "-75%",
+      "images": [
+        "https://www.sportspar.de/media/image/9c/8d/7e/40000494-1_600x600.jpg"
+      ],
+      "highlights": [
+        "100 % Polyester",
+        "Italien FIP Design",
+        "Durchgehender Reißverschluss",
+        "Seitliche Reißverschlusstaschen",
+        "Angenehmer Tragekomfort",
+        "NEU & OVP",
+        "Artikelnr.: 40000494"
+      ]
     }
   ]
 }
