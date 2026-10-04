@@ -136,6 +136,131 @@
         "NEU & OVP",
         "Artikelnr.: 40000494"
       ]
+    },
+    {
+      "id": "navee-gt5-max",
+      "name": "NAVEE GT5 Max",
+      "description": "Leistungsstarker NAVEE E-Scooter mit Federung vorne und hinten, TCS und großer Reichweite für den Alltag.",
+      "price": 649,
+      "currency": "EUR",
+      "category": "E-Scooter",
+      "merchant": "NAVEE Germany",
+      "image": "https://naveetech.de/cdn/shop/files/Navee_GT5_Max.png?v=1778236949&width=2400",
+      "productUrl": "https://naveetech.de/products/navee-gt5-max",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=116245&awinaffid=3104608&clickref=awin-deals-navee-gt5-max&ued=https%3A%2F%2Fnaveetech.de%2Fproducts%2Fnavee-gt5-max",
+      "oldPrice": 799,
+      "badge": "-19%",
+      "images": [
+        "https://naveetech.de/cdn/shop/files/Navee_GT5_Max.png?v=1778236949&width=2400"
+      ],
+      "highlights": [
+        "500 W Nennleistung",
+        "Bis zu 90 km Reichweite",
+        "1638 W Maximalleistung",
+        "28 % Steigung",
+        "Vordere & hintere Federung",
+        "TCS + Apple Find My"
+      ]
+    },
+    {
+      "id": "navee-st3-pro",
+      "name": "NAVEE ST3 Pro",
+      "description": "Komfortabler NAVEE E-Scooter mit Dual Damping Arm Federung, Dreifach-Bremssystem und TCS für den täglichen Einsatz.",
+      "price": 599,
+      "currency": "EUR",
+      "category": "E-Scooter",
+      "merchant": "NAVEE Germany",
+      "image": "https://naveetech.de/cdn/shop/files/14_2.webp?v=1776419596&width=2160",
+      "productUrl": "https://naveetech.de/products/navee-st3-pro-e-scooter",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=116245&awinaffid=3104608&clickref=awin-deals-navee-st3-pro&ued=https%3A%2F%2Fnaveetech.de%2Fproducts%2Fnavee-st3-pro-e-scooter",
+      "oldPrice": 989,
+      "badge": "-39%",
+      "images": [
+        "https://naveetech.de/cdn/shop/files/14_2.webp?v=1776419596&width=2160"
+      ],
+      "highlights": [
+        "1350 W Maximalleistung",
+        "Bis zu 75 km Reichweite",
+        "28 % Steigung",
+        "Dual Damping Arm Federung",
+        "Dreifach-Bremssystem",
+        "TCS"
+      ]
+    },
+    {
+      "id": "navee-n65i-ii",
+      "name": "NAVEE N65i II",
+      "description": "Robuster NAVEE E-Scooter mit 10,5-Zoll-Tubeless-Reifen, Vorderradfederung und Dreifach-Bremssystem.",
+      "price": 549,
+      "currency": "EUR",
+      "category": "E-Scooter",
+      "merchant": "NAVEE Germany",
+      "image": "https://naveetech.de/cdn/shop/files/10_2.webp?v=1774955789&width=2160",
+      "productUrl": "https://naveetech.de/products/n65i-ll",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=116245&awinaffid=3104608&clickref=awin-deals-navee-n65i-ii&ued=https%3A%2F%2Fnaveetech.de%2Fproducts%2Fn65i-ll",
+      "oldPrice": 599,
+      "badge": "-8%",
+      "images": [
+        "https://naveetech.de/cdn/shop/files/10_2.webp?v=1774955789&width=2160"
+      ],
+      "highlights": [
+        "1350 W Maximalleistung",
+        "Bis zu 70 km Reichweite",
+        "24 % Steigung",
+        "10,5-Zoll Tubeless-Reifen",
+        "Vordere Doppelfedergabel",
+        "Dreifach-Bremssystem"
+      ]
+    },
+    {
+      "id": "navee-ut5-max",
+      "name": "NAVEE UT5 Max",
+      "description": "Kraftvoller NAVEE Offroad-E-Scooter mit hydraulischer Federung, großen Reifen und hoher Reichweite.",
+      "price": 929,
+      "currency": "EUR",
+      "category": "E-Scooter",
+      "merchant": "NAVEE Germany",
+      "image": "https://naveetech.de/cdn/shop/files/9_2.webp?v=1774957038&width=2160",
+      "productUrl": "https://naveetech.de/products/ut5-max",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=116245&awinaffid=3104608&clickref=awin-deals-navee-ut5-max&ued=https%3A%2F%2Fnaveetech.de%2Fproducts%2Fut5-max",
+      "oldPrice": 999,
+      "badge": "-7%",
+      "images": [
+        "https://naveetech.de/cdn/shop/files/9_2.webp?v=1774957038&width=2160"
+      ],
+      "highlights": [
+        "2400 W Maximalleistung",
+        "Bis zu 100 km Reichweite",
+        "39 % Steigung",
+        "Hydraulische Federung vorne & hinten",
+        "12-Zoll Offroad-Reifen",
+        "Schnellladen in 2 Stunden"
+      ]
+    },
+    {
+      "id": "navee-xt5-ultra",
+      "name": "NAVEE XT5 Ultra",
+      "description": "Extrem leistungsstarker NAVEE Offroad-E-Scooter mit Dual Damping Arm Federung und Dreifach-Bremssystem.",
+      "price": 1199,
+      "currency": "EUR",
+      "category": "E-Scooter",
+      "merchant": "NAVEE Germany",
+      "image": "https://naveetech.de/cdn/shop/files/11_2.webp?v=1774955874&width=2160",
+      "productUrl": "https://naveetech.de/products/xt5-ultra",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=116245&awinaffid=3104608&clickref=awin-deals-navee-xt5-ultra&ued=https%3A%2F%2Fnaveetech.de%2Fproducts%2Fxt5-ultra",
+      "oldPrice": 1499,
+      "badge": "-20%",
+      "images": [
+        "https://naveetech.de/cdn/shop/files/11_2.webp?v=1774955874&width=2160"
+      ],
+      "highlights": [
+        "4400 W Maximalleistung (2×2200 W)",
+        "Bis zu 90 km Reichweite",
+        "45 % Steigung",
+        "Dual Damping Arm Federung",
+        "Dreifach-Bremssystem",
+        "Tubeless-Reifen"
+      ]
     }
   ]
 }
