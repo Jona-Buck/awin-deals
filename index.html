@@ -24,33 +24,8 @@
   <div class="ambient ambient-two" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="shell nav-shell">
-      <a class="brand" href="index.html" aria-label="Awin Deals Startseite">
-        <span class="brand-mark">A</span><span class="brand-name">Awin<span>Deals</span></span>
-      </a>
 
-      <nav class="main-nav" aria-label="Hauptnavigation">
-        <a href="#discover" class="nav-item active">Entdecken</a>
-        <a href="#focus" class="nav-item">Im Fokus</a>
-        <a href="#categories" class="nav-item">Kategorien</a>
-      </nav>
-
-      <div class="nav-tools">
-        <button class="icon-btn" id="searchBtn" type="button" aria-label="Suche öffnen" aria-expanded="false" aria-controls="searchPanel">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-3.8-3.8M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z"/></svg>
-        </button>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="Darstellung wechseln">
-          <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.7 8.7 0 0 1 8.8 3.8a8.7 8.7 0 1 0 11.4 11.4Z"/></svg>
-        </button>
-        <button class="saved-btn" id="savedBtn" type="button" aria-label="Merkliste öffnen" aria-expanded="false" aria-controls="savedDrawer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75A1.75 1.75 0 0 1 8.25 3h7.5a1.75 1.75 0 0 1 1.75 1.75V21l-5.5-3.25L6.5 21V4.75Z"/></svg>
-          <span id="savedCount">0</span>
-        </button>
-      </div>
-    </div>
-
+  <main id="top">
     <div class="search-panel" id="searchPanel" hidden>
       <div class="shell">
         <div class="search-box">
@@ -60,9 +35,6 @@
         </div>
       </div>
     </div>
-  </header>
-
-  <main id="top">
     <section class="hero shell" aria-labelledby="hero-title">
       <div class="hero-copy">
         <div class="hero-kicker"><div class="eyebrow">AWIN DEALS · PRODUCT DISCOVERY</div><span class="live-chip"><i></i><b id="heroStatus">LIVE</b></span></div>
@@ -76,15 +48,6 @@
       </div>
     </section>
 
-    <section class="shell section categories" id="categories">
-      <div class="section-heading compact">
-        <div>
-          <div class="eyebrow">ENTDECKEN</div>
-          <h2>Stöbere nach Thema.</h2>
-        </div>
-      </div>
-      <div id="categoryRail" class="category-rail"></div>
-    </section>
 
     <section class="shell section discover" id="discover">
       <div class="section-heading discover-heading">
@@ -109,15 +72,6 @@
         </div>
       </div>
 
-      <div class="filterbar" id="filterbar">
-        <button class="filter-chip active" type="button" data-filter="category" data-value="Alle">Alle</button>
-        <button class="filter-chip" type="button" data-filter="merchant">Händler <span>⌄</span></button>
-        <button class="filter-chip" type="button" data-filter="price">Preis <span>⌄</span></button>
-        <button class="filter-chip" type="button" data-filter="discount">Rabatt <span>⌄</span></button>
-        <button class="filter-reset" id="resetFilters" type="button">Zurücksetzen</button>
-      </div>
-      <div class="filter-menu" id="filterMenu" hidden></div>
-
       <div id="productGrid" class="product-grid"></div>
 
       <div id="emptyState" class="empty-state" hidden>
@@ -136,7 +90,7 @@
         <a class="brand" href="#top"><span class="brand-mark">A</span><span class="brand-name">Awin<span>Deals</span></span></a>
         <p>Find products worth buying.</p>
       </div>
-      <div class="footer-group"><strong>Shop</strong><a href="#discover">Entdecken</a><a href="#focus">Im Fokus</a><a href="#categories">Kategorien</a></div>
+      <div class="footer-group"><strong>Shop</strong><a href="#discover">Entdecken</a></div>
       <div class="footer-group"><strong>Hinweis</strong><span>Preise und Verfügbarkeit bestimmt der jeweilige Händler.</span></div>
     </div>
     <div class="shell footer-bottom"><span>© <span id="year"></span> Awin Deals</span><a href="#top">Nach oben ↑</a></div>
