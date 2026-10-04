@@ -30,7 +30,6 @@ async function init(){
     $("#heroStatsProducts").textContent=String(products.length).padStart(2,"0");
     $("#heroStatsCategories").textContent=String(catCount).padStart(2,"0");
     $("#heroStatsMerchants").textContent=String(merchantCount).padStart(2,"0");
-    renderFocus();
     renderCategories();
     renderProducts();
     renderSaved();
