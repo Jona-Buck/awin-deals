@@ -237,7 +237,7 @@ html[data-theme="light"] .grain{opacity:.018}
 @media(prefers-reduced-motion:reduce){.live-chip i{animation:none}.reveal{opacity:1;transform:none!important}}
 
 /* Micro feedback + safe-area polish */
-.card-save{position:relative;overflow:hidden}
+.card-save{overflow:hidden}
 .card-save::after{content:"";position:absolute;inset:50%;width:0;height:0;border-radius:50%;background:var(--accent-soft);transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease)}
 .card-save.saved::after{width:170%;height:170%}
 .card-save svg,.card-save{isolation:isolate}
