@@ -93,15 +93,19 @@
           <h2>Finde deinen nächsten Deal.</h2>
           <p id="resultSummary" aria-live="polite">0 Produkte</p>
         </div>
-        <div class="sorter">
-          <label for="sort">Sortieren</label>
-          <select id="sort">
-            <option value="featured">Empfohlen</option>
-            <option value="discount">Rabatt zuerst</option>
-            <option value="low">Preis aufsteigend</option>
-            <option value="high">Preis absteigend</option>
-            <option value="name">Name A–Z</option>
-          </select>
+        <div class="sorter" id="sorter">
+          <button class="sort-trigger" id="sortTrigger" type="button" aria-expanded="false" aria-controls="sortMenu">
+            <span class="sort-trigger-label">Sortieren</span>
+            <strong id="sortCurrent">Empfohlen</strong>
+            <span class="sort-chevron">⌄</span>
+          </button>
+          <div class="sort-menu" id="sortMenu" hidden>
+            <button type="button" data-sort="featured" class="active">Empfohlen</button>
+            <button type="button" data-sort="discount">Rabatt zuerst</button>
+            <button type="button" data-sort="low">Preis aufsteigend</button>
+            <button type="button" data-sort="high">Preis absteigend</button>
+            <button type="button" data-sort="name">Name A–Z</button>
+          </div>
         </div>
       </div>
 
