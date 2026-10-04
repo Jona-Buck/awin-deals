@@ -245,3 +245,24 @@ html[data-theme="light"] .grain{opacity:.018}
 .card-save svg,.card-save{isolation:isolate}
 .mobile-nav{padding-bottom:max(7px,calc(7px + env(safe-area-inset-bottom)))}
 @media(max-width:760px){.mobile-nav{bottom:max(8px,env(safe-area-inset-bottom))}}
+
+/* Refined sorting control */
+.sorter{position:relative;display:flex;justify-content:flex-end}
+.sort-trigger{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:15px;background:var(--surface);color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.06);cursor:pointer;font:inherit;transition:.25s var(--ease)}
+.sort-trigger:hover,.sort-trigger[aria-expanded="true"]{border-color:color-mix(in srgb,var(--accent) 35%,var(--line));background:color-mix(in srgb,var(--accent-soft) 30%,var(--surface));transform:translateY(-1px)}
+.sort-trigger-label{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.sort-trigger strong{font-size:13px;letter-spacing:-.01em}
+.sort-chevron{font-size:16px;line-height:1;color:var(--muted);margin-left:2px;transform:translateY(-1px);transition:transform .2s var(--ease)}
+.sort-trigger[aria-expanded="true"] .sort-chevron{transform:rotate(180deg) translateY(1px)}
+.sort-menu{position:absolute;z-index:30;top:calc(100% + 8px);right:0;min-width:210px;padding:7px;border:1px solid var(--line);border-radius:18px;background:var(--glass-strong);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:var(--shadow);display:grid;gap:3px}
+.sort-menu button{width:100%;display:flex;align-items:center;justify-content:space-between;border:0;background:transparent;color:var(--muted);padding:11px 12px;border-radius:11px;cursor:pointer;font:inherit;font-size:12px;text-align:left}
+.sort-menu button:hover{background:color-mix(in srgb,var(--accent-soft) 45%,transparent);color:var(--text)}
+.sort-menu button.active{background:color-mix(in srgb,var(--accent-soft) 58%,transparent);color:var(--text);font-weight:800}
+.sort-menu button.active::after{content:"✓";color:var(--accent);font-weight:900}
+@media(max-width:760px){
+  .discover-heading{align-items:flex-start}
+  .sorter{width:100%;justify-content:flex-start;margin-top:14px}
+  .sort-trigger{width:100%;justify-content:flex-start}
+  .sort-trigger strong{margin-right:auto}
+  .sort-menu{left:0;right:0;min-width:0}
+}
