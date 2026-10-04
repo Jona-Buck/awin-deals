@@ -30,11 +30,9 @@ async function init(){
     $("#heroStatsProducts").textContent=String(products.length).padStart(2,"0");
     $("#heroStatsCategories").textContent=String(catCount).padStart(2,"0");
     $("#heroStatsMerchants").textContent=String(merchantCount).padStart(2,"0");
-    renderCategories();
     renderProducts();
     renderSaved();
     bindEvents();
-    setupScrollSpy();
     setupReveal();
   }catch{
     $("#productGrid").innerHTML='<div class="empty-state"><div class="empty-glyph">!</div><h3>Katalog konnte nicht geladen werden.</h3><p>Bitte später erneut versuchen.</p></div>';
@@ -65,33 +63,11 @@ function renderFocus(){
     '</article>';
 }
 
-function categories(){
-  const map=new Map();
-  products.forEach(p=>map.set(p.category,(map.get(p.category)||0)+1));
-  return [...map.entries()].sort((a,b)=>b[1]-a[1]);
-}
-function renderCategories(){
-  const all=[["Alle",products.length],...categories()];
-  $("#categoryRail").innerHTML=all.map(([name,count])=>
-    '<button type="button" class="category-tile '+(state.category===name?'active':'')+'" data-category="'+escapeHtml(name)+'">'+
-      '<strong>'+escapeHtml(name)+'</strong><span>'+count+" "+(count===1?"Produkt":"Produkte")+"</span>"+
-    '</button>'
-  ).join("");
-  $("#categoryRail").querySelectorAll("[data-category]").forEach(btn=>btn.addEventListener("click",()=>{
-    state.category=btn.dataset.category;
-    state.price="Alle";state.discount="Alle";state.merchant="Alle";
-    closeFilterMenu();
-    renderCategories();renderProducts();
-    document.querySelector("#discover").scrollIntoView({behavior:"smooth",block:"start"});
-  }));
-}
-
 function filtered(){
   const q=state.query.trim().toLowerCase();
   let list=products.filter(p=>{
     const hay=[p.name,p.merchant,p.category,p.description,...(p.highlights||[])].join(" ").toLowerCase();
     if(q&&!hay.includes(q))return false;
-    if(state.category!=="Alle"&&p.category!==state.category)return false;
     if(state.merchant!=="Alle"&&p.merchant!==state.merchant)return false;
     if(state.price==="0-25"&&!(p.price<=25))return false;
     if(state.price==="25-50"&&!(p.price>25&&p.price<=50))return false;
@@ -117,7 +93,6 @@ function renderProducts(){
   $("#emptyState").hidden=!!list.length;
   bindSaveButtons();
   setupProductTilt();
-  syncFilterChips();
   syncSortControl();
 }
 
@@ -138,9 +113,7 @@ function productCard(p){
         '<div class="price-row"><strong>'+money(p.price)+'</strong>'+(p.oldPrice?'<s>'+money(p.oldPrice)+'</s>':'')+'</div>'+
       '</div>'+
     '</a>'+
-    '<div class="card-actions"><a class="card-deal" href="'+href(p)+'">Produkt ansehen</a>'+
-      '<button type="button" class="card-save '+(isSaved?"saved":"")+'" data-save-id="'+escapeHtml(id)+'" aria-label="'+(isSaved?"Von Merkliste entfernen":"Zur Merkliste hinzufügen")+'">'+(isSaved?"♥":"♡")+'</button>'+
-    '</div>'+
+    '<button type="button" class="card-save '+(isSaved?"saved":"")+'" data-save-id="'+escapeHtml(id)+'" aria-label="'+(isSaved?"Von Merkliste entfernen":"Zur Merkliste hinzufügen")+'" aria-pressed="'+(isSaved?"true":"false")+'">'+(isSaved?"♥":"♡")+'</button>'+
   '</article>';
 }
 
@@ -164,19 +137,14 @@ function bindEvents(){
   document.addEventListener("click",e=>{
     if(!$("#sorter").contains(e.target))closeSortMenu();
   });
-  $("#searchBtn").addEventListener("click",toggleSearch);
   $("#mobileSearch").addEventListener("click",()=>{toggleSearch(true);window.scrollTo({top:0,behavior:"smooth"})});
   $("#searchInput").addEventListener("input",e=>{state.query=e.target.value;renderProducts()});
   $("#searchClear").addEventListener("click",()=>{$("#searchInput").value="";state.query="";renderProducts();$("#searchInput").focus()});
-  $("#themeBtn").addEventListener("click",toggleTheme);
-  $("#savedBtn").addEventListener("click",()=>setDrawer(true));
   $("#heroSaved").addEventListener("click",()=>setDrawer(true));
   $("#mobileSaved").addEventListener("click",()=>setDrawer(true));
   $("#drawerClose").addEventListener("click",()=>setDrawer(false));
   $("#drawerScrim").addEventListener("click",()=>setDrawer(false));
-  $("#resetFilters").addEventListener("click",resetAll);
   $("#emptyReset").addEventListener("click",resetAll);
-  $("#filterbar").addEventListener("click",handleFilterBar);
   document.addEventListener("keydown",e=>{
     const target=e.target;
     const typing=target&&((target.tagName==="INPUT")||(target.tagName==="TEXTAREA")||(target.tagName==="SELECT")||target.isContentEditable);
@@ -184,35 +152,11 @@ function bindEvents(){
     if(e.key==="Escape"){
       if(!$("#searchPanel").hidden)toggleSearch(false);
       if($("#savedDrawer").classList.contains("open"))setDrawer(false);
-      closeFilterMenu();
+      closeSortMenu();
     }
   });
 }
 
-function handleFilterBar(e){
-  const chip=e.target.closest("[data-filter]");
-  if(!chip)return;
-  const type=chip.dataset.filter;
-  if(type==="category"){
-    state.category="Alle";renderCategories();renderProducts();return;
-  }
-  openFilterMenu(type);
-}
-function openFilterMenu(type){
-  const menu=$("#filterMenu");
-  const current=state[type];
-  let options=[];
-  if(type==="merchant")options=[["Alle","Alle"],...[...new Set(products.map(p=>p.merchant).filter(Boolean))].map(v=>[v,v])];
-  if(type==="price")options=[["Alle","Alle"],["Bis 25 €","0-25"],["25–50 €","25-50"],["Über 50 €","50+"]]; 
-  if(type==="discount")options=[["Alle","Alle"],["Ab 25 %","25+"],["Ab 50 %","50+"],["Ab 70 %","70+"]]; 
-  menu.innerHTML=options.map(([label,value])=>'<button type="button" class="filter-option '+(current===value?"active":"")+'" data-option="'+escapeHtml(value)+'">'+escapeHtml(label)+'</button>').join("");
-  menu.hidden=false;
-  menu.dataset.type=type;
-  menu.querySelectorAll("[data-option]").forEach(btn=>btn.addEventListener("click",()=>{
-    state[type]=btn.dataset.option;menu.hidden=true;renderProducts();
-  }));
-}
-function closeFilterMenu(){$("#filterMenu").hidden=true}
 const sortLabels={featured:"Empfohlen",discount:"Rabatt zuerst",low:"Preis aufsteigend",high:"Preis absteigend",name:"Name A–Z"};
 function toggleSortMenu(){
   const menu=$("#sortMenu"), open=!menu.hidden;
@@ -230,21 +174,10 @@ function syncSortControl(){
   $("#sortCurrent").textContent=label;
   document.querySelectorAll("#sortMenu [data-sort]").forEach(btn=>btn.classList.toggle("active",btn.dataset.sort===state.sort));
 }
-function syncFilterChips(){
-  document.querySelectorAll(".filter-chip").forEach(btn=>{
-    const type=btn.dataset.filter;
-    let active=false;
-    if(type==="category")active=state.category!=="Alle";
-    if(type==="merchant")active=state.merchant!=="Alle";
-    if(type==="price")active=state.price!=="Alle";
-    if(type==="discount")active=state.discount!=="Alle";
-    btn.classList.toggle("active",active||type==="category"&&!active&&state.category==="Alle");
-  });
-}
 function resetAll(){
   state={query:"",category:"Alle",merchant:"Alle",price:"Alle",discount:"Alle",sort:"featured"};
   $("#searchInput").value="";
-  closeFilterMenu();closeSortMenu();renderCategories();renderProducts();
+  closeSortMenu();renderProducts();
 }
 
 function toggleSaved(id){
@@ -269,14 +202,19 @@ function renderSaved(){
 function setDrawer(open){
   $("#savedDrawer").classList.toggle("open",open);
   $("#savedDrawer").setAttribute("aria-hidden",String(!open));
-  $("#savedBtn").setAttribute("aria-expanded",String(open));
+  ["#mobileSaved","#heroSaved"].forEach(selector=>{
+    const btn=$(selector);
+    if(btn)btn.setAttribute("aria-expanded",String(open));
+  });
   document.body.classList.toggle("drawer-open",open);
 }
 function toggleSearch(force){
   const panel=$("#searchPanel");
+  if(!panel)return;
   const open=typeof force==="boolean"?force:panel.hidden;
   panel.hidden=!open;
-  $("#searchBtn").setAttribute("aria-expanded",String(open));
+  const mobileButton=$("#mobileSearch");
+  if(mobileButton)mobileButton.setAttribute("aria-expanded",String(open));
   if(open)setTimeout(()=>$("#searchInput").focus(),0);
 }
 function applyThemeMeta(){const meta=$("#themeColor");if(meta)meta.content=document.documentElement.dataset.theme==="light"?"#f4f4f1":"#080808"}
