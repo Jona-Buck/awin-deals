@@ -187,8 +187,10 @@ function toggleSaved(id){
 }
 function renderSaved(){
   const list=[...saved].map(id=>products.find(p=>String(p.id)===id)).filter(Boolean);
-  $("#savedCount").textContent=list.length;
-  $("#mobileSavedCount").textContent=list.length;
+  const savedCount=$("#savedCount");
+  if(savedCount)savedCount.textContent=list.length;
+  const mobileSavedCount=$("#mobileSavedCount");
+  if(mobileSavedCount)mobileSavedCount.textContent=list.length;
   $("#savedList").innerHTML=list.length?list.map(p=>{
     const img=imagesOf(p)[0];
     return '<div class="saved-item">'+
