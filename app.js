@@ -118,6 +118,7 @@ function renderProducts(){
   bindSaveButtons();
   setupProductTilt();
   syncFilterChips();
+  syncSortControl();
 }
 
 function productCard(p){
@@ -152,7 +153,17 @@ function bindSaveButtons(){
   });
 }
 function bindEvents(){
-  $("#sort").addEventListener("change",e=>{state.sort=e.target.value;renderProducts()});
+  $("#sortTrigger").addEventListener("click",toggleSortMenu);
+  $("#sortMenu").addEventListener("click",e=>{
+    const option=e.target.closest("[data-sort]");
+    if(!option)return;
+    state.sort=option.dataset.sort;
+    closeSortMenu();
+    renderProducts();
+  });
+  document.addEventListener("click",e=>{
+    if(!$("#sorter").contains(e.target))closeSortMenu();
+  });
   $("#searchBtn").addEventListener("click",toggleSearch);
   $("#mobileSearch").addEventListener("click",()=>{toggleSearch(true);window.scrollTo({top:0,behavior:"smooth"})});
   $("#searchInput").addEventListener("input",e=>{state.query=e.target.value;renderProducts()});
@@ -202,6 +213,23 @@ function openFilterMenu(type){
   }));
 }
 function closeFilterMenu(){$("#filterMenu").hidden=true}
+const sortLabels={featured:"Empfohlen",discount:"Rabatt zuerst",low:"Preis aufsteigend",high:"Preis absteigend",name:"Name A–Z"};
+function toggleSortMenu(){
+  const menu=$("#sortMenu"), open=!menu.hidden;
+  menu.hidden=open;
+  $("#sortTrigger").setAttribute("aria-expanded",String(!open));
+}
+function closeSortMenu(){
+  const menu=$("#sortMenu");
+  if(menu)menu.hidden=true;
+  const trigger=$("#sortTrigger");
+  if(trigger)trigger.setAttribute("aria-expanded","false");
+}
+function syncSortControl(){
+  const label=sortLabels[state.sort]||sortLabels.featured;
+  $("#sortCurrent").textContent=label;
+  document.querySelectorAll("#sortMenu [data-sort]").forEach(btn=>btn.classList.toggle("active",btn.dataset.sort===state.sort));
+}
 function syncFilterChips(){
   document.querySelectorAll(".filter-chip").forEach(btn=>{
     const type=btn.dataset.filter;
@@ -214,9 +242,9 @@ function syncFilterChips(){
   });
 }
 function resetAll(){
-  state={query:"",category:"Alle",merchant:"Alle",price:"Alle",discount:"Alle",sort:"featured"}; $("#sort").value="featured";
+  state={query:"",category:"Alle",merchant:"Alle",price:"Alle",discount:"Alle",sort:"featured"};
   $("#searchInput").value="";
-  closeFilterMenu();renderCategories();renderProducts();
+  closeFilterMenu();closeSortMenu();renderCategories();renderProducts();
 }
 
 function toggleSaved(id){
