@@ -376,7 +376,7 @@ html[data-theme="light"] .grain{opacity:.018}
   align-items:center;
   width:max-content;
   gap:24px;
-  animation:brand-scroll 18s linear infinite;
+  animation:brand-scroll 12s linear infinite;
   will-change:transform;
 }
 .brand-track span{
@@ -395,9 +395,8 @@ html[data-theme="light"] .grain{opacity:.018}
 }
 @keyframes brand-scroll{to{transform:translateX(-50%)}}
 @media(max-width:760px){
-  .brand-strip{gap:12px;margin-top:-8px;padding:8px 0}
-  .brand-strip-label{font-size:7px}
-  .brand-track{gap:18px;animation-duration:14s}
+  .brand-strip{margin-top:-8px;padding:8px 0}
+  .brand-track{gap:18px;animation-duration:10s}
   .brand-track span{gap:18px;font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){.brand-track{animation:none;transform:none}}
