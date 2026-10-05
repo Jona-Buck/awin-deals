@@ -107,11 +107,20 @@
     </div>
   </aside>
 
-  <nav class="mobile-nav" aria-label="Mobile Navigation">
-    <a href="#discover"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4v16"/></svg><span>Entdecken</span></a>
-    <button id="mobileSearch" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-3.8-3.8M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z"/></svg><span>Suche</span></button>
-    <button id="mobileSaved" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75A1.75 1.75 0 0 1 8.25 3h7.5a1.75 1.75 0 0 1 1.75 1.75V21l-5.5-3.25L6.5 21V4.75Z"/></svg><span>Gespeichert</span><b id="mobileSavedCount">0</b></button>
-  </nav>
+  <div class="mobile-quick-menu" id="mobileQuickMenu">
+    <div class="quick-actions" aria-hidden="true">
+      <button id="mobileSearch" class="quick-action" type="button" aria-label="Suche">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-3.8-3.8M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z"/></svg>
+      </button>
+      <button id="mobileSaved" class="quick-action" type="button" aria-label="Gespeicherte Produkte">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75A1.75 1.75 0 0 1 8.25 3h7.5a1.75 1.75 0 0 1 1.75 1.75V21l-5.5-3.25L6.5 21V4.75Z"/></svg>
+        <b id="mobileSavedCount">0</b>
+      </button>
+    </div>
+    <button id="mobileQuickToggle" class="quick-toggle" type="button" aria-label="Navigation öffnen" aria-expanded="false">
+      <span>•••</span>
+    </button>
+  </div>
 
   <script src="app.js"></script>
 </body>
