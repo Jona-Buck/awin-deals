@@ -346,57 +346,63 @@ html[data-theme="light"] .grain{opacity:.018}
 .site-header{display:none!important}
 
 
-/* Quiet brand ticker */
+/* Brand ticker — seamless, names only */
 .brand-strip{
-  display:flex;
-  align-items:center;
-  gap:16px;
+  display:block;
   margin-top:-24px;
   margin-bottom:4px;
-  padding:9px 0;
+  padding:10px 0;
   overflow:hidden;
   border-top:1px solid var(--line-soft);
   border-bottom:1px solid var(--line-soft);
 }
-.brand-strip-label{
-  flex:0 0 auto;
-  font-size:8px;
-  font-weight:900;
-  letter-spacing:.18em;
-  color:var(--faint);
-}
 .brand-marquee{
-  min-width:0;
+  width:100%;
   overflow:hidden;
-  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%);
 }
 .brand-track{
   display:flex;
-  align-items:center;
   width:max-content;
-  gap:24px;
-  animation:brand-scroll 12s linear infinite;
+  align-items:center;
+  animation:brand-scroll 8s linear infinite;
   will-change:transform;
 }
-.brand-track span{
-  display:inline-flex;
+.brand-set{
+  display:flex;
+  flex:0 0 auto;
   align-items:center;
-  gap:24px;
+  gap:30px;
+  padding-right:30px;
+}
+.brand-set span{
+  display:inline-block;
+  flex:0 0 auto;
   color:var(--muted);
   font-size:10px;
-  font-weight:700;
-  letter-spacing:.02em;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:.01em;
   white-space:nowrap;
 }
-.brand-track span::after{
+.brand-set span::after{
   content:"·";
+  margin-left:30px;
   color:var(--faint);
+  font-weight:500;
 }
-@keyframes brand-scroll{to{transform:translateX(-50%)}}
+@keyframes brand-scroll{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
 @media(max-width:760px){
-  .brand-strip{margin-top:-8px;padding:8px 0}
-  .brand-track{gap:18px;animation-duration:10s}
-  .brand-track span{gap:18px;font-size:9px}
+  .brand-strip{margin-top:-8px;padding:9px 0}
+  .brand-set{gap:22px;padding-right:22px}
+  .brand-set span{font-size:9px}
+  .brand-set span::after{margin-left:22px}
+  .brand-track{animation-duration:6.5s}
 }
-@media(prefers-reduced-motion:reduce){.brand-track{animation:none;transform:none}}
+@media(prefers-reduced-motion:reduce){
+  .brand-track{animation:none;transform:none}
+}
