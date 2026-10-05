@@ -137,11 +137,12 @@ function bindEvents(){
   document.addEventListener("click",e=>{
     if(!$("#sorter").contains(e.target))closeSortMenu();
   });
-  $("#mobileSearch").addEventListener("click",()=>{toggleSearch(true);window.scrollTo({top:0,behavior:"smooth"})});
+  $("#mobileQuickToggle").addEventListener("click",toggleQuickMenu);
+  $("#mobileSearch").addEventListener("click",()=>{setQuickMenu(false);toggleSearch(true);window.scrollTo({top:0,behavior:"smooth"})});
   $("#searchInput").addEventListener("input",e=>{state.query=e.target.value;renderProducts()});
   $("#searchClear").addEventListener("click",()=>{$("#searchInput").value="";state.query="";renderProducts();$("#searchInput").focus()});
   $("#heroSaved").addEventListener("click",()=>setDrawer(true));
-  $("#mobileSaved").addEventListener("click",()=>setDrawer(true));
+  $("#mobileSaved").addEventListener("click",()=>{setQuickMenu(false);setDrawer(true)});
   $("#drawerClose").addEventListener("click",()=>setDrawer(false));
   $("#drawerScrim").addEventListener("click",()=>setDrawer(false));
   $("#emptyReset").addEventListener("click",resetAll);
@@ -210,6 +211,21 @@ function setDrawer(open){
   });
   document.body.classList.toggle("drawer-open",open);
 }
+function toggleQuickMenu(force){
+  const wrap=$("#mobileQuickMenu");
+  const toggle=$("#mobileQuickToggle");
+  if(!wrap||!toggle)return;
+  const open=typeof force==="boolean"?force:!wrap.classList.contains("open");
+  wrap.classList.toggle("open",open);
+  toggle.setAttribute("aria-expanded",String(open));
+  toggle.setAttribute("aria-label",open?"Navigation schließen":"Navigation öffnen");
+  const actions=wrap.querySelector(".quick-actions");
+  if(actions)actions.setAttribute("aria-hidden",String(!open));
+}
+function setQuickMenu(open){
+  toggleQuickMenu(!!open);
+}
+
 function toggleSearch(force){
   const panel=$("#searchPanel");
   if(!panel)return;
