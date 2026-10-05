@@ -62,7 +62,7 @@ function renderBrandTicker(){
   if(!track)return;
   const brands=[...new Set([...products.map(brandOf).filter(Boolean),...welcomeBrands])];
   const items=brands.map(b=>'<span>'+escapeHtml(b)+'</span>').join('');
-  track.innerHTML=items+items;
+  track.innerHTML='<div class="brand-set">'+items+'</div><div class="brand-set" aria-hidden="true">'+items+'</div>';
 }
 
 function shortName(name){
