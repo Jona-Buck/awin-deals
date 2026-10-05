@@ -246,10 +246,9 @@ html[data-theme="light"] .grain{opacity:.018}
 
 /* Refined sorting control */
 .sorter{position:relative;display:flex;justify-content:flex-end}
-.sort-trigger{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 11px;border:1px solid var(--line);border-radius:15px;background:var(--surface);color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.06);cursor:pointer;font:inherit;transition:.25s var(--ease)}
+.sort-trigger{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border:1px solid var(--line);border-radius:13px;background:var(--surface);color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.06);cursor:pointer;font:inherit;transition:.25s var(--ease)}
 .sort-trigger:hover,.sort-trigger[aria-expanded="true"]{border-color:color-mix(in srgb,var(--accent) 35%,var(--line));background:color-mix(in srgb,var(--accent-soft) 30%,var(--surface));transform:translateY(-1px)}
-.sort-trigger-label{font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
-.sort-trigger strong{font-size:11px;letter-spacing:-.01em}
+.sort-trigger-label{font-size:10px;color:var(--text);font-weight:800;letter-spacing:-.01em}
 .sort-chevron{font-size:14px;line-height:1;color:var(--muted);margin-left:2px;transform:translateY(-1px);transition:transform .2s var(--ease)}
 .sort-trigger[aria-expanded="true"] .sort-chevron{transform:rotate(180deg) translateY(1px)}
 .sort-menu{position:absolute;z-index:30;top:calc(100% + 8px);right:0;min-width:210px;padding:7px;border:1px solid var(--line);border-radius:18px;background:var(--glass-strong);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:var(--shadow);display:grid;gap:3px}
@@ -262,8 +261,7 @@ html[data-theme="light"] .grain{opacity:.018}
   .discover-heading>div:first-child{min-width:0}
   .discover-heading h2{font-size:clamp(30px,9.5vw,40px)}
   .sorter{width:auto;justify-content:flex-end;margin-top:0}
-  .sort-trigger{width:auto;max-width:118px}
-  .sort-trigger strong{max-width:58px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .sort-trigger{width:auto;max-width:none}
   .sort-menu{left:auto;right:0;min-width:190px}
 }
 
