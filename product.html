@@ -20,17 +20,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="shell nav-shell">
-      <a class="brand" href="index.html" aria-label="Awin Deals Startseite"><span class="brand-mark">A</span><span class="brand-name">Awin<span>Deals</span></span></a>
-      <nav class="main-nav" aria-label="Hauptnavigation"><a href="index.html#discover" class="nav-item">Entdecken</a><a href="index.html#focus" class="nav-item">Im Fokus</a><a href="index.html#categories" class="nav-item">Kategorien</a></nav>
-      <div class="nav-tools">
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="Darstellung wechseln"><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.7 8.7 0 0 1 8.8 3.8a8.7 8.7 0 1 0 11.4 11.4Z"/></svg></button>
-        <button class="saved-btn" id="savedBtn" type="button" aria-label="Merkliste öffnen" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75A1.75 1.75 0 0 1 8.25 3h7.5a1.75 1.75 0 0 1 1.75 1.75V21l-5.5-3.25L6.5 21V4.75Z"/></svg><span id="savedCount">0</span></button>
-      </div>
-    </div>
-  </header>
-
   <main class="detail-shell">
     <a class="back-link" href="index.html#discover">← Zurück zum Entdecken</a>
     <div id="loading" class="detail-loading">Produkt wird geladen …</div>
@@ -79,11 +68,6 @@
     <div class="drawer-panel"><div class="drawer-header"><div><div class="eyebrow">DEINE AUSWAHL</div><h2>Merkliste</h2></div><button class="drawer-close" id="drawerClose" type="button" aria-label="Merkliste schließen">×</button></div><div id="savedList" class="drawer-list"></div></div>
   </aside>
 
-  <nav class="mobile-nav" aria-label="Mobile Navigation">
-    <a href="index.html#discover"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4v16"/></svg><span>Entdecken</span></a>
-    <a href="index.html#categories"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z"/></svg><span>Kategorien</span></a>
-    <button id="mobileSaved" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75A1.75 1.75 0 0 1 8.25 3h7.5a1.75 1.75 0 0 1 1.75 1.75V21l-5.5-3.25L6.5 21V4.75Z"/></svg><span>Gespeichert</span><b id="mobileSavedCount">0</b></button>
-  </nav>
   <script src="product.js"></script>
 </body>
 </html>
