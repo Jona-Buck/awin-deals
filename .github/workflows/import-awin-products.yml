@@ -1,0 +1,55 @@
+name: Import Awin Products
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: awin-product-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Produkte aus Awin importieren
+        env:
+          AWIN_PRODUCT_FEED_URLS: ${{ secrets.AWIN_PRODUCT_FEED_URLS }}
+          AWIN_MAX_PRODUCTS: "1000"
+          AWIN_MIN_DISCOUNT: "0"
+        run: node scripts/import-awin.mjs
+
+      - name: Änderungen prüfen
+        id: changes
+        run: |
+          if git diff --quiet -- products.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Änderungen committen
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "JB Deals Bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add products.json
+          git commit -m "Update Awin product catalogue"
+          git push
+
+      - name: Keine Änderungen
+        if: steps.changes.outputs.changed == 'false'
+        run: echo "Produktkatalog ist bereits aktuell."
