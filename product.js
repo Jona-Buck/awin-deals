@@ -102,15 +102,17 @@ function renderSaved(){
   $("#savedList").querySelectorAll("[data-remove]").forEach(x=>x.addEventListener("click",()=>toggleSaved(x.dataset.remove)));
 }
 function bindEvents(){
-  $("#themeBtn").addEventListener("click",toggleTheme);
-  $("#savedBtn").addEventListener("click",()=>setDrawer(true));
+  const themeBtn=$("#themeBtn");
+  if(themeBtn)themeBtn.addEventListener("click",toggleTheme);
+  const savedBtn=$("#savedBtn");
+  if(savedBtn)savedBtn.addEventListener("click",()=>setDrawer(true));
   $("#mobileSaved").addEventListener("click",()=>setDrawer(true));
   $("#drawerClose").addEventListener("click",()=>setDrawer(false));
   $("#drawerScrim").addEventListener("click",()=>setDrawer(false));
   document.addEventListener("keydown",e=>{if(e.key==="Escape")setDrawer(false)});
 }
-function setDrawer(open){$("#savedDrawer").classList.toggle("open",open);$("#savedDrawer").setAttribute("aria-hidden",String(!open));$("#savedBtn").setAttribute("aria-expanded",String(open));document.body.classList.toggle("drawer-open",open)}
+function setDrawer(open){$("#savedDrawer").classList.toggle("open",open);$("#savedDrawer").setAttribute("aria-hidden",String(!open));const savedBtn=$("#savedBtn");if(savedBtn)savedBtn.setAttribute("aria-expanded",String(open));document.body.classList.toggle("drawer-open",open)}
 function applyThemeMeta(){const meta=$("#themeColor");if(meta)meta.content=document.documentElement.dataset.theme==="light"?"#f4f4f1":"#080808"}
-function restoreTheme(){const v=localStorage.getItem("awinTheme");if(v==="light"||v==="dark")document.documentElement.dataset.theme=v;applyThemeMeta()}
+function restoreTheme(){document.documentElement.dataset.theme="light";localStorage.setItem("awinTheme","light");applyThemeMeta()}
 function toggleTheme(){const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("awinTheme",next);applyThemeMeta()}
 init();
