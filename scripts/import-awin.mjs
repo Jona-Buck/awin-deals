@@ -254,11 +254,17 @@ async function main(){
       console.log(`→ Lade Awin Feed ${i+1}/${urls.length}`);
       const feedText = await downloadText(urls[i]);
       const rows = parseText(feedText);
+      if(!rows.length) throw new Error("Feed enthält keine Datensätze.");
       console.log(`  ${rows.length.toLocaleString("de-DE")} Datensätze gelesen`);
+      let validForFeed = 0;
       for(const row of rows){
         const product = mapProduct(row);
-        if(product) imported.push(product);
+        if(product){
+          imported.push(product);
+          validForFeed++;
+        }
       }
+      if(validForFeed===0) throw new Error("Feed wurde geladen, aber kein gültiges Produkt konnte daraus erstellt werden.");
     }catch(error){
       errors.push(`Feed ${i+1}: ${error instanceof Error ? error.message : String(error)}`);
     }
