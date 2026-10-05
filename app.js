@@ -1,4 +1,5 @@
 let products=[];
+let featuredOrder=[];
 let saved=new Set(readSaved());
 let state={query:"",category:"Alle",merchant:"Alle",price:"Alle",discount:"Alle",sort:"featured"};
 let filterMenu=null;
@@ -24,6 +25,11 @@ async function init(){
     const response=await fetch("products.json",{cache:"no-store"});
     if(!response.ok)throw new Error("products");
     products=(await response.json()).products||[];
+    featuredOrder=products.map((_,i)=>i);
+    for(let i=featuredOrder.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [featuredOrder[i],featuredOrder[j]]=[featuredOrder[j],featuredOrder[i]];
+    }
     $("#year").textContent=new Date().getFullYear();
     const catCount=new Set(products.map(p=>p.category).filter(Boolean)).size;
     const merchantCount=new Set(products.map(p=>p.merchant).filter(Boolean)).size;
@@ -40,20 +46,21 @@ async function init(){
   }
 }
 
+const welcomeBrands=["NAVEE","adidas","PUMA","macron","Samsung","Apple","Jack Wolfskin","Zalando","OTTO","REWE"];
+
 function brandOf(p){
   if(p.brand)return String(p.brand);
   const n=String(p.name||"").trim();
-  if(/^adidas\\b/i.test(n))return "adidas";
-  if(/^puma\\b/i.test(n))return "PUMA";
-  if(/^macron\\b/i.test(n))return "macron";
-  if(/^navee\\b/i.test(n))return "NAVEE";
-  return (n.split(/\\s+/)[0]||p.merchant||"Shop").replace(/[.,].*$/g,"");
+  if(/^adidas\b/i.test(n))return "adidas";
+  if(/^puma\b/i.test(n))return "PUMA";
+  if(/^macron\b/i.test(n))return "macron";
+  if(/^navee\b/i.test(n))return "NAVEE";
+  return (n.split(/\s+/)[0]||p.merchant||"Shop").replace(/[.,].*$/g,"");
 }
 function renderBrandTicker(){
   const track=$("#brandTrack");
   if(!track)return;
-  const brands=[...new Set(products.map(brandOf).filter(Boolean))];
-  if(!brands.length)return;
+  const brands=[...new Set([...products.map(brandOf).filter(Boolean),...welcomeBrands])];
   const items=brands.map(b=>'<span>'+escapeHtml(b)+'</span>').join('');
   track.innerHTML=items+items;
 }
@@ -98,6 +105,10 @@ function filtered(){
     return true;
   });
   const s=state.sort;
+  if(s==="featured"){
+    const rank=new Map(featuredOrder.map((productIndex,rank)=>[String(products[productIndex]?.id),rank]));
+    list.sort((a,b)=>(rank.get(String(a.id))??9999)-(rank.get(String(b.id))??9999));
+  }
   if(s==="discount")list.sort((a,b)=>discountOf(b)-discountOf(a));
   if(s==="low")list.sort((a,b)=>a.price-b.price);
   if(s==="high")list.sort((a,b)=>b.price-a.price);
