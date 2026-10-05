@@ -31,12 +31,31 @@ async function init(){
     $("#heroStatsCategories").textContent=String(catCount).padStart(2,"0");
     $("#heroStatsMerchants").textContent=String(merchantCount).padStart(2,"0");
     renderProducts();
+    renderBrandTicker();
     renderSaved();
     bindEvents();
     setupReveal();
   }catch{
     $("#productGrid").innerHTML='<div class="empty-state"><div class="empty-glyph">!</div><h3>Katalog konnte nicht geladen werden.</h3><p>Bitte später erneut versuchen.</p></div>';
   }
+}
+
+function brandOf(p){
+  if(p.brand)return String(p.brand);
+  const n=String(p.name||"").trim();
+  if(/^adidas\\b/i.test(n))return "adidas";
+  if(/^puma\\b/i.test(n))return "PUMA";
+  if(/^macron\\b/i.test(n))return "macron";
+  if(/^navee\\b/i.test(n))return "NAVEE";
+  return (n.split(/\\s+/)[0]||p.merchant||"Shop").replace(/[.,].*$/g,"");
+}
+function renderBrandTicker(){
+  const track=$("#brandTrack");
+  if(!track)return;
+  const brands=[...new Set(products.map(brandOf).filter(Boolean))];
+  if(!brands.length)return;
+  const items=brands.map(b=>'<span>'+escapeHtml(b)+'</span>').join('');
+  track.innerHTML=items+items;
 }
 
 function shortName(name){
