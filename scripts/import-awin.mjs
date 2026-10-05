@@ -245,6 +245,7 @@ async function main(){
 
   const urls = rawUrls.split(/[,\n]+/).map(clean).filter(Boolean);
   const existing = KEEP_MANUAL ? JSON.parse(await fs.readFile(PRODUCTS_FILE,"utf8")).products || [] : [];
+  const existingAuto = existing.filter(p=>String(p.id||"").startsWith("awin-"));
   const imported = [];
   const errors = [];
 
@@ -286,8 +287,11 @@ async function main(){
     return !importedId && !importedAffiliateUrls.has(String(p.affiliateUrl));
   });
 
+  // Bei einem teilweisen Feed-Fehler niemals den alten funktionierenden Katalog löschen.
+  // Die vorhandenen Auto-Produkte bleiben stehen, bis alle konfigurierten Feeds wieder erfolgreich geladen wurden.
+  const autoProductsToKeep = errors.length ? existingAuto : [];
   const finalMap = new Map();
-  for(const product of [...manual,...importedBest]){
+  for(const product of [...manual,...autoProductsToKeep,...importedBest]){
     if(product?.id) finalMap.set(String(product.id),product);
   }
 
@@ -295,6 +299,7 @@ async function main(){
 
   console.log(`✓ ${importedBest.length.toLocaleString("de-DE")} Feed-Produkte übernommen`);
   console.log(`✓ ${manual.length.toLocaleString("de-DE")} manuell gepflegte Produkte behalten`);
+  if(errors.length) console.log(`⚠️ ${autoProductsToKeep.length.toLocaleString("de-DE")} bisherige Feed-Produkte wegen Feed-Fehler beibehalten`);
   console.log(`✓ ${finalMap.size.toLocaleString("de-DE")} Produkte insgesamt`);
 
   if(errors.length){
