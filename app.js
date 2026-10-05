@@ -171,8 +171,6 @@ function closeSortMenu(){
   if(trigger)trigger.setAttribute("aria-expanded","false");
 }
 function syncSortControl(){
-  const label=sortLabels[state.sort]||sortLabels.featured;
-  $("#sortCurrent").textContent=label;
   document.querySelectorAll("#sortMenu [data-sort]").forEach(btn=>btn.classList.toggle("active",btn.dataset.sort===state.sort));
 }
 function resetAll(){
