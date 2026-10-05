@@ -68,8 +68,8 @@ Der Workflow `.github/workflows/import-awin-products.yml` läuft automatisch all
 
 In GitHub unter **Settings → Secrets and variables → Actions** ein Secret namens `AWIN_PRODUCT_FEED_URLS` anlegen. Darin kommen die vollständigen Awin-Produktfeed-Download-URLs hinein, eine URL pro Zeile.
 
-Awin beschreibt Produktfeeds als aktuelle Produktdaten mit Preisen, Bildern und Awin-Deep-Links; für Publisher können die Feed-URLs über **Toolbox → Create-a-Feed** bzw. die Produktfeed-Funktionen bereitgestellt werden. citeturn217431search0turn217431search3turn217431search7
+Awin beschreibt Produktfeeds als aktuelle Produktdaten mit Preisen, Bildern und Awin-Deep-Links; für Publisher können die Feed-URLs über **Toolbox → Create-a-Feed** bzw. die Produktfeed-Funktionen bereitgestellt werden.
 
 Der Workflow übernimmt standardmäßig maximal **1.000 Produkte pro Importlauf**. Das Limit kann später erhöht werden; bei sehr großen Katalogen sollte die Darstellung auf der Startseite zusätzlich schrittweise geladen werden.
 
-Wichtig: Die Feed-Download-URL bzw. der dafür verwendete Schlüssel gehört nicht in `products.json` oder in den Quellcode, sondern ausschließlich in GitHub Secrets. Awin weist außerdem darauf hin, dass der Schlüssel für die Produktfeed-Liste vom normalen Partner-API-Schlüssel getrennt sein kann. citeturn217431search7turn217431search10
+Wichtig: Die Feed-Download-URL bzw. der dafür verwendete Schlüssel gehört nicht in `products.json` oder in den Quellcode, sondern ausschließlich in GitHub Secrets. Awin weist außerdem darauf hin, dass der Schlüssel für die Produktfeed-Liste vom normalen Partner-API-Schlüssel getrennt sein kann.
