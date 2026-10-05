@@ -272,8 +272,8 @@ function toggleTheme(){
   applyThemeMeta();
 }
 function restoreTheme(){
-  const v=localStorage.getItem("awinTheme");
-  if(v==="light"||v==="dark")document.documentElement.dataset.theme=v;
+  document.documentElement.dataset.theme="light";
+  localStorage.setItem("awinTheme","light");
   applyThemeMeta();
 }
 
