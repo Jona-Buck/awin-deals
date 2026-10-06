@@ -232,7 +232,7 @@ function syncSortControl(){
 function resetAll(){
   state={query:"",category:"Alle",merchant:"Alle",price:"Alle",discount:"Alle",sort:"featured"};
   $("#searchInput").value="";
-  closeSortMenu();renderProducts();
+  closeSortMenu();renderProducts(true);
 }
 
 function toggleSaved(id){
