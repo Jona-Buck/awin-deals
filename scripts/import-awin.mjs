@@ -7,6 +7,7 @@ const PRODUCTS_FILE = new URL("../products.json", import.meta.url);
 const MAX_PRODUCTS = clampInt(process.env.AWIN_MAX_PRODUCTS, 1000, 1, 20000);
 const MIN_DISCOUNT = clampNumber(process.env.AWIN_MIN_DISCOUNT, 0, 0, 100);
 const KEEP_MANUAL = process.env.AWIN_KEEP_MANUAL !== "false";
+const INCLUDE_NOT_JOINED = process.env.AWIN_INCLUDE_NOT_JOINED === "true";
 
 function clampInt(value, fallback, min, max){
   const n = Number.parseInt(value ?? "", 10);
@@ -26,6 +27,21 @@ function first(...values){
   for(const value of values){
     const v = clean(value);
     if(v) return v;
+  }
+  return "";
+}
+
+function rowValue(row, ...wantedNames){
+  const wanted = wantedNames.map(name =>
+    clean(name).toLowerCase().replace(/[\s_-]+/g, "")
+  );
+
+  for(const [key, value] of Object.entries(row ?? {})){
+    const normalizedKey = clean(key).toLowerCase().replace(/[\s_-]+/g, "");
+    if(wanted.includes(normalizedKey)){
+      const v = clean(value);
+      if(v) return v;
+    }
   }
   return "";
 }
@@ -154,6 +170,75 @@ async function downloadText(url){
   return new TextDecoder("utf-8",{fatal:false}).decode(bytes).replace(/^\uFEFF/,"");
 }
 
+async function resolveFeedUrls(){
+  const rawListUrls = clean(process.env.AWIN_FEED_LIST_URLS);
+  const rawDirectUrls = clean(process.env.AWIN_PRODUCT_FEED_URLS);
+
+  const feedUrls = [];
+
+  if(rawListUrls){
+    const listUrls = rawListUrls.split(/[,\n]+/).map(clean).filter(Boolean);
+
+    for(let i=0;i<listUrls.length;i++){
+      console.log(`→ Lade Awin Feed-Liste ${i+1}/${listUrls.length}`);
+      const listText = await downloadText(listUrls[i]);
+      const rows = parseText(listText);
+
+      if(!rows.length) throw new Error(`Feed-Liste ${i+1} enthält keine Datensätze.`);
+
+      let added = 0;
+      for(const row of rows){
+        const membership = rowValue(
+          row,
+          "Membership Status",
+          "membership_status",
+          "MembershipStatus",
+          "Status"
+        ).toLowerCase();
+
+        if(!INCLUDE_NOT_JOINED && membership && !/(joined|beigetreten|member)/i.test(membership)){
+          continue;
+        }
+
+        const url = normalizeUrl(rowValue(
+          row,
+          "URL",
+          "Download URL",
+          "download_url",
+          "Feed URL",
+          "feed_url",
+          "url"
+        ));
+
+        if(url){
+          feedUrls.push(url);
+          added++;
+        }
+      }
+
+      console.log(`  ${rows.length.toLocaleString("de-DE")} Feed-Einträge gefunden, ${added.toLocaleString("de-DE")} zulässige Download-URLs übernommen`);
+    }
+  }
+
+  if(rawDirectUrls){
+    for(const url of rawDirectUrls.split(/[,\n]+/).map(clean).filter(Boolean)){
+      const normalized = normalizeUrl(url);
+      if(normalized) feedUrls.push(normalized);
+    }
+  }
+
+  const unique = [...new Set(feedUrls)];
+  if(!unique.length){
+    throw new Error(
+      "Keine Awin-Feeds gefunden. Hinterlege AWIN_FEED_LIST_URLS als GitHub Secret (empfohlen) " +
+      "oder AWIN_PRODUCT_FEED_URLS für direkte Produktfeed-URLs."
+    );
+  }
+
+  console.log(`✓ ${unique.length.toLocaleString("de-DE")} eindeutige Awin-Feeds werden importiert`);
+  return unique;
+}
+
 function parseSpecifications(value){
   const raw = clean(value);
   if(!raw) return [];
@@ -240,10 +325,7 @@ function score(p){
 }
 
 async function main(){
-  const rawUrls = clean(process.env.AWIN_PRODUCT_FEED_URLS);
-  if(!rawUrls) throw new Error("AWIN_PRODUCT_FEED_URLS ist nicht gesetzt. Hinterlege die Awin-Produktfeed-URL(s) als GitHub Secret.");
-
-  const urls = rawUrls.split(/[,\n]+/).map(clean).filter(Boolean);
+  const urls = await resolveFeedUrls();
   const existing = KEEP_MANUAL ? JSON.parse(await fs.readFile(PRODUCTS_FILE,"utf8")).products || [] : [];
   const existingAuto = existing.filter(p=>String(p.id||"").startsWith("awin-"));
   const imported = [];
@@ -251,7 +333,7 @@ async function main(){
 
   for(let i=0;i<urls.length;i++){
     try{
-      console.log(`→ Lade Awin Feed ${i+1}/${urls.length}`);
+      console.log(`→ Lade Awin Produktfeed ${i+1}/${urls.length}`);
       const feedText = await downloadText(urls[i]);
       const rows = parseText(feedText);
       if(!rows.length) throw new Error("Feed enthält keine Datensätze.");
@@ -265,6 +347,7 @@ async function main(){
         }
       }
       if(validForFeed===0) throw new Error("Feed wurde geladen, aber kein gültiges Produkt konnte daraus erstellt werden.");
+      console.log(`  ✓ ${validForFeed.toLocaleString("de-DE")} gültige Produkte`);
     }catch(error){
       errors.push(`Feed ${i+1}: ${error instanceof Error ? error.message : String(error)}`);
     }
