@@ -2,6 +2,7 @@
 
 import fs from "node:fs/promises";
 import { gunzipSync } from "node:zlib";
+import { processProductFeedStream } from "./awin-stream.mjs";
 
 const PRODUCTS_FILE = new URL("../products.json", import.meta.url);
 const MAX_PRODUCTS = clampInt(process.env.AWIN_MAX_PRODUCTS, 1000, 1, 20000);
@@ -319,8 +320,15 @@ function mapProduct(row){
 }
 
 function score(p){
-  const discount = Number(p._discount || 0);
-  const price = Number(p.price || 0);
+  const explicitDiscount = Number(p?._discount);
+  const oldPrice = Number(p?.oldPrice || 0);
+  const price = Number(p?.price || 0);
+  const badgeDiscount = Number((String(p?.badge || "").match(/(\\d+)/)?.[1] || 0));
+  const discount = Number.isFinite(explicitDiscount)
+    ? explicitDiscount
+    : oldPrice > price && price > 0
+      ? Math.round((1-price/oldPrice)*100)
+      : badgeDiscount;
   return discount*100000-Math.min(price,100000);
 }
 
@@ -358,7 +366,6 @@ async function main(){
   for(let i=0;i<urls.length;i++){
     try{
       console.log(`→ Lade Awin Produktfeed ${i+1}/${urls.length}`);
-      const { processProductFeedStream } = await import("./awin-stream.mjs");
       const result = await processProductFeedStream(
         urls[i],
         mapProduct,
