@@ -15,7 +15,7 @@ concurrency:
 jobs:
   import:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - name: Repository auschecken
         uses: actions/checkout@v4
@@ -27,6 +27,8 @@ jobs:
 
       - name: Produkte aus Awin importieren
         env:
+          AWIN_FEED_LIST_URLS: ${{ secrets.AWIN_FEED_LIST_URLS }}
+          # Direkte Feed-URLs bleiben als Fallback unterstützt.
           AWIN_PRODUCT_FEED_URLS: ${{ secrets.AWIN_PRODUCT_FEED_URLS }}
           AWIN_MAX_PRODUCTS: "1000"
           AWIN_MIN_DISCOUNT: "0"
