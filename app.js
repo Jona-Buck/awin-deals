@@ -175,7 +175,8 @@ function productCard(p){
 }
 
 function bindSaveButtons(){
-  document.querySelectorAll("[data-save-id]").forEach(btn=>{
+  document.querySelectorAll("[data-save-id]:not([data-save-bound])").forEach(btn=>{
+    btn.dataset.saveBound="1";
     btn.addEventListener("click",e=>{
       e.preventDefault();e.stopPropagation();
       toggleSaved(btn.dataset.saveId);
