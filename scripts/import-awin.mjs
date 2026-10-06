@@ -207,7 +207,9 @@ async function resolveFeedUrls(){
           // accidentally matched the word "joined" inside "not joined".
           // Awin's feed-list endpoint has used both "Joined"/"Beigetreten"
           // and "active" for an active publisher relationship.
-          // "Not Joined" must never pass this check.
+          // "Not Joined"/"Notjoined" must never pass this check. Awin may expose
+          // an active relationship as "joined", "Joined", "active" or localized
+          // equivalents in different feed-list versions.
           const isJoined = /^(joined|beigetreten|member|active)$/i.test(normalizedMembership);
 
           if(!isJoined) continue;
