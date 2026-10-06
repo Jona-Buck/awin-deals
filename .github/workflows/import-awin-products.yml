@@ -2,6 +2,11 @@ name: Import Awin Products
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "scripts/import-awin.mjs"
+      - "scripts/awin-stream.mjs"
+      - ".github/workflows/import-awin-products.yml"
   schedule:
     - cron: "15 */6 * * *"
 
