@@ -358,23 +358,28 @@ async function main(){
   for(let i=0;i<urls.length;i++){
     try{
       console.log(`→ Lade Awin Produktfeed ${i+1}/${urls.length}`);
-      const feedText = await downloadText(urls[i]);
-      const rows = parseText(feedText);
-      if(!rows.length) throw new Error("Feed enthält keine Datensätze.");
-      console.log(`  ${rows.length.toLocaleString("de-DE")} Datensätze gelesen`);
-      let validForFeed = 0;
-      for(const row of rows){
-        const product = mapProduct(row);
-        if(product){
+      const { processProductFeedStream } = await import("./awin-stream.mjs");
+      const result = await processProductFeedStream(
+        urls[i],
+        mapProduct,
+        product=>{
           addCandidate(product);
           importedCount++;
-          validForFeed++;
-        }
+        },
+        {retries:3, maxRecordChars:2000000}
+      );
+
+      if(result.validCount===0){
+        throw new Error("Feed wurde geladen, aber kein gültiges Produkt konnte daraus erstellt werden.");
       }
-      if(validForFeed===0) throw new Error("Feed wurde geladen, aber kein gültiges Produkt konnte daraus erstellt werden.");
-      console.log(`  ✓ ${validForFeed.toLocaleString("de-DE")} gültige Produkte`);
+
+      console.log(
+        `  ✓ ${result.rowCount.toLocaleString("de-DE")} Datensätze gelesen, ` +
+        `${result.validCount.toLocaleString("de-DE")} gültige Produkte`
+      );
     }catch(error){
       errors.push(`Feed ${i+1}: ${error instanceof Error ? error.message : String(error)}`);
+      console.warn(`  ⚠️ Feed ${i+1} fehlgeschlagen: ${errors.at(-1)}`);
     }
   }
 
