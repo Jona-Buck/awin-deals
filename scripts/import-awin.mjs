@@ -328,8 +328,32 @@ async function main(){
   const urls = await resolveFeedUrls();
   const existing = KEEP_MANUAL ? JSON.parse(await fs.readFile(PRODUCTS_FILE,"utf8")).products || [] : [];
   const existingAuto = existing.filter(p=>String(p.id||"").startsWith("awin-"));
-  const imported = [];
+  // Nie alle Produkte gleichzeitig im RAM halten: die Feed-Liste kann hunderte
+  // Feeds mit sehr vielen Produkten enthalten. Wir behalten nur einen begrenzten
+  // Kandidaten-Pool und reduzieren ihn regelmäßig auf die besten Produkte.
+  const candidates = new Map();
   const errors = [];
+  let importedCount = 0;
+
+  function addCandidate(product){
+    const key = product.id || product.affiliateUrl;
+    const previous = candidates.get(key);
+    if(!previous || score(product)>score(previous)) candidates.set(key, product);
+
+    // Harte RAM-Begrenzung. Ein paar tausend Kandidaten reichen aus, um am Ende
+    // die besten MAX_PRODUCTS zuverlässig auszuwählen.
+    if(candidates.size > Math.max(MAX_PRODUCTS * 4, 4000)){
+      const best = [...candidates.values()]
+        .map(p=>({...p,_discount:p.oldPrice && p.oldPrice>p.price ? Math.round((1-p.price/p.oldPrice)*100) : Number((p.badge||"").match(/(\\d+)/)?.[1]||0)}))
+        .sort((a,b)=>score(b)-score(a))
+        .slice(0, Math.max(MAX_PRODUCTS * 2, 2000));
+      candidates.clear();
+      for(const p of best){
+        const {_discount,...productWithoutScore}=p;
+        candidates.set(productWithoutScore.id || productWithoutScore.affiliateUrl, productWithoutScore);
+      }
+    }
+  }
 
   for(let i=0;i<urls.length;i++){
     try{
@@ -342,7 +366,8 @@ async function main(){
       for(const row of rows){
         const product = mapProduct(row);
         if(product){
-          imported.push(product);
+          addCandidate(product);
+          importedCount++;
           validForFeed++;
         }
       }
@@ -353,18 +378,11 @@ async function main(){
     }
   }
 
-  if(!imported.length){
+  if(!importedCount){
     throw new Error(errors.length ? errors.join(" | ") : "Keine verwertbaren Produkte gefunden.");
   }
 
-  const deduped = new Map();
-  for(const product of imported){
-    const key = product.id || product.affiliateUrl;
-    const previous = deduped.get(key);
-    if(!previous || score(product)>score(previous)) deduped.set(key,product);
-  }
-
-  const importedBest = [...deduped.values()]
+  const importedBest = [...candidates.values()]
     .map(p=>({...p,_discount:p.oldPrice && p.oldPrice>p.price ? Math.round((1-p.price/p.oldPrice)*100) : Number((p.badge||"").match(/(\d+)/)?.[1]||0)}))
     .sort((a,b)=>score(b)-score(a))
     .slice(0,MAX_PRODUCTS)
@@ -386,7 +404,7 @@ async function main(){
 
   await fs.writeFile(PRODUCTS_FILE,JSON.stringify({products:[...finalMap.values()]},null,2)+"\n");
 
-  console.log(`✓ ${importedBest.length.toLocaleString("de-DE")} Feed-Produkte übernommen`);
+  console.log(`✓ ${importedCount.toLocaleString("de-DE")} gültige Feed-Datensätze verarbeitet; ${importedBest.length.toLocaleString("de-DE")} Top-Produkte übernommen`);
   console.log(`✓ ${manual.length.toLocaleString("de-DE")} manuell gepflegte Produkte behalten`);
   if(errors.length) console.log(`⚠️ ${autoProductsToKeep.length.toLocaleString("de-DE")} bisherige Feed-Produkte wegen Feed-Fehler beibehalten`);
   console.log(`✓ ${finalMap.size.toLocaleString("de-DE")} Produkte insgesamt`);
