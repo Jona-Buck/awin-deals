@@ -61,7 +61,9 @@ function brandOf(p){
 function renderBrandTicker(){
   const track=$("#brandTrack");
   if(!track)return;
-  const brands=[...new Set([...products.map(brandOf).filter(Boolean),...welcomeBrands])];
+  const brands=[...new Set([...products.map(brandOf).filter(Boolean),...welcomeBrands])]
+    .sort((a,b)=>a.length-b.length||a.localeCompare(b,"de"))
+    .slice(0,18);
   const items=brands.map(b=>'<span>'+escapeHtml(b)+'</span>').join('');
   track.innerHTML='<div class="brand-set">'+items+'</div><div class="brand-set" aria-hidden="true">'+items+'</div>';
 }
