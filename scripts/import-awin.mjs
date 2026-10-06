@@ -9,6 +9,12 @@ const MAX_PRODUCTS = clampInt(process.env.AWIN_MAX_PRODUCTS, 1000, 1, 20000);
 const MIN_DISCOUNT = clampNumber(process.env.AWIN_MIN_DISCOUNT, 0, 0, 100);
 const KEEP_MANUAL = process.env.AWIN_KEEP_MANUAL !== "false";
 const INCLUDE_NOT_JOINED = process.env.AWIN_INCLUDE_NOT_JOINED === "true";
+const FORCE_JOINED_ADVERTISER_IDS = new Set(
+  clean(process.env.AWIN_JOINED_ADVERTISER_IDS)
+    .split(/[,\n]+/)
+    .map(clean)
+    .filter(Boolean)
+);
 
 function clampInt(value, fallback, min, max){
   const n = Number.parseInt(value ?? "", 10);
@@ -188,31 +194,59 @@ async function resolveFeedUrls(){
       if(!rows.length) throw new Error(`Feed-Liste ${i+1} enthält keine Datensätze.`);
 
       let added = 0;
+      let forcedJoined = 0;
       for(const row of rows){
-        const membership = rowValue(
+        const membershipRaw = rowValue(
           row,
           "Membership Status",
           "membership_status",
           "MembershipStatus",
           "Status"
-        ).toLowerCase();
+        );
+
+        const membership = membershipRaw
+          .toLowerCase()
+          .replace(/[._-]+/g," ")
+          .replace(/\s+/g," ")
+          .trim();
+
+        const advertiserId = rowValue(
+          row,
+          "Advertiser ID",
+          "advertiser_id",
+          "advertiserId",
+          "AID"
+        );
+
+        const advertiserName = rowValue(
+          row,
+          "Advertiser Name",
+          "advertiser_name",
+          "advertiserName"
+        );
 
         if(!INCLUDE_NOT_JOINED){
-          const normalizedMembership = membership
-            .replace(/[._-]+/g," ")
-            .replace(/\s+/g," ")
-            .trim();
+          // Awin's feed list can expose an active relationship as
+          // "joined"/"Joined", "active" or a localized equivalent.
+          const isJoined = /^(joined|beigetreten|member|active)$/i.test(membership);
 
-          // Awin can return values such as "Not Joined". The old regex
-          // accidentally matched the word "joined" inside "not joined".
-          // Awin's feed-list endpoint has used both "Joined"/"Beigetreten"
-          // and "active" for an active publisher relationship.
-          // "Not Joined"/"Notjoined" must never pass this check. Awin may expose
-          // an active relationship as "joined", "Joined", "active" or localized
-          // equivalents in different feed-list versions.
-          const isJoined = /^(joined|beigetreten|member|active)$/i.test(normalizedMembership);
+          // Reichelt (AID 14954) is already joined on this publisher account.
+          // Some feed-list variants can omit/alter the membership label, so we
+          // allow an explicitly configured joined AID as long as Awin did not
+          // explicitly mark the relationship as pending/rejected/suspended/not joined.
+          const isExplicitlyNotJoined = /^(not\s*joined|pending|suspended|rejected)$/i.test(membership);
+          const forced = FORCE_JOINED_ADVERTISER_IDS.has(clean(advertiserId)) &&
+            !isExplicitlyNotJoined &&
+            !isJoined;
 
-          if(!isJoined) continue;
+          if(!isJoined && !forced) continue;
+
+          if(forced){
+            forcedJoined++;
+            console.log(
+              `  ✓ Explizit freigegebener Joined-Advertiser: ${advertiserName || advertiserId} (AID ${advertiserId || "?"})` 
+            );
+          }
         }
 
         const url = normalizeUrl(rowValue(
@@ -230,8 +264,7 @@ async function resolveFeedUrls(){
           added++;
         }
       }
-
-      console.log(`  ${rows.length.toLocaleString("de-DE")} Feed-Einträge gefunden, ${added.toLocaleString("de-DE")} zulässige Download-URLs übernommen`);
+      console.log(`  ${rows.length.toLocaleString("de-DE")} Feed-Einträge gefunden, ${added.toLocaleString("de-DE")} zulässige Download-URLs übernommen${forcedJoined ? ` (${forcedJoined} explizit freigegebene Joined-Feeds)` : ""}`);
     }
   }
 
