@@ -205,7 +205,10 @@ async function resolveFeedUrls(){
 
           // Awin can return values such as "Not Joined". The old regex
           // accidentally matched the word "joined" inside "not joined".
-          const isJoined = /^(joined|beigetreten|member)$/i.test(normalizedMembership);
+          // Awin's feed-list endpoint has used both "Joined"/"Beigetreten"
+          // and "active" for an active publisher relationship.
+          // "Not Joined" must never pass this check.
+          const isJoined = /^(joined|beigetreten|member|active)$/i.test(normalizedMembership);
 
           if(!isJoined) continue;
         }
