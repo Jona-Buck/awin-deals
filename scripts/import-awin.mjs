@@ -299,13 +299,62 @@ function roundMoney(value){
   return Math.round(value*100)/100;
 }
 
+function imageKey(url){
+  try{
+    const u = new URL(url);
+    u.hash = "";
+    u.search = "";
+    return u.toString().toLowerCase();
+  }catch{
+    return clean(url).toLowerCase();
+  }
+}
+
+function buildImageCandidates(row){
+  const primary = [
+    row.large_image,
+    row.aw_image_url,
+    row.image_link,
+    row.merchant_image_url
+  ].map(normalizeUrl).filter(Boolean)[0] || "";
+
+  const alternates = [
+    row.alternate_image,
+    row.alternate_image_two,
+    row.alternate_image_three,
+    row.additional_image,
+    row.additional_image_link,
+    row.additional_image_url,
+    row.image_2,
+    row.image_3,
+    row.image_url_2,
+    row.image_url_3,
+    row.secondary_image,
+    row.secondary_image_url
+  ].map(normalizeUrl).filter(Boolean);
+
+  const fallback = [
+    row.large_image,
+    row.aw_image_url,
+    row.image_link,
+    row.merchant_image_url
+  ].map(normalizeUrl).filter(Boolean);
+
+  const preferred = [primary,...alternates];
+  const source = alternates.length ? preferred : fallback;
+  const seen = new Set();
+  return source.filter(url=>{
+    const key = imageKey(url);
+    if(!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0,6);
+}
+
 function mapProduct(row){
   const affiliateUrl = normalizeUrl(first(row.aw_deep_link,row.awin_deep_link,row.tracking_link,row.affiliate_url));
   const productUrl = normalizeUrl(first(row.merchant_deep_link,row.product_url,row.purl));
-  const imageCandidates = [
-    row.large_image,row.merchant_image_url,row.aw_image_url,row.image_link,
-    row.alternate_image,row.alternate_image_two,row.alternate_image_three
-  ].map(normalizeUrl).filter(Boolean);
+  const imageCandidates = buildImageCandidates(row);
 
   const name = first(row.product_name,row.name,row.title);
   const merchant = first(row.merchant_name,row.shop_name,row.merchant);
