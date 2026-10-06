@@ -2,7 +2,6 @@
 
 import fs from "node:fs/promises";
 import { gunzipSync } from "node:zlib";
-import { processProductFeedStream } from "./awin-stream.mjs";
 
 const PRODUCTS_FILE = new URL("../products.json", import.meta.url);
 const MAX_PRODUCTS = clampInt(process.env.AWIN_MAX_PRODUCTS, 1000, 1, 20000);
@@ -451,27 +450,40 @@ async function main(){
   for(let i=0;i<urls.length;i++){
     try{
       console.log(`→ Lade Awin Produktfeed ${i+1}/${urls.length}`);
-      const result = await processProductFeedStream(
-        urls[i],
-        mapProduct,
-        product=>{
+
+      // Pro Feed wird nur dessen eigener Text/Parse-Bestand im RAM gehalten.
+      // Danach kann V8 ihn wieder freigeben. Das vermeidet den zuvor beobachteten
+      // Heap-Anstieg über viele Feeds hinweg und nutzt den bewährten Awin-Downloadweg.
+      const text = await downloadText(urls[i]);
+      const rows = parseText(text);
+      let validCount = 0;
+
+      for(const row of rows){
+        const product = mapProduct(row);
+        if(product){
           addCandidate(product);
           importedCount++;
-        },
-        {retries:3, maxRecordChars:2000000}
-      );
+          validCount++;
+        }
+      }
 
-      if(result.validCount===0){
+      if(validCount===0){
         throw new Error("Feed wurde geladen, aber kein gültiges Produkt konnte daraus erstellt werden.");
       }
 
       console.log(
-        `  ✓ ${result.rowCount.toLocaleString("de-DE")} Datensätze gelesen, ` +
-        `${result.validCount.toLocaleString("de-DE")} gültige Produkte`
+        `  ✓ ${rows.length.toLocaleString("de-DE")} Datensätze gelesen, ` +
+        `${validCount.toLocaleString("de-DE")} gültige Produkte`
       );
+
+      // Nur wenn der Workflow mit --expose-gc läuft, aktiv Speicher freigeben.
+      // So bleibt der Import auch bei Hunderten sehr großen Feeds stabil.
+      if(typeof global.gc === "function") global.gc();
     }catch(error){
       errors.push(`Feed ${i+1}: ${error instanceof Error ? error.message : String(error)}`);
       console.warn(`  ⚠️ Feed ${i+1} fehlgeschlagen: ${errors.at(-1)}`);
+
+      if(typeof global.gc === "function") global.gc();
     }
   }
 
