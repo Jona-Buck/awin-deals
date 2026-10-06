@@ -37,6 +37,10 @@ jobs:
           AWIN_PRODUCT_FEED_URLS: ${{ secrets.AWIN_PRODUCT_FEED_URLS }}
           AWIN_MAX_PRODUCTS: "1000"
           AWIN_MIN_DISCOUNT: "0"
+          # Reichelt ist auf dem Publisher-Konto bereits beigetreten (AID 14954).
+          # Der Importer nutzt dies nur als Fallback, wenn die Feed-Liste den
+          # Membership-Status für diesen Feed nicht sauber liefert.
+          AWIN_JOINED_ADVERTISER_IDS: "14954"
           NODE_OPTIONS: "--max-old-space-size=8192 --expose-gc"
         run: node scripts/import-awin.mjs
 
