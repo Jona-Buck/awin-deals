@@ -168,25 +168,23 @@ export async function processProductFeedStream(url, mapProduct, onProduct, optio
   const body = await responseBody(response);
   const records = csvRecords(body, options.maxRecordChars || 2000000);
 
-  let headerRecord = null;
-  for await(const record of records){
-    if(record.trim()){
-      headerRecord = record;
-      break;
-    }
-  }
-
-  if(!headerRecord) throw new Error("Feed enthält keinen CSV-Header.");
-
-  const delimiter = detectDelimiter(headerRecord);
-  const headers = splitCsvLine(headerRecord,delimiter)
-    .map((h,i)=>String(h || "").replace(/^\uFEFF/,"").trim() || `column_${i}`);
-
+  let delimiter = null;
+  let headers = null;
   let rowCount = 0;
   let validCount = 0;
 
+  // Header und Daten müssen in EINEM Durchlauf verarbeitet werden.
+  // Ein "break" aus einem for-await-of würde den Async-Generator schließen
+  // und anschließend gäbe es keine Produktzeilen mehr zu verarbeiten.
   for await(const record of records){
     if(!record.trim()) continue;
+
+    if(!headers){
+      delimiter = detectDelimiter(record);
+      headers = splitCsvLine(record,delimiter)
+        .map((h,i)=>String(h || "").replace(/^\uFEFF/,"").trim() || `column_${i}`);
+      continue;
+    }
 
     rowCount++;
 
@@ -200,6 +198,8 @@ export async function processProductFeedStream(url, mapProduct, onProduct, optio
       validCount++;
     }
   }
+
+  if(!headers) throw new Error("Feed enthält keinen CSV-Header.");
 
   return {rowCount,validCount};
 }
