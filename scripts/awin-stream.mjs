@@ -8,7 +8,7 @@ import { createGunzip } from "node:zlib";
 
 const execFileAsync = promisify(execFile);
 
-async function downloadFeedToFile(url, filePath){
+async function downloadFeedToFile(url,filePath){
   await execFileAsync(
     "curl",
     [
@@ -16,13 +16,13 @@ async function downloadFeedToFile(url, filePath){
       "--fail",
       "--silent",
       "--show-error",
-      "--retry", "3",
-      "--retry-delay", "2",
-      "--connect-timeout", "30",
-      "--max-time", "600",
-      "--user-agent", "JB-Deals-Awin-Importer/3.0",
-      "--header", "Accept: text/csv,application/json,application/jsonl,application/octet-stream,text/plain,*/*",
-      "--output", filePath,
+      "--retry","3",
+      "--retry-delay","2",
+      "--connect-timeout","30",
+      "--max-time","600",
+      "--user-agent","JB-Deals-Awin-Importer/4.0",
+      "--header","Accept: text/csv,application/json,application/jsonl,application/octet-stream,text/plain,*/*",
+      "--output",filePath,
       url
     ],
     {
@@ -33,7 +33,7 @@ async function downloadFeedToFile(url, filePath){
 }
 
 async function isGzipFile(filePath){
-  const handle = await fsp.open(filePath, "r");
+  const handle = await fsp.open(filePath,"r");
   try{
     const buffer = Buffer.alloc(2);
     const result = await handle.read(buffer,0,2,0);
@@ -41,78 +41,6 @@ async function isGzipFile(filePath){
   }finally{
     await handle.close();
   }
-}
-
-function textChunksFromStream(stream){
-  return (async function*(){
-    const decoder = new TextDecoder("utf-8",{fatal:false});
-
-    for await(const chunk of stream){
-      if(chunk?.length){
-        yield decoder.decode(chunk,{stream:true});
-      }
-    }
-
-    const tail = decoder.decode();
-    if(tail) yield tail;
-  })();
-}
-
-function recordComplete(record){
-  let quoted = false;
-
-  for(let i=0;i<record.length;i++){
-    if(record[i] !== '"') continue;
-
-    if(quoted && record[i+1] === '"'){
-      i++;
-      continue;
-    }
-
-    quoted = !quoted;
-  }
-
-  return !quoted;
-}
-
-async function* csvRecordsFromStream(stream,maxRecordChars=2000000){
-  let pending = "";
-  let record = "";
-
-  for await(const chunk of textChunksFromStream(stream)){
-    pending += chunk;
-
-    let start = 0;
-
-    for(let i=0;i<pending.length;i++){
-      if(pending[i] !== "\n") continue;
-
-      const physicalLine = pending.slice(start,i).replace(/\r$/,"");
-      start = i + 1;
-      record += (record ? "\n" : "") + physicalLine;
-
-      if(record.length > maxRecordChars){
-        throw new Error(
-          "CSV-Datensatz überschreitet " +
-          maxRecordChars.toLocaleString("de-DE") +
-          " Zeichen."
-        );
-      }
-
-      if(recordComplete(record)){
-        yield record;
-        record = "";
-      }
-    }
-
-    pending = pending.slice(start);
-  }
-
-  if(pending){
-    record += (record ? "\n" : "") + pending.replace(/\r$/,"");
-  }
-
-  if(record.trim()) yield record;
 }
 
 function splitCsvLine(line,delimiter){
@@ -152,9 +80,176 @@ function splitCsvLine(line,delimiter){
 }
 
 function detectDelimiter(header){
-  return [",",";","\t"]
-    .map(d => ({d,count:header.split(d).length-1}))
-    .sort((a,b)=>b.count-a.count)[0].d;
+  const candidates = [",",";","\t"];
+  return candidates
+    .map(delimiter => ({
+      delimiter,
+      fields: splitCsvLine(header,delimiter).length
+    }))
+    .sort((a,b)=>b.fields-a.fields)[0].delimiter;
+}
+
+async function* csvRowsFromStream(stream,maxRecordChars=2000000){
+  const decoder = new TextDecoder("utf-8",{fatal:false});
+
+  let headerMode = true;
+  let headerRecord = "";
+  let headerQuoted = false;
+  let headerQuotePending = false;
+
+  let delimiter = null;
+  let inQuotes = false;
+  let quotePending = false;
+  let cell = "";
+  let row = [];
+  let recordChars = 0;
+
+  function checkSize(){
+    if(recordChars > maxRecordChars){
+      throw new Error(
+        "CSV-Datensatz überschreitet " +
+        maxRecordChars.toLocaleString("de-DE") +
+        " Zeichen."
+      );
+    }
+  }
+
+  function finishHeader(){
+    const cleanHeader = headerRecord.replace(/^\uFEFF/,"");
+    delimiter = detectDelimiter(cleanHeader);
+    return splitCsvLine(cleanHeader,delimiter);
+  }
+
+  for await(const chunk of stream){
+    if(!chunk?.length) continue;
+
+    const text = decoder.decode(chunk,{stream:true});
+
+    for(let i=0;i<text.length;i++){
+      const ch = text[i];
+
+      if(headerMode){
+        if(headerQuotePending){
+          if(ch === '"'){
+            headerRecord += '"';
+            headerQuotePending = false;
+            continue;
+          }
+
+          headerQuotePending = false;
+          headerQuoted = false;
+        }
+
+        if(headerQuoted){
+          headerRecord += ch;
+          if(ch === '"') headerQuotePending = true;
+          continue;
+        }
+
+        if(ch === '"'){
+          headerQuoted = true;
+          headerRecord += ch;
+          continue;
+        }
+
+        if(ch === "\n"){
+          headerMode = false;
+          const headers = finishHeader();
+
+          headerRecord = "";
+          headerQuoted = false;
+          headerQuotePending = false;
+          recordChars = 0;
+
+          yield {headers};
+          continue;
+        }
+
+        if(ch !== "\r") headerRecord += ch;
+        recordChars++;
+        checkSize();
+        continue;
+      }
+
+      if(quotePending){
+        if(ch === '"'){
+          cell += '"';
+          quotePending = false;
+          inQuotes = true;
+          recordChars++;
+          checkSize();
+          continue;
+        }
+
+        quotePending = false;
+        inQuotes = false;
+      }
+
+      if(inQuotes){
+        if(ch === '"'){
+          quotePending = true;
+        }else{
+          cell += ch;
+          recordChars++;
+          checkSize();
+        }
+        continue;
+      }
+
+      if(ch === '"'){
+        inQuotes = true;
+        continue;
+      }
+
+      if(ch === delimiter){
+        row.push(cell);
+        cell = "";
+        continue;
+      }
+
+      if(ch === "\n"){
+        row.push(cell);
+        yield {values:row};
+
+        row = [];
+        cell = "";
+        recordChars = 0;
+        continue;
+      }
+
+      if(ch !== "\r"){
+        cell += ch;
+        recordChars++;
+        checkSize();
+      }
+    }
+  }
+
+  const tail = decoder.decode();
+  if(tail){
+    for(let i=0;i<tail.length;i++){
+      // Der Decoder-Tail enthält normalerweise nur ein einzelnes UTF-8-Reststück.
+      // Zur Sicherheit wird es nicht als eigener Datensatz interpretiert.
+      if(!tail[i].trim()) continue;
+      throw new Error("Unerwartetes UTF-8-Decoder-Ende im CSV-Stream.");
+    }
+  }
+
+  if(headerMode){
+    if(headerRecord.trim()){
+      const headers = finishHeader();
+      yield {headers};
+      headerMode = false;
+    }
+    return;
+  }
+
+  if(quotePending) inQuotes = false;
+
+  if(cell.length || row.length){
+    row.push(cell);
+    yield {values:row};
+  }
 }
 
 export async function processProductFeedStream(url,mapProduct,onProduct,options={}){
@@ -168,43 +263,36 @@ export async function processProductFeedStream(url,mapProduct,onProduct,options=
     const source = fs.createReadStream(feedFile);
     const stream = gzip ? source.pipe(createGunzip()) : source;
 
-    const records = csvRecordsFromStream(
-      stream,
-      options.maxRecordChars || 2000000
-    );
-
-    let delimiter = null;
     let headers = null;
     let rowCount = 0;
     let validCount = 0;
 
-    for await(const record of records){
-      if(!record.trim()) continue;
-
-      if(!headers){
-        delimiter = detectDelimiter(record);
-        headers = splitCsvLine(record,delimiter)
-          .map((h,i)=>String(h || "").replace(/^\uFEFF/,"").trim() || ("column_" + i));
+    for await(const item of csvRowsFromStream(
+      stream,
+      options.maxRecordChars || 2000000
+    )){
+      if(item.headers){
+        headers = item.headers;
         continue;
       }
 
+      if(!headers || !item.values) continue;
+
       rowCount++;
 
-      const values = splitCsvLine(record,delimiter);
       const row = {};
-      headers.forEach((header,i)=>{ row[header] = values[i] ?? ""; });
+      headers.forEach((header,i)=>{
+        row[header] = item.values[i] ?? "";
+      });
 
       const product = mapProduct(row);
-
       if(product){
         await onProduct(product);
         validCount++;
       }
     }
 
-    if(!headers){
-      throw new Error("Feed enthält keinen CSV-Header.");
-    }
+    if(!headers) throw new Error("Feed enthält keinen CSV-Header.");
 
     return {rowCount,validCount};
   }finally{
