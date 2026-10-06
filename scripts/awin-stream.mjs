@@ -1,98 +1,61 @@
-import { Readable } from "node:stream";
+import fs from "node:fs";
+import fsp from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { createGunzip } from "node:zlib";
 
-function sleep(ms){
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+const execFileAsync = promisify(execFile);
 
-export async function fetchResponse(url, retries = 3){
-  let lastError = null;
-
-  for(let attempt=1; attempt<=retries; attempt++){
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 120000);
-
-    try{
-      const response = await fetch(url, {
-        signal: controller.signal,
-        headers: {
-          "User-Agent": "JB-Deals-Awin-Importer/2.2",
-          "Accept": "text/csv,application/json,application/jsonl,application/octet-stream,text/plain,*/*"
-        }
-      });
-
-      if(response.ok) return response;
-
-      lastError = new Error(String(response.status) + " " + String(response.statusText));
-      const retryable = response.status === 408 || response.status === 425 ||
-        response.status === 429 || response.status >= 500;
-
-      if(!retryable || attempt === retries) throw lastError;
-    }catch(error){
-      lastError = error instanceof Error ? error : new Error(String(error));
-      if(attempt === retries) throw lastError;
-    }finally{
-      clearTimeout(timer);
+async function downloadFeedToFile(url, filePath){
+  await execFileAsync(
+    "curl",
+    [
+      "--location",
+      "--fail",
+      "--silent",
+      "--show-error",
+      "--retry", "3",
+      "--retry-delay", "2",
+      "--connect-timeout", "30",
+      "--max-time", "600",
+      "--user-agent", "JB-Deals-Awin-Importer/3.0",
+      "--header", "Accept: text/csv,application/json,application/jsonl,application/octet-stream,text/plain,*/*",
+      "--output", filePath,
+      url
+    ],
+    {
+      maxBuffer: 1024 * 1024,
+      windowsHide: true
     }
-
-    await sleep(Math.min(30000, 1500 * 2 ** (attempt-1)));
-  }
-
-  throw lastError || new Error("Unbekannter Abruffehler");
+  );
 }
 
-async function* prependFirst(firstChunk, iterator){
-  if(firstChunk && firstChunk.length) yield firstChunk;
-
-  while(true){
-    const next = await iterator.next();
-    if(next.done) break;
-    if(next.value && next.value.length) yield next.value;
+async function isGzipFile(filePath){
+  const handle = await fsp.open(filePath, "r");
+  try{
+    const buffer = Buffer.alloc(2);
+    const result = await handle.read(buffer,0,2,0);
+    return result.bytesRead === 2 && buffer[0] === 0x1f && buffer[1] === 0x8b;
+  }finally{
+    await handle.close();
   }
 }
 
-async function* byteChunks(response){
-  if(!response.body) throw new Error("Feed-Antwort enthält keinen Body.");
+function textChunksFromStream(stream){
+  return (async function*(){
+    const decoder = new TextDecoder("utf-8",{fatal:false});
 
-  const iterator = response.body[Symbol.asyncIterator]();
-  if(!iterator) throw new Error("Awin-Feed-Body unterstützt keine Stream-Iteration.");
-
-  const first = await iterator.next();
-  if(first.done) throw new Error("Feed-Antwort ist leer.");
-
-  const firstChunk = first.value;
-  const isGzip = firstChunk && firstChunk.length >= 2 &&
-    firstChunk[0] === 0x1f && firstChunk[1] === 0x8b;
-
-  const source = prependFirst(firstChunk, iterator);
-
-  if(isGzip){
-    const gunzip = Readable.from(source).pipe(createGunzip());
-
-    try{
-      for await(const chunk of gunzip){
-        if(chunk && chunk.length) yield chunk;
+    for await(const chunk of stream){
+      if(chunk?.length){
+        yield decoder.decode(chunk,{stream:true});
       }
-    }finally{
-      gunzip.destroy();
     }
-    return;
-  }
 
-  for await(const chunk of source){
-    if(chunk && chunk.length) yield chunk;
-  }
-}
-
-async function* textChunks(response){
-  const decoder = new TextDecoder("utf-8",{fatal:false});
-
-  for await(const chunk of byteChunks(response)){
-    yield decoder.decode(chunk,{stream:true});
-  }
-
-  const tail = decoder.decode();
-  if(tail) yield tail;
+    const tail = decoder.decode();
+    if(tail) yield tail;
+  })();
 }
 
 function recordComplete(record){
@@ -112,14 +75,15 @@ function recordComplete(record){
   return !quoted;
 }
 
-async function* csvRecords(response, maxRecordChars = 2000000){
+async function* csvRecordsFromStream(stream,maxRecordChars=2000000){
   let pending = "";
   let record = "";
 
-  for await(const chunk of textChunks(response)){
+  for await(const chunk of textChunksFromStream(stream)){
     pending += chunk;
 
     let start = 0;
+
     for(let i=0;i<pending.length;i++){
       if(pending[i] !== "\n") continue;
 
@@ -151,7 +115,7 @@ async function* csvRecords(response, maxRecordChars = 2000000){
   if(record.trim()) yield record;
 }
 
-function splitCsvLine(line, delimiter){
+function splitCsvLine(line,delimiter){
   const values = [];
   let cell = "";
   let quoted = false;
@@ -173,8 +137,9 @@ function splitCsvLine(line, delimiter){
       continue;
     }
 
-    if(ch === '"') quoted = true;
-    else if(ch === delimiter){
+    if(ch === '"'){
+      quoted = true;
+    }else if(ch === delimiter){
       values.push(cell);
       cell = "";
     }else{
@@ -188,47 +153,61 @@ function splitCsvLine(line, delimiter){
 
 function detectDelimiter(header){
   return [",",";","\t"]
-    .map(d => ({d, count: header.split(d).length - 1}))
+    .map(d => ({d,count:header.split(d).length-1}))
     .sort((a,b)=>b.count-a.count)[0].d;
 }
 
-export async function processProductFeedStream(url, mapProduct, onProduct, options = {}){
-  const response = await fetchResponse(
-    url,
-    Number.isInteger(options.retries) ? options.retries : 3
-  );
+export async function processProductFeedStream(url,mapProduct,onProduct,options={}){
+  const tempDir = await fsp.mkdtemp(path.join(os.tmpdir(),"jb-awin-"));
+  const feedFile = path.join(tempDir,"feed.dat");
 
-  const records = csvRecords(response, options.maxRecordChars || 2000000);
+  try{
+    await downloadFeedToFile(url,feedFile);
 
-  let delimiter = null;
-  let headers = null;
-  let rowCount = 0;
-  let validCount = 0;
+    const gzip = await isGzipFile(feedFile);
+    const source = fs.createReadStream(feedFile);
+    const stream = gzip ? source.pipe(createGunzip()) : source;
 
-  for await(const record of records){
-    if(!record.trim()) continue;
+    const records = csvRecordsFromStream(
+      stream,
+      options.maxRecordChars || 2000000
+    );
+
+    let delimiter = null;
+    let headers = null;
+    let rowCount = 0;
+    let validCount = 0;
+
+    for await(const record of records){
+      if(!record.trim()) continue;
+
+      if(!headers){
+        delimiter = detectDelimiter(record);
+        headers = splitCsvLine(record,delimiter)
+          .map((h,i)=>String(h || "").replace(/^\uFEFF/,"").trim() || ("column_" + i));
+        continue;
+      }
+
+      rowCount++;
+
+      const values = splitCsvLine(record,delimiter);
+      const row = {};
+      headers.forEach((header,i)=>{ row[header] = values[i] ?? ""; });
+
+      const product = mapProduct(row);
+
+      if(product){
+        await onProduct(product);
+        validCount++;
+      }
+    }
 
     if(!headers){
-      delimiter = detectDelimiter(record);
-      headers = splitCsvLine(record,delimiter)
-        .map((h,i)=>String(h || "").replace(/^\uFEFF/,"").trim() || ("column_" + i));
-      continue;
+      throw new Error("Feed enthält keinen CSV-Header.");
     }
 
-    rowCount++;
-
-    const values = splitCsvLine(record,delimiter);
-    const row = {};
-    headers.forEach((header,i)=>{ row[header] = values[i] ?? ""; });
-
-    const product = mapProduct(row);
-    if(product){
-      await onProduct(product);
-      validCount++;
-    }
+    return {rowCount,validCount};
+  }finally{
+    await fsp.rm(tempDir,{recursive:true,force:true}).catch(()=>{});
   }
-
-  if(!headers) throw new Error("Feed enthält keinen CSV-Header.");
-
-  return {rowCount,validCount};
 }
