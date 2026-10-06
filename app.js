@@ -2,12 +2,13 @@ let products=[];
 let featuredOrder=[];
 let saved=new Set(readSaved());
 let state={query:"",category:"Alle",merchant:"Alle",price:"Alle",discount:"Alle",sort:"featured"};
-let filterMenu=null;
+let visibleLimit=pageSize();
 
 const $=s=>document.querySelector(s);
 const escapeHtml=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 const money=v=>new Intl.NumberFormat("de-DE",{style:"currency",currency:"EUR"}).format(Number(v)||0);
 const imagesOf=p=>[...new Set((Array.isArray(p.images)&&p.images.length?p.images:[p.image]).filter(Boolean))];
+function pageSize(){return window.matchMedia("(max-width:760px)").matches?32:64;}
 
 function readSaved(){
   try{
@@ -36,7 +37,7 @@ async function init(){
     $("#heroStatsProducts").textContent=String(products.length).padStart(2,"0");
     $("#heroStatsCategories").textContent=String(catCount).padStart(2,"0");
     $("#heroStatsMerchants").textContent=String(merchantCount).padStart(2,"0");
-    renderProducts();
+    renderProducts(true);
     renderBrandTicker();
     renderSaved();
     bindEvents();
@@ -84,7 +85,7 @@ function renderFocus(){
       '</div>'+
       '<div class="focus-visual">'+
         (p.badge?'<span class="pill">'+escapeHtml(p.badge)+'</span>':'')+
-        (image?'<img src="'+escapeHtml(image)+'" alt="'+escapeHtml(p.name)+'" loading="lazy" referrerpolicy="no-referrer">':'')+
+        (image?'<img src="'+escapeHtml(image)+'" alt="'+escapeHtml(p.name)+'" loading="lazy" decoding="async" referrerpolicy="no-referrer">':'')+
       '</div>'+
     '</article>';
 }
@@ -116,14 +117,38 @@ function filtered(){
   return list;
 }
 
-function renderProducts(){
+function updateLoadMore(list){
+  const wrap=$("#loadMoreWrap"),button=$("#loadMore");
+  if(!wrap||!button)return;
+  const remaining=Math.max(0,list.length-visibleLimit);
+  wrap.hidden=remaining===0;
+  button.textContent=remaining>0
+    ?"Mehr Produkte laden · "+Math.min(pageSize(),remaining)+" weitere"
+    :"";
+}
+
+function renderProducts(resetLimit=false){
+  if(resetLimit)visibleLimit=pageSize();
   const list=filtered();
+  const visible=list.slice(0,visibleLimit);
   $("#resultSummary").textContent=list.length+" "+(list.length===1?"Produkt":"Produkte")+(state.query?' · Suche: “'+state.query+'”':"");
-  $("#productGrid").innerHTML=list.map(productCard).join("");
+  $("#productGrid").innerHTML=visible.map(productCard).join("");
   $("#emptyState").hidden=!!list.length;
   bindSaveButtons();
   setupProductTilt();
   syncSortControl();
+  updateLoadMore(list);
+}
+
+function loadMoreProducts(){
+  const list=filtered();
+  if(visibleLimit>=list.length)return;
+  const start=visibleLimit;
+  visibleLimit=Math.min(visibleLimit+pageSize(),list.length);
+  $("#productGrid").insertAdjacentHTML("beforeend",list.slice(start,visibleLimit).map(productCard).join(""));
+  bindSaveButtons();
+  setupProductTilt();
+  updateLoadMore(list);
 }
 
 function productCard(p){
@@ -162,20 +187,21 @@ function bindEvents(){
     if(!option)return;
     state.sort=option.dataset.sort;
     closeSortMenu();
-    renderProducts();
+    renderProducts(true);
   });
   document.addEventListener("click",e=>{
     if(!$("#sorter").contains(e.target))closeSortMenu();
   });
   $("#mobileQuickToggle").addEventListener("click",toggleQuickMenu);
   $("#mobileSearch").addEventListener("click",()=>{setQuickMenu(false);toggleSearch(true);window.scrollTo({top:0,behavior:"smooth"})});
-  $("#searchInput").addEventListener("input",e=>{state.query=e.target.value;renderProducts()});
-  $("#searchClear").addEventListener("click",()=>{$("#searchInput").value="";state.query="";renderProducts();$("#searchInput").focus()});
+  $("#searchInput").addEventListener("input",e=>{state.query=e.target.value;renderProducts(true)});
+  $("#searchClear").addEventListener("click",()=>{$("#searchInput").value="";state.query="";renderProducts(true);$("#searchInput").focus()});
   $("#heroSaved").addEventListener("click",()=>setDrawer(true));
   $("#mobileSaved").addEventListener("click",()=>{setQuickMenu(false);setDrawer(true)});
   $("#drawerClose").addEventListener("click",()=>setDrawer(false));
   $("#drawerScrim").addEventListener("click",()=>setDrawer(false));
   $("#emptyReset").addEventListener("click",resetAll);
+  $("#loadMore")?.addEventListener("click",loadMoreProducts);
   document.addEventListener("keydown",e=>{
     const target=e.target;
     const typing=target&&((target.tagName==="INPUT")||(target.tagName==="TEXTAREA")||(target.tagName==="SELECT")||target.isContentEditable);
@@ -212,7 +238,7 @@ function resetAll(){
 function toggleSaved(id){
   id=String(id);
   saved.has(id)?saved.delete(id):saved.add(id);
-  writeSaved();renderProducts();renderSaved();
+  writeSaved();renderProducts(false);renderSaved();
 }
 function renderSaved(){
   const list=[...saved].map(id=>products.find(p=>String(p.id)===id)).filter(Boolean);
