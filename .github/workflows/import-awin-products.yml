@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: awin-product-import
+  group: awin-product-import-v2
   cancel-in-progress: true
 
 jobs:
