@@ -197,8 +197,17 @@ async function resolveFeedUrls(){
           "Status"
         ).toLowerCase();
 
-        if(!INCLUDE_NOT_JOINED && membership && !/(joined|beigetreten|member)/i.test(membership)){
-          continue;
+        if(!INCLUDE_NOT_JOINED){
+          const normalizedMembership = membership
+            .replace(/[._-]+/g," ")
+            .replace(/\s+/g," ")
+            .trim();
+
+          // Awin can return values such as "Not Joined". The old regex
+          // accidentally matched the word "joined" inside "not joined".
+          const isJoined = /^(joined|beigetreten|member)$/i.test(normalizedMembership);
+
+          if(!isJoined) continue;
         }
 
         const url = normalizeUrl(rowValue(
