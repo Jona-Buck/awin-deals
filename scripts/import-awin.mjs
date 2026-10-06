@@ -252,6 +252,30 @@ async function resolveFeedUrls(){
   return unique;
 }
 
+function buildDescription(row){
+  const description = first(
+    row.description,
+    row.product_description,
+    row.product_long_description,
+    row.long_description,
+    row.promotional_text,
+    row.marketing_text,
+    row.product_short_description,
+    row.short_description
+  );
+
+  const detailParts = [
+    ...parseSpecifications(row.specifications),
+    first(row.features, row.key_features, row.feature),
+    first(row.colour, row.color),
+    first(row.size)
+  ].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i);
+
+  const base = clean(description);
+  const extra = detailParts.filter(part => !base.toLowerCase().includes(part.toLowerCase()));
+  return [base, ...extra].filter(Boolean).join(" · ").slice(0,700);
+}
+
 function parseSpecifications(value){
   const raw = clean(value);
   if(!raw) return [];
@@ -287,7 +311,7 @@ function mapProduct(row){
   const merchant = first(row.merchant_name,row.shop_name,row.merchant);
   const brand = first(row.brand_name,row.brand);
   const category = first(row.category_name,row.merchant_category,row.product_type,"Weitere Produkte");
-  const description = first(row.product_short_description,row.description,row.promotional_text);
+  const description = buildDescription(row);
   const price = parseNumber(first(row.search_price,row.store_price,row.price));
   const oldPrice = parseNumber(first(row.product_price_old,row.rrp_price,row.old_price));
   const savingsPercent = parseNumber(first(row.savings_percent,row.discount_percent));
