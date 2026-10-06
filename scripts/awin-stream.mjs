@@ -1,51 +1,97 @@
+function sleep(ms){
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export async function fetchResponse(url, retries = 3){
   let lastError = null;
 
   for(let attempt=1; attempt<=retries; attempt++){
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 120000);
+
     try{
       const response = await fetch(url, {
+        signal: controller.signal,
         headers: {
-          "User-Agent": "JB-Deals-Awin-Importer/2.0",
+          "User-Agent": "JB-Deals-Awin-Importer/2.1",
           "Accept": "text/csv,application/json,application/jsonl,application/octet-stream,text/plain,*/*"
         }
       });
 
       if(response.ok) return response;
 
+      lastError = new Error(String(response.status) + " " + String(response.statusText));
       const retryable = response.status === 408 || response.status === 425 ||
         response.status === 429 || response.status >= 500;
 
-      lastError = new Error(`${response.status} ${response.statusText}`);
       if(!retryable || attempt === retries) throw lastError;
     }catch(error){
       lastError = error instanceof Error ? error : new Error(String(error));
       if(attempt === retries) throw lastError;
+    }finally{
+      clearTimeout(timer);
     }
 
-    await new Promise(resolve => setTimeout(resolve, Math.min(30000, 1500 * 2 ** (attempt-1))));
+    await sleep(Math.min(30000, 1500 * 2 ** (attempt-1)));
   }
 
   throw lastError || new Error("Unbekannter Abruffehler");
 }
 
+function streamFromReader(reader, firstChunk){
+  let first = true;
+
+  return new ReadableStream({
+    async pull(controller){
+      try{
+        if(first){
+          first = false;
+          if(firstChunk && firstChunk.length){
+            controller.enqueue(firstChunk);
+            return;
+          }
+        }
+
+        const result = await reader.read();
+        if(result.done){
+          controller.close();
+          return;
+        }
+
+        if(result.value && result.value.length){
+          controller.enqueue(result.value);
+        }
+      }catch(error){
+        controller.error(error);
+      }
+    },
+    async cancel(reason){
+      try{ await reader.cancel(reason); }catch{}
+    }
+  });
+}
+
 async function responseBody(response){
   if(!response.body) throw new Error("Feed-Antwort enthält keinen Body.");
 
-  const [probe, body] = response.body.tee();
-  const reader = probe.getReader();
-  const firstChunk = await reader.read();
-  await reader.cancel();
+  const reader = response.body.getReader();
+  const first = await reader.read();
+  if(first.done) throw new Error("Feed-Antwort ist leer.");
 
-  const bytes = firstChunk.value;
-  const isGzip = bytes && bytes.length >= 2 && bytes[0] === 0x1f && bytes[1] === 0x8b;
+  const firstChunk = first.value;
+  const isGzip = firstChunk && firstChunk.length >= 2 &&
+    firstChunk[0] === 0x1f && firstChunk[1] === 0x8b;
 
-  if(!isGzip) return body;
+  let body = streamFromReader(reader, firstChunk);
 
-  if(typeof DecompressionStream !== "function"){
-    throw new Error("Gzip-Feed erkannt, aber DecompressionStream ist nicht verfügbar.");
+  if(isGzip){
+    if(typeof DecompressionStream !== "function"){
+      throw new Error("Gzip-Feed erkannt, aber DecompressionStream ist nicht verfügbar.");
+    }
+    body = body.pipeThrough(new DecompressionStream("gzip"));
   }
 
-  return body.pipeThrough(new DecompressionStream("gzip"));
+  return body;
 }
 
 async function* textChunks(body){
