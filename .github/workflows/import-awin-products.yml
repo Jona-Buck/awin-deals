@@ -15,7 +15,7 @@ permissions:
 
 concurrency:
   group: awin-product-import
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   import:
