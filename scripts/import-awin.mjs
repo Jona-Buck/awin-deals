@@ -332,6 +332,91 @@ function score(p){
   return discount*100000-Math.min(price,100000);
 }
 
+async function checkUrl(url, kind){
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 10000);
+
+  try{
+    const response = await fetch(url, {
+      method: "HEAD",
+      redirect: "follow",
+      signal: controller.signal,
+      headers: {
+        "User-Agent": "JB-Deals-Awin-Validator/1.0",
+        "Accept": kind === "image" ? "image/*,*/*;q=0.8" : "*/*"
+      }
+    });
+
+    const status = response.status;
+
+    if(status >= 400 && status !== 403 && status !== 405){
+      return {ok:false,status};
+    }
+
+    if(kind === "image"){
+      const type = String(response.headers.get("content-type") || "").toLowerCase();
+      if(type && !type.startsWith("image/") && status < 400){
+        return {ok:false,status,reason:`kein Bild-Content-Type: ${type}`};
+      }
+    }
+
+    return {ok:true,status};
+  }catch(error){
+    return {
+      ok:false,
+      status:0,
+      reason:error?.name === "AbortError" ? "Timeout" : String(error?.message || error)
+    };
+  }finally{
+    clearTimeout(timer);
+  }
+}
+
+async function validateProducts(products){
+  const concurrency = clampInt(process.env.AWIN_VALIDATION_CONCURRENCY, 12, 1, 30);
+  const valid = [];
+  let checked = 0;
+  let rejected = 0;
+
+  for(let start=0; start<products.length; start+=concurrency){
+    const batch = products.slice(start,start+concurrency);
+
+    const results = await Promise.all(batch.map(async product=>{
+      const [image, affiliate] = await Promise.all([
+        checkUrl(product.image, "image"),
+        checkUrl(product.affiliateUrl, "affiliate")
+      ]);
+
+      return {product,image,affiliate};
+    }));
+
+    for(const result of results){
+      checked++;
+
+      if(!result.image.ok || !result.affiliate.ok){
+        rejected++;
+        const imageInfo = result.image.ok
+          ? "Bild OK"
+          : `Bild ${result.image.status || "ERR"} ${result.image.reason || ""}`.trim();
+        const affiliateInfo = result.affiliate.ok
+          ? "Affiliate-Link OK"
+          : `Affiliate ${result.affiliate.status || "ERR"} ${result.affiliate.reason || ""}`.trim();
+
+        console.warn(`  ✗ Produkt verworfen: ${result.product.name.slice(0,100)} — ${imageInfo}; ${affiliateInfo}`);
+        continue;
+      }
+
+      valid.push(result.product);
+    }
+
+    if(checked % 120 === 0 || checked === products.length){
+      console.log(`  ✓ Link-/Bildprüfung: ${checked}/${products.length} geprüft, ${rejected} verworfen`);
+    }
+  }
+
+  return {valid,rejected};
+}
+
 async function main(){
   const urls = await resolveFeedUrls();
   const existing = KEEP_MANUAL ? JSON.parse(await fs.readFile(PRODUCTS_FILE,"utf8")).products || [] : [];
@@ -394,11 +479,22 @@ async function main(){
     throw new Error(errors.length ? errors.join(" | ") : "Keine verwertbaren Produkte gefunden.");
   }
 
-  const importedBest = [...candidates.values()]
-    .map(p=>({...p,_discount:p.oldPrice && p.oldPrice>p.price ? Math.round((1-p.price/p.oldPrice)*100) : Number((p.badge||"").match(/(\d+)/)?.[1]||0)}))
+  let importedBest = [...candidates.values()]
     .sort((a,b)=>score(b)-score(a))
-    .slice(0,MAX_PRODUCTS)
-    .map(({_discount,...p})=>p);
+    .slice(0,MAX_PRODUCTS);
+
+  console.log(`→ Prüfe ${importedBest.length.toLocaleString("de-DE")} übernommene Produkte auf funktionierende Bilder und Affiliate-Links`);
+  const validation = await validateProducts(importedBest);
+  importedBest = validation.valid;
+
+  if(!importedBest.length){
+    throw new Error("Die Link-/Bildprüfung hat alle importierten Produkte verworfen.");
+  }
+
+  console.log(
+    `✓ Qualitätsprüfung abgeschlossen: ${importedBest.length.toLocaleString("de-DE")} gültige Produkte, ` +
+    `${validation.rejected.toLocaleString("de-DE")} verworfen`
+  );
 
   const importedAffiliateUrls = new Set(importedBest.map(p=>String(p.affiliateUrl)));
   const manual = existing.filter(p=>{
