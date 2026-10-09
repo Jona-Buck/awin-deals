@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jona-buck.github.io/awin-deals/sitemap.xml
