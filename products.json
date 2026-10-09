@@ -589,6 +589,254 @@
       "images": [
         "https://eu.inmotionworld.com/cdn/shop/files/1_dae4e2af-9015-414c-a774-e4e003f9940a.png?v=1753257666&width=1445"
       ]
+    },
+    {
+      "id": "inmotion-climber",
+      "name": "INMOTION Climber",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Dual-Motor-E-Scooter mit zwei 750-W-Motoren, bis zu 56 km Reichweite und einer vom Hersteller angegebenen Höchstgeschwindigkeit von 38 km/h.",
+      "price": 519,
+      "oldPrice": 1099,
+      "badge": "-53%",
+      "category": "E-Scooter",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-climber",
+      "image": "",
+      "highlights": [
+        "Zwei 750-W-Motoren",
+        "Bis zu 56 km Reichweite",
+        "Bis zu 38 km/h laut Hersteller",
+        "Bis zu 36 % Steigung",
+        "10-Zoll-Luftreifen",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-climber&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-climber",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
+    },
+    {
+      "id": "inmotion-air-pro",
+      "name": "INMOTION Air Pro",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Leichter Pendler-E-Scooter mit Heckantrieb, 750 W Spitzenleistung und einer vom Hersteller angegebenen Höchstgeschwindigkeit von bis zu 35 km/h. Laut Shop derzeit ausverkauft.",
+      "price": 399,
+      "oldPrice": 699,
+      "badge": "-43%",
+      "category": "E-Scooter",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-air-pro",
+      "image": "",
+      "highlights": [
+        "750 W Spitzenleistung",
+        "Bis zu 35 km/h laut Hersteller",
+        "Drei Fahrmodi",
+        "10-Zoll-Reifen",
+        "Faltbares Design",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-air-pro&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-air-pro",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
+    },
+    {
+      "id": "inmotion-s1f",
+      "name": "INMOTION S1F",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Komfortorientierter E-Scooter mit Vorder- und Hinterradfederung, 675-Wh-Akku und bis zu 95 km Herstellerreichweite.",
+      "price": 669,
+      "oldPrice": 1099,
+      "badge": "-39%",
+      "category": "E-Scooter",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-s1f",
+      "image": "",
+      "highlights": [
+        "500 W Nennleistung",
+        "Bis zu 95 km Reichweite laut Hersteller",
+        "Bis zu 40 km/h laut Hersteller",
+        "675-Wh-Akku",
+        "Federung vorne und hinten",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-s1f&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-s1f",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
+    },
+    {
+      "id": "inmotion-rs",
+      "name": "INMOTION RS",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Hochleistungs-E-Scooter mit Dual-Motor-Antrieb und höhenverstellbarem Fahrwerk. Die vom Hersteller angegebene Höchstgeschwindigkeit liegt bei bis zu 110 km/h.",
+      "price": 2499,
+      "category": "E-Scooter",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-rs-2",
+      "image": "",
+      "highlights": [
+        "Dual-Motor-Antrieb",
+        "Bis zu 110 km/h laut Hersteller",
+        "Vier Fahrwerkshöhen",
+        "Bis zu 160 km Reichweite laut Hersteller",
+        "IP56",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-rs&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-rs-2",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
+    },
+    {
+      "id": "inmotion-rs-lite",
+      "name": "INMOTION RS Lite",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Leistungsstarker Dual-Motor-E-Scooter mit höhenverstellbarem Fahrwerk, hydraulischen Dämpfern und bis zu 90 km/h Hersteller-Höchstgeschwindigkeit.",
+      "price": 2399,
+      "category": "E-Scooter",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-rs-lite-1",
+      "image": "",
+      "highlights": [
+        "6.000 W Spitzenleistung laut Hersteller",
+        "Bis zu 90 km/h laut Hersteller",
+        "Bis zu 121 km Reichweite laut Hersteller",
+        "Vier Fahrwerkshöhen",
+        "Hydraulische Dämpfer",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-rs-lite&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-rs-lite-1",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
+    },
+    {
+      "id": "inmotion-rs-jet",
+      "name": "INMOTION RS JET",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Dual-Motor-E-Scooter mit verstellbarer Fahrhöhe und einer vom Hersteller angegebenen Höchstgeschwindigkeit von bis zu 80 km/h.",
+      "price": 2199,
+      "category": "E-Scooter",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-rs-jet",
+      "image": "",
+      "highlights": [
+        "Zwei 1.200-W-Motoren laut Hersteller",
+        "Bis zu 80 km/h laut Hersteller",
+        "Bis zu 100 km Reichweite laut Hersteller",
+        "Verstellbare Fahrhöhe",
+        "Federung",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-rs-jet&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-rs-jet",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
+    },
+    {
+      "id": "inmotion-c10",
+      "name": "INMOTION C10",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Stadt-E-Scooter mit zwei Motoren, Federung vorne und hinten sowie einer Hersteller-Höchstgeschwindigkeit von rund 35 km/h.",
+      "price": 619,
+      "category": "E-Scooter",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-c10",
+      "image": "",
+      "highlights": [
+        "Dual-Motor-Antrieb",
+        "Federung vorne und hinten",
+        "10-Zoll-Luftreifen",
+        "Bis zu 40 km Reichweite laut Hersteller",
+        "Dreifach-Bremssystem",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-c10&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-c10",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
+    },
+    {
+      "id": "inmotion-adventure-v14",
+      "name": "INMOTION Adventure (V14-50GB)",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Geländeorientiertes elektrisches Einrad mit 9.000 W Spitzenleistung, Federung und einer Hersteller-Höchstgeschwindigkeit von bis zu 70 km/h.",
+      "price": 3299,
+      "category": "Elektrisches Einrad",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-adventure-v14-50gb",
+      "image": "",
+      "highlights": [
+        "9.000 W Spitzenleistung laut Hersteller",
+        "Bis zu 70 km/h laut Hersteller",
+        "Bis zu 120 km Reichweite laut Hersteller",
+        "Bis zu 50° Steigung laut Hersteller",
+        "2.400-Wh-Akku",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-adventure-v14&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-adventure-v14-50gb",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
+    },
+    {
+      "id": "inmotion-challenger-pro",
+      "name": "INMOTION Challenger Pro (V13 Pro)",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. High-End-Einrad mit 4.500 W Nennleistung, bis zu 10.000 W Spitzenleistung und einer Hersteller-Höchstgeschwindigkeit von rund 90 km/h. Laut Shop derzeit ausverkauft.",
+      "price": 3299,
+      "category": "Elektrisches Einrad",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-challenger-pro",
+      "image": "",
+      "highlights": [
+        "4.500 W Nennleistung",
+        "10.000 W Spitzenleistung laut Hersteller",
+        "Bis zu 90 km Reichweite laut Hersteller",
+        "Bis zu 45° Steigung laut Hersteller",
+        "3024-Wh-Akku",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-challenger-pro&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-challenger-pro",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
+    },
+    {
+      "id": "inmotion-v12",
+      "name": "INMOTION V12/V12HT/V12 Pro",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Leistungsstarkes elektrisches Einrad der V12-Serie mit 2.500-W-Motor und einer vom Hersteller angegebenen Höchstgeschwindigkeit von bis zu 60 km/h.",
+      "price": 2299,
+      "category": "Elektrisches Einrad",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-v12",
+      "image": "",
+      "highlights": [
+        "2.500 W Motor laut Hersteller",
+        "Bis zu 60 km/h laut Hersteller",
+        "Bis zu 155 km Reichweite laut Hersteller",
+        "16-Zoll-Reifen",
+        "IP55 am Rad",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-v12&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-v12",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
+    },
+    {
+      "id": "inmotion-e20",
+      "name": "INMOTION E20",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Elektrisches Einrad mit zwei Reifen an einem Rad, seitlicher Selbststabilisierung und bis zu 30 km Herstellerreichweite. Laut Shop derzeit ausverkauft.",
+      "price": 499,
+      "category": "Elektrisches Einrad",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-e20",
+      "image": "",
+      "highlights": [
+        "Doppelreifen-Design",
+        "Bis zu 20 km/h laut Hersteller",
+        "Bis zu 30 km Reichweite laut Hersteller",
+        "Bis zu 900 W Spitzenleistung laut Hersteller",
+        "Bluetooth-Lautsprecher",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-e20&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-e20",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": []
     }
   ]
 }
