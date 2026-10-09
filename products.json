@@ -567,7 +567,7 @@
     {
       "id": "inmotion-air",
       "name": "INMOTION Air",
-      "description": "Leichter E-Scooter für den Alltag mit 350-W-Motor, bis zu 35 km Reichweite und drei Fahrmodi.",
+      "description": "⚠️ NICHT FÜR DEN ÖFFENTLICHEN STRASSENVERKEHR IN DEUTSCHLAND ZUGELASSEN. Leichter E-Scooter für den Alltag mit 350-W-Motor, bis zu 35 km Reichweite und drei Fahrmodi.",
       "price": 259,
       "oldPrice": 599,
       "badge": "-57%",
@@ -580,7 +580,8 @@
         "Bis zu 25 km/h laut Hersteller",
         "10-Zoll-Reifen",
         "Ca. 4,5 Stunden Ladezeit",
-        "Drei Fahrmodi"
+        "Drei Fahrmodi",
+        "Hinweis: Nicht für den öffentlichen Straßenverkehr in Deutschland zugelassen."
       ],
       "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-air&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-air",
       "currency": "EUR",
