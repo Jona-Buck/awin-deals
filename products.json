@@ -563,6 +563,32 @@
       "images": [
         "https://naveetech.de/cdn/shop/files/Frame_7.png?v=1787911347&width=1500"
       ]
+    },
+    {
+      "id": "inmotion-air",
+      "name": "INMOTION Air",
+      "description": "Leichter E-Scooter für den Alltag mit 350-W-Motor, bis zu 35 km Reichweite und drei Fahrmodi.",
+      "price": 259,
+      "oldPrice": 599,
+      "badge": "-57%",
+      "category": "E-Scooter",
+      "productUrl": "https://eu.inmotionworld.com/products/inmotion-air",
+      "image": "https://eu.inmotionworld.com/cdn/shop/files/1_dae4e2af-9015-414c-a774-e4e003f9940a.png?v=1753257666&width=1445",
+      "highlights": [
+        "350-W-Motor",
+        "Bis zu 35 km Reichweite",
+        "Bis zu 25 km/h laut Hersteller",
+        "10-Zoll-Reifen",
+        "Ca. 4,5 Stunden Ladezeit",
+        "Drei Fahrmodi"
+      ],
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=77224&awinaffid=3104608&clickref=awin-deals-inmotion-air&ued=https%3A%2F%2Feu.inmotionworld.com%2Fproducts%2Finmotion-air",
+      "currency": "EUR",
+      "merchant": "INMOTION EU",
+      "brand": "INMOTION",
+      "images": [
+        "https://eu.inmotionworld.com/cdn/shop/files/1_dae4e2af-9015-414c-a774-e4e003f9940a.png?v=1753257666&width=1445"
+      ]
     }
   ]
 }
