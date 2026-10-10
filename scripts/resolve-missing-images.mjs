@@ -28,7 +28,11 @@ async function fetchProductImages(product) {
     return { id: product.id, status: "failed", reason: "invalid product URL" };
   }
 
-  const endpoint = new URL(sourceUrl.pathname.replace(/\\/+$/, "") + ".js", sourceUrl.origin);
+  if (sourceUrl.hostname !== "eu.inmotionworld.com") {
+    return { id: product.id, status: "failed", reason: "unsupported image source host" };
+  }
+
+  const endpoint = new URL(sourceUrl.pathname.replace(/\/+$/, "") + ".js", sourceUrl.origin);
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 15000);
 
