@@ -297,12 +297,10 @@ function toggleTheme(){
   const html=document.documentElement;
   const next=html.dataset.theme==="dark"?"light":"dark";
   html.dataset.theme=next;
-  localStorage.setItem("awinTheme",next);
   applyThemeMeta();
 }
 function restoreTheme(){
   document.documentElement.dataset.theme="light";
-  localStorage.setItem("awinTheme","light");
   applyThemeMeta();
 }
 
