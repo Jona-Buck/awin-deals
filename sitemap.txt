@@ -1,4 +1,6 @@
 https://jona-buck.github.io/awin-deals/
+https://jona-buck.github.io/awin-deals/impressum.html
+https://jona-buck.github.io/awin-deals/datenschutz.html
 https://jona-buck.github.io/awin-deals/product.html?id=navee-st5-max
 https://jona-buck.github.io/awin-deals/product.html?id=navee-st3-pro
 https://jona-buck.github.io/awin-deals/product.html?id=navee-st3
@@ -22,3 +24,14 @@ https://jona-buck.github.io/awin-deals/product.html?id=navee-exo-s-pro
 https://jona-buck.github.io/awin-deals/product.html?id=navee-urban-go
 https://jona-buck.github.io/awin-deals/product.html?id=navee-urban-elite
 https://jona-buck.github.io/awin-deals/product.html?id=inmotion-air
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-climber
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-air-pro
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-s1f
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-rs
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-rs-lite
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-rs-jet
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-c10
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-adventure-v14
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-challenger-pro
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-v12
+https://jona-buck.github.io/awin-deals/product.html?id=inmotion-e20
