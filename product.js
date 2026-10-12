@@ -113,6 +113,6 @@ function bindEvents(){
 }
 function setDrawer(open){$("#savedDrawer").classList.toggle("open",open);$("#savedDrawer").setAttribute("aria-hidden",String(!open));const savedBtn=$("#savedBtn");if(savedBtn)savedBtn.setAttribute("aria-expanded",String(open));document.body.classList.toggle("drawer-open",open)}
 function applyThemeMeta(){const meta=$("#themeColor");if(meta)meta.content=document.documentElement.dataset.theme==="light"?"#f4f4f1":"#080808"}
-function restoreTheme(){document.documentElement.dataset.theme="light";localStorage.setItem("awinTheme","light");applyThemeMeta()}
-function toggleTheme(){const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;localStorage.setItem("awinTheme",next);applyThemeMeta()}
+function restoreTheme(){document.documentElement.dataset.theme="light";applyThemeMeta()}
+function toggleTheme(){const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;applyThemeMeta()}
 init();
