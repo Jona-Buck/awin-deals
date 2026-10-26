@@ -1138,6 +1138,66 @@
       "merchant": "OTTO",
       "brand": "Apple",
       "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-usb-c-240w-cable-2m&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-240w-usb-c-2m-ladekabel-usb-kabel-usb-c-usb-c-200-cm-1913545453%2F"
+    },
+    {
+      "id": "apple-watch-series-11",
+      "name": "Apple Watch Series 11",
+      "description": "Apple Smartwatch mit Watch OS, Gesundheits- und Fitnessfunktionen sowie Aktivitäts-Tracking.",
+      "price": 335.99,
+      "oldPrice": 449,
+      "category": "Smartwatch",
+      "productUrl": "https://www.otto.de/p/apple-watch-series-11-smartwatch-watch-os-1-tlg-2029107484/",
+      "image": "https://i.otto.de/i/otto/19a55b90-4b2b-5f53-9c0e-5a18cc93b307/apple-watch-series-11-smartwatch-watch-os-1-tlg-black-space-grey.jpg?%24formatz%24=",
+      "highlights": [
+        "Watch OS",
+        "Gesundheits- und Fitnessfunktionen",
+        "Aktivitäts-Tracking",
+        "Apple Watch"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-watch-series-11&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-watch-series-11-smartwatch-watch-os-1-tlg-2029107484%2F"
+    },
+    {
+      "id": "apple-macbook-air-m5-13",
+      "name": "Apple MacBook Air 13 Zoll (M5)",
+      "description": "13,6-Zoll-Notebook mit Apple M5 Chip, 16 GB Arbeitsspeicher und 512 GB SSD in der gezeigten Ausführung.",
+      "price": 1287.42,
+      "oldPrice": 1399,
+      "category": "Notebook",
+      "productUrl": "https://www.otto.de/p/apple-13-inch-macbook-air-notebook-34-46-cm-13-6-zoll-apple-m5-10-core-gpu-16-gb-1000-gb-ssd-2084916188/",
+      "image": "https://i.otto.de/i/otto/44fc0869-f8b4-5f48-99b1-ba7072a191d3/apple-13-inch-macbook-air-notebook-34-46-cm-13-6-zoll-apple-m5-8-core-gpu-16-gb-512-gb-ssd-himmelblau.jpg?%24formatz%24=",
+      "highlights": [
+        "13,6-Zoll-Liquid-Retina-Display",
+        "Apple M5 Chip",
+        "16 GB Arbeitsspeicher",
+        "512 GB SSD"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-macbook-air-m5-13&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-13-inch-macbook-air-notebook-34-46-cm-13-6-zoll-apple-m5-10-core-gpu-16-gb-1000-gb-ssd-2084916188%2F"
+    },
+    {
+      "id": "apple-20w-usb-c-power-adapter",
+      "name": "Apple 20W USB-C Power Adapter",
+      "description": "Kompaktes USB-C-Netzteil zum Laden kompatibler iPhone-, iPad- und weiterer USB-C-Geräte.",
+      "price": 16.14,
+      "oldPrice": 19,
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-20w-usb-c-power-adapter-smartphone-adapter-zu-usb-c-1961857410/",
+      "image": "https://i.otto.de/i/otto/9d2277ea-8b2e-51a2-84e7-ab86e18c300a/apple-20w-usb-c-power-adapter-smartphone-adapter-zu-usb-c.jpg?%24formatz%24=",
+      "highlights": [
+        "20 W Ladeleistung",
+        "USB-C-Anschluss",
+        "Kompaktes Netzteil",
+        "Für kompatible Apple-Geräte"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-20w-usb-c-power-adapter&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-20w-usb-c-power-adapter-smartphone-adapter-zu-usb-c-1961857410%2F"
     }
   ]
 }
