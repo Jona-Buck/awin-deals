@@ -1,5 +1,7 @@
 # Awin Deals
 
+**Verbindliche Arbeitsgrundlage:** [AWIN_DEALS_MASTER_WORKFLOW.md](AWIN_DEALS_MASTER_WORKFLOW.md) – Projektstruktur, Awin-Tracking, Produktpflege, Quellenprüfung, Veröffentlichung und Qualitätskontrollen. Vor Änderungen den aktuellen Repository-Stand prüfen; dieser Leitfaden selbst enthält ebenfalls zeitabhängige Angaben, die bei Bedarf neu zu verifizieren sind.
+
 Moderne öffentliche Produkt- und Affiliate-Deal-Seite für GitHub Pages.
 
 ## Features
