@@ -31,7 +31,7 @@ Awin Deals ist eine **Produkt-Discovery- und Affiliate-Link-Website**, keine eig
 - Technische Basis: HTML, CSS, JavaScript und eine zentrale JSON-Datei; keine klassische Shop-Datenbank und kein eigener Checkout.
 - Awin Publisher-ID (PID), aus bisherigen Awin-Unterlagen bekannt: **3104608**. Bei jeder neuen Tracking-Integration prüfen, ob dies weiterhin die richtige Publisher-ID ist.
 - Sprache und Zielmarkt der Website: überwiegend Deutsch / Deutschland; Produktpreise im Datenmodell werden durch den Code als Euro formatiert.
-- Bekannte Produkt- und Markenbasis beim Abruf am 26. Oktober 2026: **34 Produkte** – 22 von NAVEE und 12 von INMOTION. Kategorien im aktuellen JSON: 25 E-Scooter, 2 Golftrolleys, 1 Exoskelett, 2 E-Bikes und 4 elektrische Einräder. Das ist ein Snapshot, kein dauerhaft gültiger Sollwert.
+- Bekannte Produkt- und Markenbasis beim Abruf am 26. Oktober 2026: **130 Produkte** – 96 Apple, 22 NAVEE und 12 INMOTION. Der Apple-Teil deckt Smartphones, Kopfhörer, Notebooks, Tablets, Smartwatches, Tracker, Zubehör, Desktop-PCs, Streaming-Geräte und Monitore ab. OTTO zeigt zusätzliche Einträge und Varianten (z. B. Farben, Speicher- und Armbandgrößen); der manuell gepflegte Katalog ist deshalb noch kein vollständiger 1:1-Import sämtlicher OTTO-Angebote. Preise und Varianten sind veränderlich. Dieser Stand ist eine Momentaufnahme.
 
 ### Wichtige zuletzt bekannte Programmdaten – immer erneut prüfen
 
