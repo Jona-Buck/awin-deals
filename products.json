@@ -935,6 +935,209 @@
         "https://cdn.shopify.com/s/files/1/0606/2650/1701/files/6_ee609e70-abce-47c6-b53c-be4c3cf8ad1e.jpg?v=1720635356",
         "https://cdn.shopify.com/s/files/1/0606/2650/1701/files/8_ef536393-fe8f-405f-a6e9-313858cd7cc6.jpg?v=1720635356"
       ]
+    },
+    {
+      "id": "apple-iphone-17-pro-max",
+      "name": "Apple iPhone 17 Pro Max",
+      "description": "Apple Smartphone mit 6,9-Zoll-Display, Pro-Kamerasystem und großem Speicher; Farbe und Speichervariante können auf OTTO gewählt werden.",
+      "price": 1307.6,
+      "oldPrice": 1449,
+      "badge": "-10%",
+      "category": "Smartphone",
+      "productUrl": "https://www.otto.de/p/apple-iphone-17-pro-max-smartphone-17-4-cm-6-9-zoll-1000-gb-speicherplatz-48-mp-kamera-2029112297/",
+      "image": "https://i.otto.de/i/otto/49a68512-e4e9-5754-bd2c-327611c06bb6/apple-iphone-17-pro-max-smartphone-17-4-cm-6-9-zoll-256-gb-speicherplatz-48-mp-kamera-cosmic-orange.jpg?%24formatz%24=",
+      "highlights": [
+        "6,9-Zoll-Display",
+        "48-MP-Kamerasystem",
+        "Mehrere Farb- und Speichervarianten",
+        "Konfiguration auf OTTO prüfen"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-17-pro-max&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-17-pro-max-smartphone-17-4-cm-6-9-zoll-1000-gb-speicherplatz-48-mp-kamera-2029112297%2F"
+    },
+    {
+      "id": "apple-airpods-pro-3",
+      "name": "Apple AirPods Pro 3",
+      "description": "Kabellose In-Ear-Kopfhörer mit aktiver Geräuschunterdrückung, Transparenzmodus und Herzfrequenzmessung.",
+      "price": 225.3,
+      "oldPrice": 249,
+      "badge": "-10%",
+      "category": "Kopfhörer",
+      "productUrl": "https://www.otto.de/p/apple-airpods-pro-3-wireless-in-ear-kopfhoerer-active-noise-cancelling-anc-transparenzmodus-true-wireless-kompatibel-mit-siri-siri-bluetooth-2029107352/",
+      "image": "https://i.otto.de/i/otto/ce426c1d-6349-53c6-9018-8da67af5135f/apple-airpods-pro-3-wireless-in-ear-kopfhoerer-active-noise-cancelling-anc-transparenzmodus-true-wireless-kompatibel-mit-siri-siri-bluetooth.jpg?%24formatz%24=",
+      "highlights": [
+        "Aktive Geräuschunterdrückung",
+        "Transparenzmodus",
+        "Herzfrequenzmessung",
+        "Kabellose Bluetooth-Verbindung"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-airpods-pro-3&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-airpods-pro-3-wireless-in-ear-kopfhoerer-active-noise-cancelling-anc-transparenzmodus-true-wireless-kompatibel-mit-siri-siri-bluetooth-2029107352%2F"
+    },
+    {
+      "id": "apple-airpods-4",
+      "name": "Apple AirPods 4",
+      "description": "Kabellose In-Ear-Kopfhörer mit Bluetooth und integrierter Steuerung für Anrufe und Musik.",
+      "price": 133.04,
+      "oldPrice": 149,
+      "badge": "-11%",
+      "category": "Kopfhörer",
+      "productUrl": "https://www.otto.de/p/apple-airpods-4-wireless-in-ear-kopfhoerer-integrierte-steuerung-fuer-anrufe-und-musik-kompatibel-mit-siri-siri-bluetooth-1909236120/",
+      "image": "https://i.otto.de/i/otto/e05ff5d4-0684-5694-b399-de822d69ec7d/apple-airpods-4-wireless-in-ear-kopfhoerer-integrierte-steuerung-fuer-anrufe-und-musik-kompatibel-mit-siri-siri-bluetooth.jpg?%24formatz%24=",
+      "highlights": [
+        "Kabellose Bluetooth-Verbindung",
+        "Steuerung für Anrufe und Musik",
+        "Kompatibel mit Siri",
+        "Kompaktes In-Ear-Design"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-airpods-4&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-airpods-4-wireless-in-ear-kopfhoerer-integrierte-steuerung-fuer-anrufe-und-musik-kompatibel-mit-siri-siri-bluetooth-1909236120%2F"
+    },
+    {
+      "id": "apple-airpods-4-anc",
+      "name": "Apple AirPods 4 mit aktiver Geräuschunterdrückung",
+      "description": "AirPods 4 mit aktiver Geräuschunterdrückung, Transparenzmodus und integrierter Steuerung für Anrufe und Musik.",
+      "price": 197.08,
+      "category": "Kopfhörer",
+      "productUrl": "https://www.otto.de/p/apple-airpods-4-anc-wireless-in-ear-kopfhoerer-transparenzmodus-integrierte-steuerung-fuer-anrufe-und-musik-kompatibel-mit-siri-siri-bluetooth-1909236069/",
+      "image": "https://i.otto.de/i/otto/b63c2185-2f08-5dab-85bc-dd2d86051785/apple-airpods-4-anc-wireless-in-ear-kopfhoerer-transparenzmodus-integrierte-steuerung-fuer-anrufe-und-musik-kompatibel-mit-siri-siri-bluetooth.jpg?%24formatz%24=",
+      "highlights": [
+        "Aktive Geräuschunterdrückung",
+        "Transparenzmodus",
+        "Steuerung für Anrufe und Musik",
+        "Kabellose Bluetooth-Verbindung"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-airpods-4-anc&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-airpods-4-anc-wireless-in-ear-kopfhoerer-transparenzmodus-integrierte-steuerung-fuer-anrufe-und-musik-kompatibel-mit-siri-siri-bluetooth-1909236069%2F"
+    },
+    {
+      "id": "apple-airpods-max-2",
+      "name": "Apple AirPods Max 2",
+      "description": "Kabellose Over-Ear-Kopfhörer von Apple mit Geräuschunterdrückung und Bluetooth-Verbindung.",
+      "price": 567.31,
+      "oldPrice": 579,
+      "category": "Kopfhörer",
+      "productUrl": "https://www.otto.de/p/apple-airpods-max-2-over-ear-kopfhoerer-rauschunterdrueckung-sprachsteuerung-kompatibel-mit-siri-siri-bluetooth-2088946143/",
+      "image": "https://i.otto.de/i/otto/0f87ee74-6fd1-5994-a06d-16cf0e518b83/apple-airpods-max-2-over-ear-kopfhoerer-rauschunterdrueckung-sprachsteuerung-kompatibel-mit-siri-siri-bluetooth-blue.jpg?%24formatz%24=",
+      "highlights": [
+        "Over-Ear-Design",
+        "Geräuschunterdrückung",
+        "Bluetooth",
+        "Sprachsteuerung mit Siri"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-airpods-max-2&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-airpods-max-2-over-ear-kopfhoerer-rauschunterdrueckung-sprachsteuerung-kompatibel-mit-siri-siri-bluetooth-2088946143%2F"
+    },
+    {
+      "id": "apple-earpods-usb-c",
+      "name": "Apple EarPods USB-C",
+      "description": "Kabelgebundene In-Ear-Kopfhörer mit USB-C-Anschluss und integrierter Steuerung.",
+      "price": 14.99,
+      "oldPrice": 19,
+      "badge": "-21%",
+      "category": "Kopfhörer",
+      "productUrl": "https://www.otto.de/p/apple-earpods-usb-c-in-ear-kopfhoerer-integrierte-steuerung-fuer-anrufe-und-musik-1909236060/",
+      "image": "https://i.otto.de/i/otto/d7d375a3-f6ce-5e52-a958-6c301423d0be?fmt=auto&h=380&sm=clamp&upscale=true&w=312",
+      "highlights": [
+        "USB-C-Anschluss",
+        "Kabelgebundene Verbindung",
+        "Integrierte Steuerung",
+        "Für Anrufe und Musik"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-earpods-usb-c&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-earpods-usb-c-in-ear-kopfhoerer-integrierte-steuerung-fuer-anrufe-und-musik-1909236060%2F"
+    },
+    {
+      "id": "apple-macbook-neo-13",
+      "name": "Apple MacBook Neo 13 Zoll",
+      "description": "Kompaktes Apple Notebook mit A18 Pro Chip, 8 GB Arbeitsspeicher und 256 GB SSD in der angebotenen Ausführung.",
+      "price": 723.75,
+      "oldPrice": 799,
+      "category": "Notebook",
+      "productUrl": "https://www.otto.de/p/apple-macbook-neo-13-notebook-33-02-cm-13-zoll-apple-a18-pro-5-core-gpu-8-gb-256-gb-ssd-2085076160/",
+      "image": "https://i.otto.de/i/otto/864e122b-0530-55ef-b22b-d0ae99e48221/apple-macbook-neo-13-notebook-33-02-cm-13-zoll-apple-a18-pro-5-core-gpu-8-gb-256-gb-ssd-zitrus.jpg?%24formatz%24=",
+      "highlights": [
+        "13-Zoll-Display",
+        "Apple A18 Pro Chip",
+        "8 GB Arbeitsspeicher",
+        "256 GB SSD"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-macbook-neo-13&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-macbook-neo-13-notebook-33-02-cm-13-zoll-apple-a18-pro-5-core-gpu-8-gb-256-gb-ssd-2085076160%2F"
+    },
+    {
+      "id": "apple-pencil-usb-c",
+      "name": "Apple Pencil USB-C",
+      "description": "Apple Eingabestift mit USB-C zum Schreiben, Zeichnen und Markieren auf kompatiblen iPads.",
+      "price": 89.12,
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-eingabestift-pencil-usb-c-1795629494/",
+      "image": "https://i.otto.de/i/otto/b5f9a0dc-0824-5521-a5b7-f8cb257e80e1/apple-eingabestift-pencil-usb-c.jpg?%24formatz%24=",
+      "highlights": [
+        "USB-C",
+        "Zum Schreiben und Zeichnen",
+        "Für kompatible iPad-Modelle",
+        "Apple Eingabestift"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-pencil-usb-c&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-eingabestift-pencil-usb-c-1795629494%2F"
+    },
+    {
+      "id": "apple-airtag-2nd-gen-4-pack",
+      "name": "Apple AirTag 2. Generation – 4er-Pack",
+      "description": "Vier Bluetooth-Tracker, mit denen sich Gegenstände über Apples „Wo ist?“-Netzwerk wiederfinden lassen.",
+      "price": 92.79,
+      "oldPrice": 119,
+      "category": "Tracker",
+      "productUrl": "https://www.otto.de/p/apple-airtag-2nd-gen-4er-pack-bluetooth-tracker-2077137394/",
+      "image": "https://i.otto.de/i/otto/2e805976-21ed-5c28-bd33-ce5b161e3875/apple-airtag-2nd-gen-4er-pack-bluetooth-tracker.jpg?%24formatz%24=",
+      "highlights": [
+        "Vier Bluetooth-Tracker",
+        "Nutzung mit Apples „Wo ist?“-App",
+        "Für kompatible Apple-Geräte",
+        "Weiß"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-airtag-2nd-gen-4-pack&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-airtag-2nd-gen-4er-pack-bluetooth-tracker-2077137394%2F"
+    },
+    {
+      "id": "apple-usb-c-240w-cable-2m",
+      "name": "Apple USB-C Ladekabel 240 W, 2 m",
+      "description": "Zwei Meter langes geflochtenes USB-C-Ladekabel für Laden und Datenübertragung.",
+      "price": 27.9,
+      "oldPrice": 35,
+      "badge": "-20%",
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-240w-usb-c-2m-ladekabel-usb-kabel-usb-c-usb-c-200-cm-1913545453/",
+      "image": "https://i.otto.de/i/otto/b6bc7111-3c95-504d-a7a6-428fcbd8a698/apple-240w-usb-c-2m-ladekabel-usb-kabel-usb-c-usb-c-200-cm.jpg?%24formatz%24=",
+      "highlights": [
+        "2 m Länge",
+        "USB-C auf USB-C",
+        "Bis zu 240 W Ladeleistung",
+        "Geflochtenes Kabel"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-usb-c-240w-cable-2m&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-240w-usb-c-2m-ladekabel-usb-kabel-usb-c-usb-c-200-cm-1913545453%2F"
     }
   ]
 }
