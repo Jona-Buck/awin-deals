@@ -45,3 +45,6 @@ https://jona-buck.github.io/awin-deals/product.html?id=apple-macbook-neo-13
 https://jona-buck.github.io/awin-deals/product.html?id=apple-pencil-usb-c
 https://jona-buck.github.io/awin-deals/product.html?id=apple-airtag-2nd-gen-4-pack
 https://jona-buck.github.io/awin-deals/product.html?id=apple-usb-c-240w-cable-2m
+https://jona-buck.github.io/awin-deals/product.html?id=apple-watch-series-11
+https://jona-buck.github.io/awin-deals/product.html?id=apple-macbook-air-m5-13
+https://jona-buck.github.io/awin-deals/product.html?id=apple-20w-usb-c-power-adapter
