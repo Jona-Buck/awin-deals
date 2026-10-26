@@ -1077,7 +1077,8 @@
       "currency": "EUR",
       "merchant": "OTTO",
       "brand": "Apple",
-      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-macbook-neo-13&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-macbook-neo-13-notebook-33-02-cm-13-zoll-apple-a18-pro-5-core-gpu-8-gb-256-gb-ssd-2085076160%2F"
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-macbook-neo-13&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-macbook-neo-13-notebook-33-02-cm-13-zoll-apple-a18-pro-5-core-gpu-8-gb-256-gb-ssd-2085076160%2F",
+      "badge": "-9%"
     },
     {
       "id": "apple-pencil-usb-c",
@@ -1162,14 +1163,14 @@
     {
       "id": "apple-macbook-air-m5-13",
       "name": "Apple MacBook Air 13 Zoll (M5)",
-      "description": "13,6-Zoll-Notebook mit Apple M5 Chip, 16 GB Arbeitsspeicher und 512 GB SSD in der gezeigten Ausführung.",
+      "description": "13,6-Zoll-MacBook Air mit Apple M5 Chip, 16 GB Arbeitsspeicher und 512 GB SSD in der auf OTTO angezeigten Ausführung.",
       "price": 1287.42,
       "oldPrice": 1399,
       "category": "Notebook",
       "productUrl": "https://www.otto.de/p/apple-13-inch-macbook-air-notebook-34-46-cm-13-6-zoll-apple-m5-10-core-gpu-16-gb-1000-gb-ssd-2084916188/",
       "image": "https://i.otto.de/i/otto/44fc0869-f8b4-5f48-99b1-ba7072a191d3/apple-13-inch-macbook-air-notebook-34-46-cm-13-6-zoll-apple-m5-8-core-gpu-16-gb-512-gb-ssd-himmelblau.jpg?%24formatz%24=",
       "highlights": [
-        "13,6-Zoll-Liquid-Retina-Display",
+        "13,6-Zoll Liquid Retina Display",
         "Apple M5 Chip",
         "16 GB Arbeitsspeicher",
         "512 GB SSD"
@@ -1177,7 +1178,8 @@
       "currency": "EUR",
       "merchant": "OTTO",
       "brand": "Apple",
-      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-macbook-air-m5-13&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-13-inch-macbook-air-notebook-34-46-cm-13-6-zoll-apple-m5-10-core-gpu-16-gb-1000-gb-ssd-2084916188%2F"
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-macbook-air-m5-13&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-13-inch-macbook-air-notebook-34-46-cm-13-6-zoll-apple-m5-10-core-gpu-16-gb-1000-gb-ssd-2084916188%2F",
+      "badge": "-8%"
     },
     {
       "id": "apple-20w-usb-c-power-adapter",
@@ -1197,7 +1199,113 @@
       "currency": "EUR",
       "merchant": "OTTO",
       "brand": "Apple",
-      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-20w-usb-c-power-adapter&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-20w-usb-c-power-adapter-smartphone-adapter-zu-usb-c-1961857410%2F"
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-20w-usb-c-power-adapter&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-20w-usb-c-power-adapter-smartphone-adapter-zu-usb-c-1961857410%2F",
+      "badge": "-15%"
+    },
+    {
+      "id": "apple-ipad-11-wifi-2025",
+      "name": "Apple 11\" iPad Wi-Fi (2025)",
+      "description": "11-Zoll-iPad mit A16 Chip, Liquid Retina Display und 128 GB Speicher in der aufgeführten Ausführung.",
+      "price": 450.28,
+      "oldPrice": 499,
+      "badge": "-10%",
+      "category": "Tablet",
+      "productUrl": "https://www.otto.de/p/apple-11-ipad-wi-fi-2025-tablet-10-86-ipados-1961853766/",
+      "image": "https://i.otto.de/i/otto/4a61894e-5758-5aca-a30b-eb9d83c841ed/apple-11-ipad-wi-fi-2025-tablet-10-86-ipados-gelb.jpg?%24formatz%24=",
+      "highlights": [
+        "11-Zoll Liquid Retina Display",
+        "Apple A16 Chip",
+        "128 GB Speicher",
+        "WLAN"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-ipad-11-wifi-2025&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-11-ipad-wi-fi-2025-tablet-10-86-ipados-1961853766%2F"
+    },
+    {
+      "id": "apple-ipad-air-11-wifi",
+      "name": "Apple 11\" iPad Air Wi-Fi",
+      "description": "11-Zoll-iPad Air mit M4 Chip, 128 GB Speicher und Liquid Retina Display in der Wi-Fi-Ausführung.",
+      "price": 767.99,
+      "oldPrice": 799,
+      "badge": "-4%",
+      "category": "Tablet",
+      "productUrl": "https://www.otto.de/p/apple-11-ipad-air-wi-fi-tablet-11-ipados-2084652748/",
+      "image": "https://i.otto.de/i/otto/6f56117e-76a6-5439-92d7-3a3c3124b567?%24responsive_ft2%24=",
+      "highlights": [
+        "11-Zoll Liquid Retina Display",
+        "Apple M4 Chip",
+        "128 GB Speicher",
+        "Wi-Fi"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-ipad-air-11-wifi&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-11-ipad-air-wi-fi-tablet-11-ipados-2084652748%2F"
+    },
+    {
+      "id": "apple-ipad-air-13-wifi",
+      "name": "Apple 13\" iPad Air Wi-Fi",
+      "description": "13-Zoll-iPad Air mit M4 Chip, 128 GB Speicher und Liquid Retina Display in der Wi-Fi-Ausführung.",
+      "price": 960.75,
+      "oldPrice": 999,
+      "badge": "-4%",
+      "category": "Tablet",
+      "productUrl": "https://www.otto.de/p/apple-13-ipad-air-wi-fi-tablet-13-ipados-2084652877/",
+      "image": "https://i.otto.de/i/otto/55231564-212c-5235-bd06-46b6859e8977?%24responsive_ft2%24=",
+      "highlights": [
+        "13-Zoll Liquid Retina Display",
+        "Apple M4 Chip",
+        "128 GB Speicher",
+        "Wi-Fi"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-ipad-air-13-wifi&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-13-ipad-air-wi-fi-tablet-13-ipados-2084652877%2F"
+    },
+    {
+      "id": "apple-ipad-pro-11",
+      "name": "Apple 11-inch iPad Pro",
+      "description": "11-Zoll-iPad Pro mit Ultra Retina XDR Display und 256 GB Speicher in der angebotenen Ausführung.",
+      "price": 1213.8,
+      "oldPrice": 1299,
+      "badge": "-7%",
+      "category": "Tablet",
+      "productUrl": "https://www.otto.de/p/apple-11-inch-ipad-pro-tablet-11-ipados-5g-2036191998/",
+      "image": "https://i.otto.de/i/otto/941b1e59-7969-5e88-bd1b-93d4ed9ebead?%24responsive_ft2%24=",
+      "highlights": [
+        "11-Zoll Ultra Retina XDR Display",
+        "Apple M5 Chip",
+        "256 GB Speicher",
+        "iPadOS"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-ipad-pro-11&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-11-inch-ipad-pro-tablet-11-ipados-5g-2036191998%2F"
+    },
+    {
+      "id": "apple-ipad-pro-13",
+      "name": "Apple 13-inch iPad Pro",
+      "description": "13-Zoll-iPad Pro mit Ultra Retina XDR Display, M5 Chip und 256 GB Speicher in der gezeigten Ausführung.",
+      "price": 1513.8,
+      "oldPrice": 1649,
+      "badge": "-8%",
+      "category": "Tablet",
+      "productUrl": "https://www.otto.de/p/apple-13-inch-ipad-pro-tablet-13-ipados-5g-2036192023/",
+      "image": "https://i.otto.de/i/otto/8054f340-fde3-5f60-918c-78abd341476d?%24responsive_ft2%24=",
+      "highlights": [
+        "13-Zoll Ultra Retina XDR Display",
+        "Apple M5 Chip",
+        "256 GB Speicher",
+        "iPadOS"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-ipad-pro-13&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-13-inch-ipad-pro-tablet-13-ipados-5g-2036192023%2F"
     }
   ]
 }
