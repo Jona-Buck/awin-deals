@@ -2006,8 +2006,8 @@
     {
       "id": "apple-macbook-pro-14-m5-1tb",
       "name": "Apple MacBook Pro 14 Zoll M5, 16 GB / 1 TB",
-      "description": "14,2-Zoll-MacBook Pro mit Apple M5 Chip, 16 GB Arbeitsspeicher und 1 TB SSD in der angezeigten Konfiguration.",
-      "price": 1890,
+      "description": "14,2-Zoll-MacBook Pro mit Apple M5 Chip, 16 GB Arbeitsspeicher und 1 TB SSD in der beschriebenen Ausführung. RAM- und SSD-Varianten der OTTO-Seite prüfen.",
+      "price": 1881.97,
       "oldPrice": 2199,
       "badge": "-14%",
       "category": "Notebook",
@@ -2686,6 +2686,210 @@
       "merchant": "OTTO",
       "brand": "Apple",
       "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-ipad-air-13-smart-folio-m2-m3&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-tablet-huelle-smart-folio-fuer-13-ipad-air-m2-m3-1855835721%2F"
+    },
+    {
+      "id": "apple-tv-4k-3rd-gen-64gb",
+      "name": "Apple TV 4K (3. Generation), 64 GB",
+      "description": "Apple TV 4K Streaming-Box mit A15 Bionic Chip, Dolby Vision, HDR10+ und Siri Remote. Das OTTO-Angebot nennt 64 GB Speicher.",
+      "price": 219,
+      "oldPrice": 229,
+      "badge": "-4%",
+      "category": "Streaming",
+      "productUrl": "https://www.otto.de/p/apple-streaming-box-tv-4k-wi-fi-64gb-3rd-gen-1685791736/",
+      "image": "",
+      "highlights": [
+        "4K Dolby Vision und HDR10+",
+        "A15 Bionic Chip",
+        "64 GB Speicher",
+        "Siri Remote"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-tv-4k-3rd-gen-64gb&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-streaming-box-tv-4k-wi-fi-64gb-3rd-gen-1685791736%2F"
+    },
+    {
+      "id": "apple-tv-4k-4th-gen",
+      "name": "Apple TV 4K (4. Generation)",
+      "description": "Neue Apple TV 4K Streaming-Box. Laut OTTO-Produktseite ist sie ab dem 13. November 2026 erhältlich; die Seite nennt derzeit den Preis für die kommende Generation.",
+      "price": 349,
+      "category": "Streaming",
+      "productUrl": "https://www.otto.de/p/apple-apple-tv-4k-4th-generation-2162813745/",
+      "image": "",
+      "highlights": [
+        "4K HDR Streaming",
+        "Siri und integrierte Mikrofone",
+        "Siri Remote (4. Generation)",
+        "Laut OTTO ab 13.11.2026 erhältlich"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-tv-4k-4th-gen&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-apple-tv-4k-4th-generation-2162813745%2F"
+    },
+    {
+      "id": "apple-studio-display-standard-stand",
+      "name": "Apple Studio Display 27 Zoll, Standardglas, neigungsverstellbarer Standfuß",
+      "description": "27-Zoll-5K-Retina-Monitor von Apple mit Standardglas und neigungsverstellbarem Standfuß.",
+      "price": 1491.15,
+      "oldPrice": 1699,
+      "badge": "-12%",
+      "category": "Monitor",
+      "productUrl": "https://www.otto.de/p/apple-studio-display-led-monitor-68-29-cm-27-5120-x-2880-px-5k-60-hz-retina-standard-glas-neigungsverstellbarer-fuss-2084916143/",
+      "image": "",
+      "highlights": [
+        "27-Zoll 5K Retina Display",
+        "5.120 × 2.880 Pixel",
+        "60 Hz",
+        "Standardglas und neigungsverstellbarer Standfuß"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-studio-display-standard-stand&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-studio-display-led-monitor-68-29-cm-27-5120-x-2880-px-5k-60-hz-retina-standard-glas-neigungsverstellbarer-fuss-2084916143%2F"
+    },
+    {
+      "id": "apple-studio-display-standless",
+      "name": "Apple Studio Display 27 Zoll, Standardglas, ohne Standfuß",
+      "description": "27-Zoll-5K-Retina-Monitor von Apple mit Standardglas und Thunderbolt/USB-C. Dieses Angebot wird ausdrücklich ohne Standfuß geführt.",
+      "price": 913.76,
+      "oldPrice": 1699,
+      "badge": "-46%",
+      "category": "Monitor",
+      "productUrl": "https://www.otto.de/p/apple-studio-display-led-monitor-68-3-cm-27-5120-x-2880-px-5k-retina-1962120145/",
+      "image": "",
+      "highlights": [
+        "27-Zoll 5K Retina Display",
+        "5.120 × 2.880 Pixel",
+        "Thunderbolt 3 und USB-C",
+        "Lieferumfang laut Angebot ohne Standfuß"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-studio-display-standless&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-studio-display-led-monitor-68-3-cm-27-5120-x-2880-px-5k-retina-1962120145%2F"
+    },
+    {
+      "id": "apple-studio-display-nanotexture",
+      "name": "Apple Studio Display 27 Zoll, Nanotexturglas",
+      "description": "27-Zoll-5K-Retina-Monitor mit Nanotexturglas für reduzierte Spiegelungen; die konkrete Standfußvariante auf OTTO prüfen.",
+      "price": 1999,
+      "category": "Monitor",
+      "productUrl": "https://www.otto.de/p/apple-studio-display-nanotexturglas-led-monitor-68-3-cm-27-5120-x-2880-px-5k-retina-nanotexturglas-1962120128/",
+      "image": "",
+      "highlights": [
+        "27-Zoll 5K Retina Display",
+        "5.120 × 2.880 Pixel",
+        "Nanotexturglas",
+        "Mehrere Standfußvarianten erhältlich"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-studio-display-nanotexture&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-studio-display-nanotexturglas-led-monitor-68-3-cm-27-5120-x-2880-px-5k-retina-nanotexturglas-1962120128%2F"
+    },
+    {
+      "id": "apple-studio-display-nanotexture-height-adjustable",
+      "name": "Apple Studio Display 27 Zoll, Nanotexturglas, höhenverstellbarer Standfuß",
+      "description": "27-Zoll-5K-Retina-Monitor von Apple mit Nanotexturglas und neigungs- sowie höhenverstellbarem Standfuß.",
+      "price": 2358.81,
+      "oldPrice": 2399,
+      "badge": "-2%",
+      "category": "Monitor",
+      "productUrl": "https://www.otto.de/p/apple-studio-display-led-monitor-68-29-cm-27-5120-x-2880-px-5k-60-hz-retina-nanotexturglas-neigungs-und-hoehenverstellbarer-fuss-2084916161/",
+      "image": "",
+      "highlights": [
+        "27-Zoll 5K Retina Display",
+        "Nanotexturglas",
+        "Höhen- und neigungsverstellbarer Standfuß",
+        "Thunderbolt und USB-C"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-studio-display-nanotexture-height-adjustable&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-studio-display-led-monitor-68-29-cm-27-5120-x-2880-px-5k-60-hz-retina-nanotexturglas-neigungs-und-hoehenverstellbarer-fuss-2084916161%2F"
+    },
+    {
+      "id": "apple-watch-sport-loop-46mm",
+      "name": "Apple Watch Sport Loop, 46 mm",
+      "description": "Leichtes Apple Watch Sport Loop aus gewebtem Nylon mit Klettverschluss. Farbe und Passform können bei OTTO variieren.",
+      "price": 47.85,
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-smartwatch-armband-sport-loop-2084654455/",
+      "image": "",
+      "highlights": [
+        "Kompatibel mit Apple Watch 46 mm",
+        "Leichtes, atmungsaktives Gewebe",
+        "Klettverschluss",
+        "Farbvarianten auf OTTO prüfen"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-watch-sport-loop-46mm&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-smartwatch-armband-sport-loop-2084654455%2F"
+    },
+    {
+      "id": "apple-watch-sport-band",
+      "name": "Apple Watch Sportarmband",
+      "description": "Apple Watch Sportarmband für verschiedene Apple-Watch-Größen; Farbe und konkrete Größenvariante auf OTTO auswählen.",
+      "price": 39.99,
+      "oldPrice": 49,
+      "badge": "-18%",
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-smartwatch-armband-sportarmband-1909569804/",
+      "image": "",
+      "highlights": [
+        "Kompatibel mit Apple Watch",
+        "Sportliches Armband",
+        "Verschiedene Größen und Farben",
+        "Armbandgröße bei OTTO prüfen"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-watch-sport-band&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-smartwatch-armband-sportarmband-1909569804%2F"
+    },
+    {
+      "id": "apple-watch-link-bracelet",
+      "name": "Apple Watch Gliederarmband",
+      "description": "Apple Watch Gliederarmband aus einer 316L-Edelstahllegierung mit Doppelfaltverschluss. Größe und Farbe auf OTTO wählen.",
+      "price": 309.99,
+      "oldPrice": 349,
+      "badge": "-11%",
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-smartwatch-armband-gliederarmband-1909567673/",
+      "image": "",
+      "highlights": [
+        "316L-Edelstahllegierung",
+        "Glieder können angepasst werden",
+        "Doppelfaltverschluss",
+        "Kompatible Watch-Größe bei OTTO prüfen"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-watch-link-bracelet&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-smartwatch-armband-gliederarmband-1909567673%2F"
+    },
+    {
+      "id": "apple-smart-folio-ipad-air-11-m2-m3",
+      "name": "Apple Smart Folio für 11 Zoll iPad Air (M2/M3)",
+      "description": "Schlankes Apple Smart Folio zum Schutz der Vorder- und Rückseite sowie als Stand für 11-Zoll-iPad-Air-Modelle M2 und M3.",
+      "price": 68.99,
+      "oldPrice": 89,
+      "badge": "-22%",
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-tablet-huelle-smart-folio-fuer-11-ipad-air-m2-m3-1855835671/",
+      "image": "",
+      "highlights": [
+        "Für 11-Zoll iPad Air M2/M3",
+        "Magnetische Befestigung",
+        "Mehrere Betrachtungswinkel",
+        "Automatische Sleep/Wake-Funktion"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-smart-folio-ipad-air-11-m2-m3&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-tablet-huelle-smart-folio-fuer-11-ipad-air-m2-m3-1855835671%2F"
     }
   ]
 }
