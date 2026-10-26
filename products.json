@@ -1508,6 +1508,338 @@
       "merchant": "OTTO",
       "brand": "Apple",
       "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-18-pro&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-18-pro-smartphone-15-9-cm-6-3-zoll-1000-gb-speicherplatz-48-mp-kamera-2154092024%2F"
+    },
+    {
+      "id": "apple-iphone-17-pro",
+      "name": "Apple iPhone 17 Pro",
+      "description": "Apple iPhone Pro mit 6,3-Zoll-Super-Retina-XDR-Display, A19 Pro Chip und Pro-Kamerasystem. Farbe und Speichervariante bei OTTO prüfen.",
+      "price": 1169.99,
+      "oldPrice": 1299,
+      "badge": "-10%",
+      "category": "Smartphone",
+      "productUrl": "https://www.otto.de/p/apple-iphone-17-pro-smartphone-15-9-cm-6-3-zoll-1000-gb-speicherplatz-48-mp-kamera-2029112906/",
+      "image": "https://i.otto.de/i/otto/3edc815b-020b-5b7e-9692-06384e62d1fb?%24responsive_ft2%24=",
+      "highlights": [
+        "6,3-Zoll Super Retina XDR Display",
+        "Apple A19 Pro Chip",
+        "Pro-Kamerasystem mit 48 MP",
+        "Farbe und Speichergröße bei OTTO wählen"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-17-pro&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-17-pro-smartphone-15-9-cm-6-3-zoll-1000-gb-speicherplatz-48-mp-kamera-2029112906%2F"
+    },
+    {
+      "id": "apple-iphone-air",
+      "name": "Apple iPhone Air",
+      "description": "Schlankes Apple Smartphone mit 6,5-Zoll-Display, 48-MP-Kamera und mehreren Speicheroptionen. Preis und Variante bei OTTO prüfen.",
+      "price": 999.99,
+      "oldPrice": 1299,
+      "badge": "-23%",
+      "category": "Smartphone",
+      "productUrl": "https://www.otto.de/p/apple-iphone-air-smartphone-16-6-cm-6-5-zoll-1000-gb-speicherplatz-48-mp-kamera-2029112587/",
+      "image": "https://i.otto.de/i/otto/1f0936e9-cdea-50eb-a351-3cfa0cfeced8/apple-iphone-air-smartphone-16-6-cm-6-5-zoll-256-gb-speicherplatz-48-mp-kamera-space-black.jpg?%24formatz%24=",
+      "highlights": [
+        "6,5-Zoll-Display",
+        "48-MP-Hauptkamera",
+        "Schlankes Design",
+        "Mehrere Farb- und Speichervarianten"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-air&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-air-smartphone-16-6-cm-6-5-zoll-1000-gb-speicherplatz-48-mp-kamera-2029112587%2F"
+    },
+    {
+      "id": "apple-iphone-16",
+      "name": "Apple iPhone 16",
+      "description": "Apple iPhone mit 6,1-Zoll-Super-Retina-XDR-Display, A18 Chip und 48-MP-Fusion-Kamera. Farbe und Speichervariante auf OTTO prüfen.",
+      "price": 849.99,
+      "oldPrice": 999,
+      "badge": "-15%",
+      "category": "Smartphone",
+      "productUrl": "https://www.otto.de/p/apple-iphone-16-smartphone-15-54-cm-6-12-zoll-512-gb-speicherplatz-48-mp-kamera-1909231538/",
+      "image": "https://i.otto.de/i/otto/5364ccf3-0769-5c4f-b066-17da79e44232?%24responsive_ft2%24=",
+      "highlights": [
+        "6,1-Zoll Super Retina XDR Display",
+        "Apple A18 Chip",
+        "48-MP-Fusion-Kamera",
+        "USB-C und MagSafe"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-16&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-16-smartphone-15-54-cm-6-12-zoll-512-gb-speicherplatz-48-mp-kamera-1909231538%2F"
+    },
+    {
+      "id": "apple-iphone-16-plus",
+      "name": "Apple iPhone 16 Plus",
+      "description": "Apple Smartphone mit großem 6,7-Zoll-Display, A18 Chip und 48-MP-Fusion-Kamera. Farbe und Speichergröße bei OTTO wählen.",
+      "price": 929.99,
+      "oldPrice": 949,
+      "badge": "-2%",
+      "category": "Smartphone",
+      "productUrl": "https://www.otto.de/p/apple-iphone-16-plus-smartphone-17-cm-6-7-zoll-128-gb-speicherplatz-48-mp-kamera-1909231696/",
+      "image": "https://i.otto.de/i/otto/ed774b2a-37cd-59e9-8b3d-cb4b18e82974/apple-iphone-16-plus-smartphone-17-cm-6-7-zoll-128-gb-speicherplatz-48-mp-kamera-pink.jpg?%24formatz%24=",
+      "highlights": [
+        "6,7-Zoll Super Retina XDR Display",
+        "Apple A18 Chip",
+        "48-MP-Fusion-Kamera",
+        "Bis zu 27 Stunden Videowiedergabe laut Produktangabe"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-16-plus&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-16-plus-smartphone-17-cm-6-7-zoll-128-gb-speicherplatz-48-mp-kamera-1909231696%2F"
+    },
+    {
+      "id": "apple-iphone-16e",
+      "name": "Apple iPhone 16e",
+      "description": "Apple iPhone mit 6,1-Zoll-Display, A18 Chip und 48-MP-Kamera in der ausgewählten Ausführung mit 128 GB Speicher.",
+      "price": 659.99,
+      "oldPrice": 679,
+      "badge": "-3%",
+      "category": "Smartphone",
+      "productUrl": "https://www.otto.de/p/apple-iphone-16e-smartphone-15-4-cm-6-1-zoll-512-gb-speicherplatz-48-mp-kamera-1957733663/",
+      "image": "https://i.otto.de/i/otto/bdc47e20-418d-51cb-b942-6941ed4d23af/apple-iphone-16e-smartphone-15-4-cm-6-1-zoll-128-gb-speicherplatz-48-mp-kamera-schwarz.jpg?%24formatz%24=",
+      "highlights": [
+        "6,1-Zoll-Display",
+        "Apple A18 Chip",
+        "48-MP-Fusion-Kamera",
+        "128 GB Speicher in der angezeigten Ausführung"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-16e&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-16e-smartphone-15-4-cm-6-1-zoll-512-gb-speicherplatz-48-mp-kamera-1957733663%2F"
+    },
+    {
+      "id": "apple-ipad-mini-2024-wifi",
+      "name": "Apple iPad mini (2024) Wi-Fi, 128 GB",
+      "description": "Kompaktes 8,3-Zoll-iPad mini mit A17 Pro Chip, 128 GB Speicher und WLAN in der angebotenen Ausführung.",
+      "price": 654.99,
+      "oldPrice": 679,
+      "badge": "-4%",
+      "category": "Tablet",
+      "productUrl": "https://www.otto.de/p/apple-ipad-mini-2024-wi-fi-128gb-tablet-8-3-128-gb-ipados-1915961690/",
+      "image": "https://i.otto.de/i/otto/b765d1a1-48b2-5e9a-997d-82195b137dbb/apple-ipad-mini-2024-wi-fi-128gb-tablet-8-3-128-gb-ipados-purple.jpg?%24formatz%24=",
+      "highlights": [
+        "8,3-Zoll Liquid Retina Display",
+        "Apple A17 Pro Chip",
+        "128 GB Speicher",
+        "WLAN 6E"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-ipad-mini-2024-wifi&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-ipad-mini-2024-wi-fi-128gb-tablet-8-3-128-gb-ipados-1915961690%2F"
+    },
+    {
+      "id": "apple-ipad-mini-2024-cellular",
+      "name": "Apple iPad mini (2024) Wi-Fi + Cellular, 128 GB",
+      "description": "Kompaktes 8,3-Zoll-iPad mini mit A17 Pro Chip, 128 GB Speicher, WLAN und 5G-Mobilfunk.",
+      "price": 819.99,
+      "oldPrice": 849,
+      "badge": "-3%",
+      "category": "Tablet",
+      "productUrl": "https://www.otto.de/p/apple-ipad-mini-2024-wi-fi-plus-cellular-128gb-tablet-8-3-128-gb-ipados-5g-1915961372/",
+      "image": "https://i.otto.de/i/otto/3f2538f5-4142-59e2-bec4-d13ccce359b8/apple-ipad-mini-2024-wi-fi-plus-cellular-128gb-tablet-8-3-128-gb-ipados-5g-blue.jpg?%24formatz%24=",
+      "highlights": [
+        "8,3-Zoll Liquid Retina Display",
+        "Apple A17 Pro Chip",
+        "128 GB Speicher",
+        "WLAN und 5G"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-ipad-mini-2024-cellular&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-ipad-mini-2024-wi-fi-plus-cellular-128gb-tablet-8-3-128-gb-ipados-5g-1915961372%2F"
+    },
+    {
+      "id": "apple-ipad-11-cellular-2025",
+      "name": "Apple 11\" iPad Wi-Fi + Cellular (2025)",
+      "description": "11-Zoll-iPad mit A16 Chip und 128 GB Speicher sowie WLAN und 5G-Mobilfunk in der angebotenen Ausführung.",
+      "price": 659.35,
+      "category": "Tablet",
+      "productUrl": "https://www.otto.de/p/apple-11-ipad-wi-fi-plus-cellular-2025-tablet-10-86-ipados-5g-1962027816/",
+      "image": "https://i.otto.de/i/otto/f1cdc0a7-a493-599c-ba28-0163274df1bb/apple-11-ipad-wi-fi-plus-cellular-2025-tablet-10-86-ipados-5g-gelb.jpg?%24formatz%24=",
+      "highlights": [
+        "10,86-Zoll Liquid Retina Display",
+        "Apple A16 Chip",
+        "128 GB Speicher",
+        "WLAN und 5G"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-ipad-11-cellular-2025&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-11-ipad-wi-fi-plus-cellular-2025-tablet-10-86-ipados-5g-1962027816%2F"
+    },
+    {
+      "id": "apple-ipad-air-13-cellular",
+      "name": "Apple 13\" iPad Air Wi-Fi + Cellular",
+      "description": "13-Zoll-iPad Air mit M4 Chip, Liquid Retina Display und Wi-Fi + Cellular; bei OTTO stehen mehrere Speichergrößen zur Wahl.",
+      "price": 1256.83,
+      "oldPrice": 1299,
+      "badge": "-3%",
+      "category": "Tablet",
+      "productUrl": "https://www.otto.de/p/apple-13-ipad-air-wi-fi-plus-cellular-tablet-13-ipados-5g-2084809406/",
+      "image": "https://i.otto.de/i/otto/2b3270d8-499f-55b0-83f7-97f4b5cf663f/apple-13-ipad-air-wi-fi-plus-cellular-tablet-13-ipados-5g-blau.jpg?%24formatz%24=",
+      "highlights": [
+        "13-Zoll Liquid Retina Display",
+        "Apple M4 Chip",
+        "Wi-Fi + Cellular mit 5G",
+        "Mehrere Speichergrößen wählbar"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-ipad-air-13-cellular&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-13-ipad-air-wi-fi-plus-cellular-tablet-13-ipados-5g-2084809406%2F"
+    },
+    {
+      "id": "apple-airtag-2nd-gen-1-pack",
+      "name": "Apple AirTag 2. Generation – 1er-Pack",
+      "description": "Ein Bluetooth-Tracker zum Wiederfinden von Gegenständen über Apples „Wo ist?“-Netzwerk.",
+      "price": 26.79,
+      "oldPrice": 35,
+      "badge": "-23%",
+      "category": "Tracker",
+      "productUrl": "https://www.otto.de/p/apple-airtag-2nd-gen-1er-pack-bluetooth-tracker-2077137403/",
+      "image": "https://i.otto.de/i/otto/107e9378-efe8-5c56-bb6b-217916359d7d/apple-airtag-2nd-gen-1er-pack-bluetooth-tracker.jpg?%24formatz%24=",
+      "highlights": [
+        "Ein Bluetooth-Tracker",
+        "Nutzung mit Apples „Wo ist?“-App",
+        "Für kompatible Apple-Geräte",
+        "Weiß"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-airtag-2nd-gen-1-pack&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-airtag-2nd-gen-1er-pack-bluetooth-tracker-2077137403%2F"
+    },
+    {
+      "id": "apple-70w-usb-c-power-adapter",
+      "name": "Apple 70W USB-C Power Adapter",
+      "description": "Apple USB-C-Netzteil mit bis zu 70 W Ladeleistung für kompatible MacBook-, iPad- und iPhone-Modelle.",
+      "price": 65,
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-70w-usb-c-power-adapter-netzteil-1903590481/",
+      "image": "https://i.otto.de/i/otto/cc989cc7-7738-5341-af68-8b927e7f53c3/apple-70w-usb-c-power-adapter-netzteil.jpg?%24formatz%24=",
+      "highlights": [
+        "Bis zu 70 W Ladeleistung",
+        "USB-C-Anschluss",
+        "Schnellladen bei kompatiblen Geräten",
+        "Kompaktes Netzteil"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-70w-usb-c-power-adapter&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-70w-usb-c-power-adapter-netzteil-1903590481%2F"
+    },
+    {
+      "id": "apple-30w-usb-c-power-adapter",
+      "name": "Apple 30W USB-C Power Adapter",
+      "description": "Kompaktes Apple USB-C-Netzteil für das schnelle Laden kompatibler Smartphones, Tablets und Notebooks.",
+      "price": 35.09,
+      "oldPrice": 45,
+      "badge": "-22%",
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-30w-usb-c-power-adapter-adapter-usb-c-1841806231/",
+      "image": "https://i.otto.de/i/otto/029e39b8-ea01-5c37-9631-7ac1fabed0e5/apple-30w-usb-c-power-adapter-adapter-usb-c.jpg?%24formatz%24=",
+      "highlights": [
+        "30 W Ladeleistung",
+        "USB-C-Anschluss",
+        "Für kompatible Apple-Geräte",
+        "Kompakte Bauform"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-30w-usb-c-power-adapter&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-30w-usb-c-power-adapter-adapter-usb-c-1841806231%2F"
+    },
+    {
+      "id": "apple-40w-dynamic-adapter-60w",
+      "name": "Apple 40W Dynamic Power Adapter (bis 60W)",
+      "description": "Apple USB-C-Dynamiknetzteil mit einer Nennleistung von 40 W und dynamischer Ausgangsleistung bis zu 60 W.",
+      "price": 37.78,
+      "oldPrice": 45,
+      "badge": "-16%",
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-40-w-dynamik-netzteil-mit-60-w-maximalleistung-netzteil-2149210014/",
+      "image": "",
+      "highlights": [
+        "40 W Nennleistung",
+        "Dynamische Leistung bis 60 W",
+        "USB-C-Anschluss",
+        "Für kompatible iPhone-, iPad- und Mac-Geräte"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-40w-dynamic-adapter-60w&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-40-w-dynamik-netzteil-mit-60-w-maximalleistung-netzteil-2149210014%2F"
+    },
+    {
+      "id": "apple-96w-usb-c-power-adapter",
+      "name": "Apple 96W USB-C Power Adapter",
+      "description": "Apple USB-C-Netzteil mit 96 W Leistung zum schnellen Laden kompatibler MacBook- und anderer USB-C-Geräte.",
+      "price": 69.99,
+      "oldPrice": 85,
+      "badge": "-18%",
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-96w-usb-c-power-adapter-netzteil-1903590494/",
+      "image": "https://i.otto.de/i/otto/d10b34b3-3cb7-58dd-a6d7-ae79d4693b35/apple-96w-usb-c-power-adapter-netzteil.jpg?%24formatz%24=",
+      "highlights": [
+        "96 W Ladeleistung",
+        "USB-C-Anschluss",
+        "Für kompatible MacBook-Modelle",
+        "Schnelles, effizientes Laden"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-96w-usb-c-power-adapter&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-96w-usb-c-power-adapter-netzteil-1903590494%2F"
+    },
+    {
+      "id": "apple-magic-keyboard-ipad-air-13-m3",
+      "name": "Apple Magic Keyboard für das 13\" iPad Air (M3)",
+      "description": "Apple Magic Keyboard für kompatible 13-Zoll-iPad-Air-Modelle mit Tastatur und Trackpad.",
+      "price": 324.45,
+      "oldPrice": 349,
+      "badge": "-7%",
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-magic-keyboard-fuer-das-13-ipad-air-m3-ipad-tastatur-1962027828/",
+      "image": "https://i.otto.de/i/otto/d55d7b7b-e4cc-5c14-8303-600926241cd2/apple-magic-keyboard-fuer-das-13-ipad-air-m3-ipad-tastatur.jpg?%24formatz%24=",
+      "highlights": [
+        "Für das 13-Zoll iPad Air (M3)",
+        "Tastatur und Trackpad",
+        "Magnetische Befestigung",
+        "Passendes Zubehörmodell bei OTTO prüfen"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-magic-keyboard-ipad-air-13-m3&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-magic-keyboard-fuer-das-13-ipad-air-m3-ipad-tastatur-1962027828%2F"
+    },
+    {
+      "id": "apple-macbook-air-m5-15",
+      "name": "Apple MacBook Air 15 Zoll (M5)",
+      "description": "15,3-Zoll-MacBook Air mit Apple M5 Chip, 16 GB Arbeitsspeicher und 512 GB SSD in der beschriebenen Ausführung.",
+      "price": 1471.62,
+      "oldPrice": 1699,
+      "badge": "-13%",
+      "category": "Notebook",
+      "productUrl": "https://www.otto.de/p/apple-15-inch-macbook-air-notebook-38-91-cm-15-3-zoll-apple-m5-10-core-gpu-24-gb-1000-gb-ssd-2084916285/",
+      "image": "https://i.otto.de/i/otto/acd3b125-12d7-543d-8158-04ab738c99f5/apple-15-inch-macbook-air-notebook-38-91-cm-15-3-zoll-apple-m5-10-core-gpu-16-gb-512-gb-ssd-polarstern.jpg?%24formatz%24=",
+      "highlights": [
+        "15,3-Zoll Liquid Retina Display",
+        "Apple M5 Chip",
+        "16 GB Arbeitsspeicher",
+        "512 GB SSD"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-macbook-air-m5-15&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-15-inch-macbook-air-notebook-38-91-cm-15-3-zoll-apple-m5-10-core-gpu-24-gb-1000-gb-ssd-2084916285%2F"
     }
   ]
 }
