@@ -4,6 +4,10 @@
 
 Moderne öffentliche Produkt- und Affiliate-Deal-Seite für GitHub Pages.
 
+## Katalogstatus (26. Oktober 2026)
+
+Der aktuelle Katalog enthält **130 Produkte**: 96 Apple-Produkte, 22 NAVEE-Produkte und 12 INMOTION-Produkte. Die Apple-Einträge decken iPhone, iPad, Mac, AirPods, Apple Watch, Zubehör, Tracker, Streaming und Monitore ab. Die OTTO-Übersicht zeigt zusätzliche Einträge und Varianten (z. B. Farben, Speicher- und Armbandgrößen); dieser manuell gepflegte Katalog ist daher noch nicht als vollständiger 1:1-Import aller OTTO-Einträge zu verstehen. Preise können sich ändern und Variantenpreise auf derselben Produktseite abweichen.
+
 ## Features
 - responsives Shop-Design
 - Suche und Kategorien
@@ -70,7 +74,7 @@ Standardmäßig werden nur Feeds von Advertisern übernommen, bei denen der Publ
 
 ### GitHub Actions einrichten
 
-Der Workflow `.github/workflows/import-awin-products.yml` läuft automatisch alle 6 Stunden und kann zusätzlich manuell gestartet werden.
+Der Workflow `.github/workflows/import-awin-products.yml` ist derzeit **nur manuell startbar und der Import ist bewusst deaktiviert**. Er importiert aktuell keine neuen Produkte. Ein Feed-Import darf erst aktiviert werden, wenn die gültige Awin-Feed-Listen-URL als GitHub Secret vorhanden ist und die Auswahl auf den gewünschten OTTO-/Apple-Katalog begrenzt wurde.
 
 In GitHub unter **Settings → Secrets and variables → Actions** ein Secret namens `AWIN_FEED_LIST_URLS` anlegen. Darin kommt die vollständige Awin-Feed-Listen-URL hinein. Mehrere Feed-Listen können zeilenweise angegeben werden.
 
