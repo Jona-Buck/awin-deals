@@ -1840,6 +1840,103 @@
       "merchant": "OTTO",
       "brand": "Apple",
       "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-macbook-air-m5-15&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-15-inch-macbook-air-notebook-38-91-cm-15-3-zoll-apple-m5-10-core-gpu-24-gb-1000-gb-ssd-2084916285%2F"
+    },
+    {
+      "id": "apple-iphone-18-pro-max",
+      "name": "Apple iPhone 18 Pro Max",
+      "description": "Apple Pro-Smartphone mit 6,9-Zoll-Display, 48-MP-Kamerasystem und mehreren Speicheroptionen. Der bei OTTO angezeigte Einstiegspreis gilt für die gewählte Einstiegskonfiguration.",
+      "price": 1599,
+      "category": "Smartphone",
+      "productUrl": "https://www.otto.de/p/apple-iphone-18-pro-max-smartphone-17-53-cm-6-9-zoll-1000-gb-speicherplatz-48-mp-kamera-2154092153/",
+      "image": "",
+      "highlights": [
+        "6,9-Zoll-Display",
+        "48-MP-Kamerasystem",
+        "Mehrere Speichergrößen",
+        "Farbe und Variante bei OTTO prüfen"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-18-pro-max&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-18-pro-max-smartphone-17-53-cm-6-9-zoll-1000-gb-speicherplatz-48-mp-kamera-2154092153%2F"
+    },
+    {
+      "id": "apple-iphone-duo",
+      "name": "Apple iPhone Duo",
+      "description": "Faltbares Apple-Smartphone mit 7,6-Zoll-Innendisplay, 48-MP-Kamera und wählbaren Speichergrößen. Preis bezieht sich auf die bei OTTO angezeigte Einstiegsversion.",
+      "price": 2299,
+      "category": "Smartphone",
+      "productUrl": "https://www.otto.de/p/apple-iphone-duo-smartphone-19-3-cm-7-6-zoll-1000-gb-speicherplatz-48-mp-kamera-2154092282/",
+      "image": "",
+      "highlights": [
+        "Faltbares Smartphone",
+        "7,6-Zoll-Innendisplay",
+        "48-MP-Kamerasystem",
+        "Mehrere Speichergrößen wählbar"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-duo&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-duo-smartphone-19-3-cm-7-6-zoll-1000-gb-speicherplatz-48-mp-kamera-2154092282%2F"
+    },
+    {
+      "id": "apple-watch-ultra-4-gps-cellular",
+      "name": "Apple Watch Ultra 4 GPS + Cellular",
+      "description": "Robuste Apple Smartwatch mit GPS und Mobilfunk, 1,93-Zoll-Display sowie umfangreichen Fitness- und Gesundheitsfunktionen. Preis kann nach Gehäuse- und Armbandkombination variieren.",
+      "price": 879.99,
+      "oldPrice": 899,
+      "badge": "-2%",
+      "category": "Smartwatch",
+      "productUrl": "https://www.otto.de/p/apple-watch-ultra-4-gps-plus-cellular-smartwatch-4-9-cm-1-93-zoll-watch-os-2154092914/",
+      "image": "",
+      "highlights": [
+        "GPS + Cellular",
+        "1,93-Zoll-Display",
+        "Fitness- und Gesundheitsfunktionen",
+        "Armband und Ausführung bei OTTO wählen"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-watch-ultra-4-gps-cellular&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-watch-ultra-4-gps-plus-cellular-smartwatch-4-9-cm-1-93-zoll-watch-os-2154092914%2F"
+    },
+    {
+      "id": "apple-iphone-air-magsafe-battery",
+      "name": "Apple iPhone Air MagSafe Batterie",
+      "description": "MagSafe-Zusatzbatterie speziell für das iPhone Air. Sie dockt magnetisch an und unterstützt kabelloses Laden.",
+      "price": 115,
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-iphone-air-magsafe-batterie-smartphone-akku-2029216076/",
+      "image": "",
+      "highlights": [
+        "Speziell für iPhone Air entwickelt",
+        "MagSafe-Befestigung",
+        "Bis zu 12 W kabelloses Laden",
+        "Kann die Batterielaufzeit laut Apple um bis zu 65 % verlängern"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-air-magsafe-battery&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-air-magsafe-batterie-smartphone-akku-2029216076%2F"
+    },
+    {
+      "id": "apple-magic-keyboard-ipad-air-11-m3",
+      "name": "Apple Magic Keyboard für das 11\" iPad Air (M3)",
+      "description": "Apple Tastatur mit Trackpad für kompatible 11-Zoll-iPad-Air-Modelle der M3-Generation. Deutsche Tastaturbelegung.",
+      "price": 329,
+      "category": "Zubehör",
+      "productUrl": "https://www.otto.de/p/apple-magic-keyboard-fuer-das-11-ipad-air-m3-deutsch-ipad-tastatur-1961856610/",
+      "image": "",
+      "highlights": [
+        "Für das 11-Zoll iPad Air (M3)",
+        "Deutsche Tastaturbelegung",
+        "Integriertes Trackpad",
+        "Passgenaue magnetische Befestigung"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-magic-keyboard-ipad-air-11-m3&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-magic-keyboard-fuer-das-11-ipad-air-m3-deutsch-ipad-tastatur-1961856610%2F"
     }
   ]
 }
