@@ -1489,6 +1489,25 @@
       "merchant": "OTTO",
       "brand": "Apple",
       "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-watch-se-3-gps&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-watch-se-3-gps-smartwatch-4-4-cm-1-73-zoll-watch-os-2154093059%2F"
+    },
+    {
+      "id": "apple-iphone-18-pro",
+      "name": "Apple iPhone 18 Pro",
+      "description": "Apple iPhone Pro mit 6,3-Zoll-Display, 48-MP-Kamerasystem und mehreren Speicheroptionen.",
+      "price": 1449,
+      "category": "Smartphone",
+      "productUrl": "https://www.otto.de/p/apple-iphone-18-pro-smartphone-15-9-cm-6-3-zoll-1000-gb-speicherplatz-48-mp-kamera-2154092024/",
+      "image": "",
+      "highlights": [
+        "6,3-Zoll-Display",
+        "48-MP-Kamerasystem",
+        "Mehrere Speicheroptionen",
+        "Farbe und Variante bei OTTO wählen"
+      ],
+      "currency": "EUR",
+      "merchant": "OTTO",
+      "brand": "Apple",
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=14336&awinaffid=3104608&clickref=awin-deals-apple-iphone-18-pro&ued=https%3A%2F%2Fwww.otto.de%2Fp%2Fapple-iphone-18-pro-smartphone-15-9-cm-6-3-zoll-1000-gb-speicherplatz-48-mp-kamera-2154092024%2F"
     }
   ]
 }
